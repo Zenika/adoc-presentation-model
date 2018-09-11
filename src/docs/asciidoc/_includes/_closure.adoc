@@ -1,0 +1,15 @@
+//Only PDF
+ifdef::backend-pdf[]
+
+<<<
+== Appendix
+
+=== Revision marks
+
+[source,diff]
+.Differences since last tag
+----
+include::{history-dir}/{docname}.adoc.diff[]
+----
+
+endif::backend-pdf[]

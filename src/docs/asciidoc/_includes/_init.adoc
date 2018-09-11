@@ -1,0 +1,54 @@
+//NO BLANK LINE ALLOWED IN THE HEADER, here and before the include of this file
+//Only PDF
+ifdef::backend-pdf[]
+:title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-pdf.png[pdfwidth=3in,align=left]
+Version {project-version}
+{localdate}
+endif::backend-pdf[]
+//Only HTML
+ifdef::backend-html5[]
+//toc here and not in pom.xml because we don't want it in index.html
+:toc: left
+//No need for version and date : the auto-generated black footer says "Last updated 2018-08-17 11:48:04 CEST"
+endif::backend-html5[]
+//Only on GITHUB
+ifdef::env-github[]
+:toc:
+:toc-placement: preamble
+:toclevels: 3
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+// Need some preamble to get TOC:
+{empty}
+//another way would be :
+//:toc-placement!:
+//toc::[]
+endif::env-github[]
+
+ifndef::source-dir[:source-dir: ../../main/java]
+ifndef::test-dir[:test-dir: ../../test/java]
+
+//For the sections to be numbered
+:sectnums:
+
+//For the keyboard/buttons nice print
+:experimental:
+
+ifdef::backend-pdf[]
+.History
+[cols="^,^,<6",options="header"]
+|===================================================
+|Date|Author|Detail
+include::{history-dir}/{docname}.adoc.psv[]
+|===================================================
+<<<
+endif::backend-pdf[]
+
+ifdef::backend-html5[]
+icon:home[link=index.html] ‏ ‏ ‎
+icon:file-text-o[link={docname}.adoc] ‏ ‏ ‎ 
+icon:file-pdf-o[link={docname}.pdf]
+endif::backend-html5[]
