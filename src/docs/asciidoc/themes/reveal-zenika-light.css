@@ -33,7 +33,6 @@
  *********************************************/
 
 body {
-  background: white;
   background: no-repeat center url('./logo-zenika.png');
   background-size: 60%;
   background-color: #222
@@ -54,7 +53,7 @@ body {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: #eeeeee;
+  background: white;
   padding: 0 70px;
 }
 
@@ -64,7 +63,7 @@ body {
 
 .reveal .slides section[data-state="title"],
 .reveal .slides section > section {
-  background: #eeeeee;
+  background: white;
   padding: 0 70px;
 }
 
@@ -81,8 +80,7 @@ body {
 }
 
 ::selection {
-  color: white;
-  background: #333333;
+  background: #b30c37;
   text-shadow: none;
 }
 

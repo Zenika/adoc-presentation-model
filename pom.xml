@@ -9,6 +9,7 @@
 	<packaging>pom</packaging>
 	
 	<properties>
+		<adoc.skip>false</adoc.skip>
 		<project.slides.directory>${project.build.directory}/generated-docs</project.slides.directory>
 		<revealjs.version>3.7.0</revealjs.version>
 		<!-- Use 'master' as version and remove the 'v' prefixing the download url to use the current snapshot version -->
@@ -93,6 +94,7 @@
 					</dependency> -->
 				</dependencies>
 				<configuration>
+					<skip>adoc.skip</skip>
 					<sourceDirectory>src/docs/asciidoc</sourceDirectory>
 					<requires>
 						<require>asciidoctor-diagram</require>
@@ -165,6 +167,8 @@
 								<revealjs_slideNumber>true</revealjs_slideNumber>
 								<!-- does not work T_T only solution is put a favicon.ico in the root folder of the website -->
 								<!-- <favicon>themes/favicon.png</favicon> -->
+								<revealjs_width>1100</revealjs_width>
+								<revealjs_height>700</revealjs_height>
 							</attributes>
 						</configuration>
 					</execution>
@@ -185,11 +189,13 @@
 								<revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme>
 								<revealjs_transition>slide</revealjs_transition>
 								<revealjs_slideNumber>true</revealjs_slideNumber>
+								<revealjs_width>1100</revealjs_width>
+								<revealjs_height>700</revealjs_height>
 							</attributes>
 						</configuration>
 					</execution>
 					<execution>
-						<id>asciidoc-to-revealjs-dark-parallax-wide</id>
+						<id>asciidoc-to-revealjs-dark-parallax</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
@@ -197,7 +203,7 @@
 						<configuration>
 							<backend>revealjs</backend>
 							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
-							<outputFile>${project.slides.directory}/PRES-asciidoc-dark-parallax-wide.html</outputFile>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-dark-parallax.html</outputFile>
 							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
 							<sourceHighlighter>coderay</sourceHighlighter>
 							<attributes>
@@ -207,8 +213,8 @@
 								<revealjs_slideNumber>true</revealjs_slideNumber>
 								<revealjs_parallaxBackGroundImage>themes/tshirt-zenika-wide.jpg</revealjs_parallaxBackGroundImage>
 								<revealjs_parallaxBackgroundSize>2100px 900px</revealjs_parallaxBackgroundSize>
-								<revealjs_width>'90%'</revealjs_width>
-								<revealjs_height>'90%'</revealjs_height>
+								<revealjs_width>1100</revealjs_width>
+								<revealjs_height>700</revealjs_height>
 							</attributes>
 						</configuration>
 					</execution>
@@ -231,6 +237,8 @@
 								<revealjs_slideNumber>true</revealjs_slideNumber>
 								<revealjs_parallaxBackGroundImage>themes/tshirt-zenika-wide.jpg</revealjs_parallaxBackGroundImage>
 								<revealjs_parallaxBackgroundSize>2100px 900px</revealjs_parallaxBackgroundSize>
+								<revealjs_width>1100</revealjs_width>
+								<revealjs_height>700</revealjs_height>
 							</attributes>
 						</configuration>
 					</execution>

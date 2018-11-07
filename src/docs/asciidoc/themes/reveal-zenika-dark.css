@@ -33,17 +33,16 @@
  *********************************************/
 
 body {
-  background: white;
   background: no-repeat center url('./logo-zenika.png');
   background-size: 60%;
-  background-color: #bbbbbb
+  background-color: white;
 }
 
 .reveal {
   font-family: 'Arial', sans-serif;
   font-size: 28px;
   font-weight: normal;
-  color: #cccccc;
+  color: white;
 }
 
 .reveal .slides {
@@ -81,8 +80,7 @@ body {
 }
 
 ::selection {
-  color: white;
-  background: #333333;
+  background: #b30c37;
   text-shadow: none;
 }
 
