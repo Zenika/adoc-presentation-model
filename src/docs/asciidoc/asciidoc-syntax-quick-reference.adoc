@@ -1,10 +1,6 @@
 = AsciiDoc : Syntax Quick Reference
 Dan Allen; Sarah White
 Version {project-version}, {localdate}
-//Only PDF
-ifdef::backend-pdf[]
-:title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-pdf.png[pdfwidth=3in,align=left]
-endif::backend-pdf[]
 //Only HTML
 ifdef::backend-html5[]
 :toc: left

@@ -1,0 +1,16 @@
+= AsciiDoctor Maven Sample
+
+A full AsciiDoctor Maven sample generating HTML, Reveal.js and PDF.
+
+This bootstrapping project is referenced in a best practices static site : https://bcouetil.gitlab.io/academy/
+
+== Prerequisites
+
+Java 8 and Maven 3.x have to be installed and available in the PATH.
+
+== Generating
+
+Simply run the maven command :
+
+  mvn
+

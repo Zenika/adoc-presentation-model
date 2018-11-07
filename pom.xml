@@ -7,38 +7,90 @@
 	<version>1.0</version>
 	<description>Extended Example for both AsciiDoctor PDF + HTML documentation generation</description>
 	<packaging>pom</packaging>
-
+	
 	<properties>
-		<!-- <adoc.skip>true</adoc.skip> -->
+		<project.slides.directory>${project.build.directory}/generated-docs</project.slides.directory>
+		<revealjs.version>3.7.0</revealjs.version>
+		<!-- Use 'master' as version and remove the 'v' prefixing the download url to use the current snapshot version -->
+		<asciidoctor-revealjs.version>1.1.3</asciidoctor-revealjs.version>
 	</properties>
 
 	<dependencies />
 
 	<build>
 
+		<defaultGoal>generate-resources</defaultGoal>
 		<sourceDirectory>src/docs/asciidoc</sourceDirectory>
 
 		<plugins>
+		
+			<plugin>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>download-maven-plugin</artifactId>
+				<version>1.3.0</version>
+				<executions>
+					<execution>
+						<id>install-asciidoctor-revealjs</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<url>https://github.com/asciidoctor/asciidoctor-reveal.js/archive/v${asciidoctor-revealjs.version}.zip</url>
+							<unpack>true</unpack>
+							<outputFileName>asciidoctor-reveal.js-${asciidoctor-revealjs.version}.zip</outputFileName>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>install-revealjs</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<url>https://github.com/hakimel/reveal.js/archive/${revealjs.version}.zip</url>
+							<unpack>true</unpack>
+							<outputFileName>reveal.js-${revealjs.version}.zip</outputFileName>
+							<outputDirectory>${project.slides.directory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 			<!-- to generate asciidoc PDF + HTML documents -->
-			<!-- single usage : mvn generate-resources -->
+			<!-- single usage : mvn generate-resources -Dadoc.skip=false [- -non-recursive] -->
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<!-- to increment versions, see pom.xml examples on Asciidoctor Github -->
+				<!-- 1.5.7 and 1.5.7.1 show too many warnings on PDF -->
 				<version>1.5.6</version>
+				<!-- if we don't want to execute in modules (this would work though) -->
+				<inherited>false</inherited>
 				<dependencies>
 					<dependency>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctorj-pdf</artifactId>
-						<!-- alpha 15+16 have an annoying message on multiple lines : -->
-						<!-- warning: already initialized constant XXXX -->
-						<version>1.5.0-alpha.14</version>
+						<version>1.5.0-alpha.16</version>
 					</dependency>
 					<dependency>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctorj-diagram</artifactId>
 						<version>1.5.9</version>
 					</dependency>
+					<!-- comment to use the default version -->
+					<dependency>
+						<groupId>org.jruby</groupId>
+						<artifactId>jruby-complete</artifactId>
+						<version>9.1.17.0</version>
+					</dependency>
+					<!-- comment to use the default version -->
+					<!-- <dependency>
+						<groupId>org.asciidoctor</groupId>
+						<artifactId>asciidoctorj</artifactId>
+						<version>1.5.7</version>
+					</dependency> -->
 				</dependencies>
 				<configuration>
 					<sourceDirectory>src/docs/asciidoc</sourceDirectory>
@@ -82,6 +134,103 @@
 								<sectanchors>true</sectanchors>
 								<docinfo1>true</docinfo1>
 								<favicon>themes/favicon.png</favicon>
+								<!-- custom style if default is not suitable -->
+								<!-- <stylesheet>rubygems.css</stylesheet> -->
+								<!-- <stylesdir>themes</stylesdir> -->
+							</attributes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>asciidoc-to-revealjs-dark</id>
+						<!-- after html because it's also an html -->
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>revealjs</backend>
+							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-dark.html</outputFile>
+							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
+							<sourceHighlighter>coderay</sourceHighlighter>
+							<attributes>
+								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
+								<!-- default closest to Zenika's graphic chart : -->
+								<!-- <revealjs_theme>blood</revealjs_theme> -->
+								<revealjs_customtheme>themes/reveal-zenika-dark.css</revealjs_customtheme>
+								<!-- <revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme> -->
+								<!-- none, fade, slide, convex, concave, zoom -->
+								<!-- dynamic : PRES-asciidoc.html?transition=convex -->
+								<revealjs_transition>slide</revealjs_transition>
+								<revealjs_slideNumber>true</revealjs_slideNumber>
+								<!-- does not work T_T only solution is put a favicon.ico in the root folder of the website -->
+								<!-- <favicon>themes/favicon.png</favicon> -->
+							</attributes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>asciidoc-to-revealjs-light</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>revealjs</backend>
+							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-light.html</outputFile>
+							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
+							<sourceHighlighter>coderay</sourceHighlighter>
+							<attributes>
+								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
+								<revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme>
+								<revealjs_transition>slide</revealjs_transition>
+								<revealjs_slideNumber>true</revealjs_slideNumber>
+							</attributes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>asciidoc-to-revealjs-dark-parallax-wide</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>revealjs</backend>
+							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-dark-parallax-wide.html</outputFile>
+							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
+							<sourceHighlighter>coderay</sourceHighlighter>
+							<attributes>
+								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
+								<revealjs_customtheme>themes/reveal-zenika-dark.css</revealjs_customtheme>
+								<revealjs_transition>slide</revealjs_transition>
+								<revealjs_slideNumber>true</revealjs_slideNumber>
+								<revealjs_parallaxBackGroundImage>themes/tshirt-zenika-wide.jpg</revealjs_parallaxBackGroundImage>
+								<revealjs_parallaxBackgroundSize>2100px 900px</revealjs_parallaxBackgroundSize>
+								<revealjs_width>'90%'</revealjs_width>
+								<revealjs_height>'90%'</revealjs_height>
+							</attributes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>asciidoc-to-revealjs-light-parallax</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>revealjs</backend>
+							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-light-parallax.html</outputFile>
+							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
+							<sourceHighlighter>coderay</sourceHighlighter>
+							<attributes>
+								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
+								<revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme>
+								<revealjs_transition>slide</revealjs_transition>
+								<revealjs_slideNumber>true</revealjs_slideNumber>
+								<revealjs_parallaxBackGroundImage>themes/tshirt-zenika-wide.jpg</revealjs_parallaxBackGroundImage>
+								<revealjs_parallaxBackgroundSize>2100px 900px</revealjs_parallaxBackgroundSize>
 							</attributes>
 						</configuration>
 					</execution>

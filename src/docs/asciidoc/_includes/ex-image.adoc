@@ -28,9 +28,9 @@ image::sunset.jpg[Sunset,300,200]
 // end::attr[]
 
 // tag::in[]
-Click image:icons/play.png[Play, title="Play"] to get the party started.
+Click image:play.png[Play, title="Play"] to get the party started.
 
-Click image:icons/pause.png[title="Pause"] when you need a break.
+Click image:pause.png[title="Pause"] when you need a break.
 // end::in[]
 
 // tag::in-role[]

@@ -1,0 +1,379 @@
+= Example diagrams
+//Only PDF
+ifdef::backend-pdf[]
+:title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-zenika.png[pdfwidth=3in,align=left]
+endif::backend-pdf[]
+
+ifndef::imagesdir[:imagesdir: ../../../target/generated-docs/images]
+
+== File tree view
+
+NOTE: Sadly, this is only available in AsciidocFX for now. So use the editor to produce the image, then import it as-is in your document.
+
+ifdef::notdef[]
+//Sadly, this is only available in AsciidocFX for now. So use the editor to produce the image, then import it as-is in your document.
+[tree,file="tree-asciidoctor-maven-sample.png"]
+----
+cg-asciidoctor-sample
+|--pom.xml
+|--src
+   |--docs
+   |  `--asciidoc
+   |     |--asciidoc-syntax-reference.adoc
+   |     |--images
+   |     |  |--pause.png
+   |     |  |--play.png
+   |     |  `--sunset.jpg
+   |     |--themes
+   |     |  |--cg-theme.yml
+   |     |  |--favicon.png
+   |     |  `--logo-pdf.png
+   |     `--_includes
+   |        |--attrs-charref.adoc
+   |        |--attrs-env.adoc
+   |        |--ex-table-data.adoc
+   |        `--ex-table.adoc
+   `--scripts
+      `--asciidocHistory.sh
+----
+endif::notdef[]
+
+image:tree-asciidoctor-maven-sample.png[image, pdfwidth=30%]
+
+
+ifdef::notdef[]
+[tree, file="ex-tree-view-new.png"]
+----
+root
+|-- photos
+|   |-- camp.gif
+|   |-- festival.png
+|   `-- balloon.jpg
+|-- videos
+|   |-- car-video.avi
+|   |-- dance.mp4
+|   |-- dance01.mpg
+|   |-- another video.divx
+|   `-- school videos
+|       `-- firstday.flv
+|-- documents
+|   |-- jsfile.js
+|   |-- powerpoint.ppt
+|   |-- chapter-01.asc
+|   |-- archive-db.zip
+|   |-- .gitignore
+|   |-- README
+|   `-- configuration.conf
+`-- etc.
+----
+endif::notdef[]
+
+image:ex-tree-view-new.png[image, pdfwidth=30%]
+
+== Sequence diagram
+
+[plantuml, diagram-sequence, png]
+....
+== Initialization ==
+
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+== Repetition ==
+
+Alice -> Julie: Another authentication Request
+Alice <-- Julie: another authentication Response
+....
+
+More examples : http://plantuml.com/sequence-diagram
+
+== Use cases diagram
+
+[plantuml, diagram-use-cases, png]
+....
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+rectangle checkout {
+  customer -- (checkout)
+  (checkout) .> (payment) : include
+  (help) .> (checkout) : extends
+  (checkout) -- clerk
+}
+....
+
+More examples : http://plantuml.com/use-case-diagram
+
+== Classes diagram
+
+[plantuml, diagram-classes, png]     
+....
+class BaseClass
+
+namespace net.dummy #DDDDDD {
+    .BaseClass <|-- Person
+    Meeting o-- Person
+
+    .BaseClass <|- Meeting
+}
+
+namespace net.foo {
+  net.dummy.Person  <|- Person
+  .BaseClass <|-- Person
+
+  net.dummy.Meeting o-- Person
+}
+
+BaseClass <|-- net.unused.Person
+....
+
+More examples : http://plantuml.com/class-diagram
+
+== Activities diagram
+
+[plantuml, diagram-activities, png]     
+....
+start
+:ClickServlet.handleRequest();
+:new page;
+if (Page.onSecurityCheck) then (true)
+  :Page.onInit();
+  if (isForward?) then (no)
+    :Process controls;
+    if (continue processing?) then (no)
+      stop
+    endif
+
+    if (isPost?) then (yes)
+      :Page.onPost();
+    else (no)
+      :Page.onGet();
+    endif
+    :Page.onRender();
+  endif
+else (false)
+endif
+
+if (do redirect?) then (yes)
+  :redirect process;
+else
+  if (do forward?) then (yes)
+    :Forward request;
+  else (no)
+    :Render page template;
+  endif
+endif
+
+stop
+....
+
+More examples : http://plantuml.com/activity-diagram-beta
+
+== Components diagram
+
+[plantuml, diagram-components, png]     
+....
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+
+cloud {
+  [Example 1]
+}
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+....
+
+More examples : http://plantuml.com/component-diagram
+
+== States diagram
+
+[plantuml, diagram-states, png]     
+....
+scale 600 width
+
+[*] -> State1
+State1 --> State2 : Succeeded
+State1 --> [*] : Aborted
+State2 --> State3 : Succeeded
+State2 --> [*] : Aborted
+state State3 {
+  state "Accumulate Enough Data\nLong State Name" as long1
+  long1 : Just a test
+  [*] --> long1
+  long1 --> long1 : New Data
+  long1 --> ProcessData : Enough Data
+}
+State3 --> State3 : Failed
+State3 --> [*] : Succeeded / Save Result
+State3 --> [*] : Aborted
+....
+
+More examples : http://plantuml.com/state-diagram
+
+== Objects diagram
+
+[plantuml, diagram-objects, png]     
+....
+object Object01
+object Object02
+object Object03
+object Object04
+object Object05
+object Object06
+object Object07
+object Object08
+
+Object01 <|-- Object02
+Object03 *-- Object04
+Object05 o-- "4" Object06
+Object07 .. Object08 : some labels
+....
+
+More examples : http://plantuml.com/object-diagram
+
+== User interface
+
+[plantuml, diagram-user-interface, png]
+----
+@startsalt
+{+
+{* File | Edit | Source | Refactor 
+ Refactor | New | Open File | - | Close | Close All }
+{/ General | Fullscreen | Behavior | Saving }
+{
+	{ Open image in: | ^Smart Mode^ }
+	[X] Smooth images when zoomed
+	[X] Confirm image deletion
+	[ ] Show hidden images 
+}
+[Close]
+}
+@endsalt
+----
+
+More examples : http://plantuml.com/salt
+
+== Deployment diagram
+
+[plantuml, diagram-deployment, png]
+....
+actor actor
+agent agent
+boundary boundary
+cloud cloud
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+interface  interface
+package package
+queue queue
+artifact artifact
+rectangle rectangle
+storage storage
+usecase usecase
+skinparam rectangle {
+    roundCorner<<Concept>> 25
+}
+
+rectangle "Concept Model" <<Concept>> {
+	rectangle "Example 1" <<Concept>> as ex1
+	rectangle "Another rectangle"
+}
+node node1
+node node2
+node node3
+node node4
+node node5
+node1 -- node2
+node1 .. node3
+node1 ~~ node4
+node1 == node5
+....
+
+
+== Ditaa
+
+http://ditaa.sourceforge.net
+
+[ditaa, ditaa, png]
+....
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |   diagram   |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /---------------\
+ |        | --+ Asciidoctor +--> |   cGRE        |
+ |  Text  |   +-------------+    |   Beautiful   |
+ |Document|   |   !magic!   |    |    Output     |
+ |     {d}|   |             |    |               |
+ +---+----+   +-------------+    \---------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+
+Color codes
+/-------------+-------------\
+|cRED RED     |cBLU BLU     |
++-------------+-------------+
+|cGRE GRE     |cPNK PNK     |
++-------------+-------------+
+|cBLK BLK     |cYEL YEL     |
+\-------------+-------------/
+....
+
+== Meme
+
+meme::images/Asciidoctor.png[Doc writers,Y U NO \\ AsciiDoc]
+
+NOTE: Comment configurer ?
+
+//== Mermaid
+
+//WARNING: Does not work, no simple installation of Mermaid found
+
+//[mermaid, mermaid, png]
+//....
+//gantt
+//        dateFormat  YYYY-MM-DD
+//        title Adding GANTT diagram functionality to mermaid
+//        section A section
+//        Completed task            :done,    des1, 2014-01-06,2014-01-08
+//        Active task               :active,  des2, 2014-01-09, 3d
+//        Future task               :         des3, after des2, 5d
+//        Future task2               :         des4, after des3, 5d
+//        section Critical tasks
+//        Completed task in the critical line :crit, done, 2014-01-06,24h
+//        Implement parser and jison          :crit, done, after des1, 2d
+//        Create tests for parser             :crit, active, 3d
+//        Future task in critical line        :crit, 5d
+//        Create tests for renderer           :2d
+//        Add to mermaid                      :1d
+//....
+
+

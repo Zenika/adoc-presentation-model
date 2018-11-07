@@ -1,0 +1,90 @@
+= Asciidoc & PlantUml : documentation-as-code
+Benoit COUETIL
+:example-caption!:
+//Only PDF
+ifdef::backend-pdf[]
+:title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-zenika.png[pdfwidth=3in,align=left]
+endif::backend-pdf[]
+
+ifndef::imagesdir[:imagesdir: images]
+
+//Press the `*s*` key to access speaker notes.
+//You can press `*b*` or `*.*` to blank your current screen. Hit it again to bring it back.
+//Press the `*esc*` key to get an overview of your slides.
+
+== Introduction
+
+Asciidoc par la documentation de Asciidoctor : 
+https://asciidoctor.org/docs/user-manual/
+
+== Everything-as-code
+
+* Regroupe la configuration et les sources
+* Versionne avec le code
+* Profite de la revue de code collaborative
+* Facilite l'automatisation
+* Testable en pipeline CI/CD
+
+=== Documentation-as-code
+
+[%step]
+* Markup Language
+** LaTeX
+* Lightweight/Simple Markup Language
+** Markdown
+** AsciiDoc
+
+== PlantUML
+
+PlantUML est un outil diagram-as-code
+
+http://plantuml.com
+
+== Avantages d'Asciidoc
+
+* Standard
+* Extensible
+* Inclusion d'autres fichiers
+* Inclusion native de PlantUML
+
+[NOTE.speaker]
+--
+Plus de détail ici sur les défauts de Markdown : http://ericholscher.com/blog/2016/mar/15/dont-use-markdown-for-technical-docs/
+--
+
+== Formats de sortie
+
+* HTML
+* PDF
+* Docbook
+* Reveal.js
+
+=== Générateurs
+
+* Outil ligne de commande (Ruby)
+* Plugin Maven
+* Editeur AsciidocFX (sans options)
+
+== A propos
+
+Cette présentation Reveal.js est générée via AsciiDoctor, source : link:PRES-asciidoc.adoc[]
+
+== Exemple complet
+
+Mon site de partage technique : https://bcouetil.gitlab.io/academy/
+
+* Sans écrire de code frontend
+* Incluant différents formats : adoc, HTML, PDF, Reveal.js
+
+== Retours
+
+[quote, Vivien (stagiaire 2017), ayant participé à un projet 100% Asciidoc]
+Avec le recul, je n'aurais pas dû faire mon rapport de stage sous Word, la mise en page est trop chronophage.
+
+{empty} +
+
+[quote, Yanis (stagiaire 2018), après avoir utilisé Asciidoc pour son rapport de stage]
+On devient vite accro !
+
+== Questions ?
+
