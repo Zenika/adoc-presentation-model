@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>cg.wm</groupId>
+	<groupId>bct</groupId>
 	<artifactId>cg-asciidoctor-sample</artifactId>
 	<version>1.0</version>
 	<description>Extended Example for both AsciiDoctor PDF + HTML documentation generation</description>
@@ -151,16 +151,15 @@
 						</goals>
 						<configuration>
 							<backend>revealjs</backend>
-							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
-							<outputFile>${project.slides.directory}/PRES-asciidoc-dark.html</outputFile>
+							<sourceDocumentName>asciidoc-syntax-quick-reference.adoc</sourceDocumentName>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-syntax-quick-reference-dark.html</outputFile>
 							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
-							<sourceHighlighter>coderay</sourceHighlighter>
 							<attributes>
+								<source-highlighter>highlightjs</source-highlighter>
 								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
 								<!-- default closest to Zenika's graphic chart : -->
 								<!-- <revealjs_theme>blood</revealjs_theme> -->
 								<revealjs_customtheme>themes/reveal-zenika-dark.css</revealjs_customtheme>
-								<!-- <revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme> -->
 								<!-- none, fade, slide, convex, concave, zoom -->
 								<!-- dynamic : PRES-asciidoc.html?transition=convex -->
 								<revealjs_transition>slide</revealjs_transition>
@@ -183,8 +182,8 @@
 							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
 							<outputFile>${project.slides.directory}/PRES-asciidoc-light.html</outputFile>
 							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
-							<sourceHighlighter>coderay</sourceHighlighter>
 							<attributes>
+								<source-highlighter>highlightjs</source-highlighter>
 								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
 								<revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme>
 								<revealjs_transition>slide</revealjs_transition>
@@ -205,8 +204,8 @@
 							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
 							<outputFile>${project.slides.directory}/PRES-asciidoc-dark-parallax.html</outputFile>
 							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
-							<sourceHighlighter>coderay</sourceHighlighter>
 							<attributes>
+								<source-highlighter>highlightjs</source-highlighter>
 								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
 								<revealjs_customtheme>themes/reveal-zenika-dark.css</revealjs_customtheme>
 								<revealjs_transition>slide</revealjs_transition>
@@ -226,19 +225,19 @@
 						</goals>
 						<configuration>
 							<backend>revealjs</backend>
-							<sourceDocumentName>PRES-asciidoc.adoc</sourceDocumentName>
-							<outputFile>${project.slides.directory}/PRES-asciidoc-light-parallax.html</outputFile>
+							<sourceDocumentName>asciidoc-syntax-quick-reference.adoc</sourceDocumentName>
+							<outputFile>${project.slides.directory}/PRES-asciidoc-syntax-quick-reference-light-parallax.html</outputFile>
 							<templateDir>${project.build.directory}/asciidoctor-reveal.js-${asciidoctor-revealjs.version}/templates</templateDir>
-							<sourceHighlighter>coderay</sourceHighlighter>
 							<attributes>
+								<source-highlighter>highlightjs</source-highlighter>
 								<revealjsdir>reveal.js-${revealjs.version}</revealjsdir>
 								<revealjs_customtheme>themes/reveal-zenika-light.css</revealjs_customtheme>
 								<revealjs_transition>slide</revealjs_transition>
 								<revealjs_slideNumber>true</revealjs_slideNumber>
 								<revealjs_parallaxBackGroundImage>themes/tshirt-zenika-wide.jpg</revealjs_parallaxBackGroundImage>
 								<revealjs_parallaxBackgroundSize>2100px 900px</revealjs_parallaxBackgroundSize>
-								<revealjs_width>1100</revealjs_width>
-								<revealjs_height>700</revealjs_height>
+								<revealjs_width>1600</revealjs_width>
+								<revealjs_height>1000</revealjs_height>
 							</attributes>
 						</configuration>
 					</execution>

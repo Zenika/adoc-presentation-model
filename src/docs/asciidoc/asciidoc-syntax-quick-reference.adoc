@@ -58,6 +58,9 @@ AsciiDoc produces complementary output when generating PDF, EPUB, and DocBook.
 Most features labeled _Asciidoctor only_ can be made available to the legacy AsciiDoc Python processor by using {uri-config}[this AsciiDoc configuration file] provided by the Asciidoctor project.
 ====
 
+[%notitle]
+== Table of contents
+
 toc::[]
 
 == Paragraphs
@@ -71,6 +74,9 @@ include::{includedir}/ex-text.adoc[tag=b-para]
 ====
 include::{includedir}/ex-text.adoc[tag=b-para]
 ====
+
+[%notitle]
+=== Another slide
 
 .Line breaks
 ----
@@ -91,6 +97,9 @@ include::{includedir}/ex-literal.adoc[tag=b-imp]
 ====
 include::{includedir}/ex-literal.adoc[tag=b-imp]
 ====
+
+[%notitle]
+=== Another slide
 
 .Admonition
 ----
@@ -116,6 +125,9 @@ include::{includedir}/ex-text.adoc[tag=b-lead]
 
 NOTE: The default Asciidoctor stylesheet automatically styles the first paragraph of the preamble as a lead paragraph.
 
+[%notitle]
+=== Another slide
+
 .More Paragraph, Admonition and Literal Block Examples
 ****
 See these sections in the Asciidoctor User Manual for more information and examples.
@@ -137,6 +149,9 @@ include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 include::{includedir}/ex-text.adoc[tag=b-bold-italic-mono]
 ====
 
+[%notitle]
+=== Another slide
+
 .Marks and Custom Styling
 ----
 include::{includedir}/ex-text.adoc[tag=css-all]
@@ -156,6 +171,9 @@ include::{includedir}/ex-text.adoc[tag=b-sub-sup]
 ====
 include::{includedir}/ex-text.adoc[tag=b-sub-sup]
 ====
+
+[%notitle]
+=== Another slide
 
 .Curved Quotation Marks and Apostrophes (Smart Quotes)
 ----
@@ -227,6 +245,9 @@ WARNING: When using the article doctype (the default), you can only have one lev
 
 NOTE: The number of equal signs matches the heading level in the HTML output.
 For example, _Section Level 1_ becomes an `<h2>` heading.
+
+[%notitle]
+=== Another slide
 
 .Book doctype
 ----
@@ -326,6 +347,9 @@ NOTE: A blank line is required before and after a list to separated it from othe
 TIP: You can force two adjacent lists apart by inserting a blank line followed by a line comment after the first list.
 The convention is to use `//-` as the line comment to provide a hint to other authors that it's a list divider.
 
+[%notitle]
+=== Another slide
+
 .Unordered, max nesting
 ----
 include::{includedir}/ex-ulist.adoc[tag=max]
@@ -348,6 +372,9 @@ include::{includedir}/ex-o-list.adoc[tag=b-base]
 include::{includedir}/ex-o-list.adoc[tag=b-base]
 ====
 
+[%notitle]
+=== Another slide
+
 NOTE: You can choose to include an ordinal in front of each list marker, but they have to be in sequence.
 
 .Ordered, nested
@@ -369,6 +396,9 @@ include::{includedir}/ex-o-list.adoc[tag=max]
 ====
 include::{includedir}/ex-o-list.adoc[tag=max]
 ====
+
+[%notitle]
+=== Another slide
 
 TIP: For ordered lists, Asciidoctor supports {uri-list-num}[numeration styles] such as `lowergreek` and `decimal-leading-zero`.
 
@@ -394,6 +424,9 @@ include::{includedir}/ex-dlist.adoc[tag=b-base]
 include::{includedir}/ex-dlist.adoc[tag=b-base]
 ====
 
+[%notitle]
+=== Another slide
+
 .Labeled, multi-line
 ----
 include::{includedir}/ex-dlist.adoc[tag=b-base-multi]
@@ -414,6 +447,9 @@ include::{includedir}/ex-dlist.adoc[tag=qa]
 include::{includedir}/ex-dlist.adoc[tag=qa]
 ====
 
+[%notitle]
+=== Another slide
+
 .Mixed
 ----
 include::{includedir}/ex-dlist.adoc[tag=3-mix]
@@ -423,6 +459,9 @@ include::{includedir}/ex-dlist.adoc[tag=3-mix]
 ====
 include::{includedir}/ex-dlist.adoc[tag=3-mix]
 ====
+
+[%notitle]
+=== Another slide
 
 TIP: Lists can be indented.
 Leading whitespace is not significant.
@@ -479,6 +518,9 @@ link:index.html[Docs]
 link:index.html[Docs]
 ====
 
+[%notitle]
+=== Another slide
+
 .Email and IRC
 ----
 include::{includedir}/ex-url.adoc[tag=b-scheme]
@@ -502,6 +544,9 @@ include::{includedir}/ex-url.adoc[tag=b-linkattrs]
 NOTE: Links with attributes (including the subject and body segments on mailto links) are a feature unique to Asciidoctor.
 To enable them, you must set the `linkattrs` attribute on the document.
 When they are enabled, you must quote the link text if it contains a comma.
+
+[%notitle]
+=== Another slide
 
 .Inline anchors
 ----
@@ -546,6 +591,11 @@ include::{includedir}/ex-image.adoc[tag=attr]
 
 include::{includedir}/ex-image.adoc[tag=ab-url]
 ----
+
+
+[%notitle]
+=== Another slide
+
 
 [.result]
 ====
@@ -657,6 +707,9 @@ include::{includedir}/ex-literal.adoc[tag=b-block]
 include::{includedir}/ex-literal.adoc[tag=b-block]
 ====
 
+[%notitle]
+=== Another slide
+
 [listing]
 .Listing block with title, no syntax highlighting
 ....
@@ -679,6 +732,9 @@ include::{includedir}/ex-src.adoc[tag=src-base]
 include::{includedir}/ex-src.adoc[tag=src-base]
 ====
 
+[%notitle]
+=== Another slide
+
 [listing,subs=specialchars]
 .Code block with callouts
 ....
@@ -700,6 +756,9 @@ include::{includedir}/ex-callout.adoc[tag=b-nonselect]
 ====
 include::{includedir}/ex-callout.adoc[tag=b-nonselect]
 ====
+
+[%notitle]
+=== Another slide
 
 [listing,subs=specialchars]
 .XML code block with a non-selectable callout
@@ -735,6 +794,9 @@ include::{includedir}/ex-src.adoc[tag=ind]
 * When `indent` is 0, the leading block indent is stripped (tabs are replaced with 4 spaces).
 * When `indent` is > 0, the leading block indent is first stripped (tabs are replaced with 4 spaces), then a block is indented by the number of columns equal to this value.
 ====
+
+[%notitle]
+=== Another slide
 
 .Code block without delimiters (no blank lines)
 ----
@@ -772,6 +834,9 @@ NOTE: Any block can have a title, positioned above the block.
 A block title is a line of text that starts with a dot.
 The dot cannot be followed by a space.
 
+[%notitle]
+=== Another slide
+
 .Example
 ----
 include::{includedir}/ex-example.adoc[tag=base]
@@ -781,6 +846,9 @@ include::{includedir}/ex-example.adoc[tag=base]
 --
 include::{includedir}/ex-example.adoc[tag=base]
 --
+
+[%notitle]
+=== Another slide
 
 [#admon-bl]
 .Admonition
@@ -804,6 +872,9 @@ Asciidoctor will then emit HTML markup that selects an appropriate font characte
 Icons can also be used {uri-icon-in}[inline] and {uri-icon-attrs}[styled].
 ====
 
+[%notitle]
+=== Another slide
+
 .Blockquote
 ----
 include::{includedir}/ex-quote.adoc[tag=bl]
@@ -826,6 +897,9 @@ include::{includedir}/ex-quote.adoc[tag=no-cite]
 include::{includedir}/ex-quote.adoc[tag=link-text]
 ====
 
+[%notitle]
+=== Another slide
+
 .Abbreviated blockquote (Asciidoctor only)
 ----
 include::{includedir}/ex-quote.adoc[tag=abbr]
@@ -846,6 +920,9 @@ include::{includedir}/ex-quote.adoc[tag=air]
 include::{includedir}/ex-quote.adoc[tag=air]
 ====
 
+[%notitle]
+=== Another slide
+
 .Passthrough
 ----
 include::{includedir}/ex-pass.adoc[tag=b-bl]
@@ -855,6 +932,9 @@ include::{includedir}/ex-pass.adoc[tag=b-bl]
 ====
 include::{includedir}/ex-pass.adoc[tag=b-bl]
 ====
+
+[%notitle]
+=== Another slide
 
 .Open
 ----
@@ -911,6 +991,9 @@ include::{includedir}/ex-listing.adoc[tag=subs-out]
 [[free_the_world]][big goal]_free the world_
 ----
 
+[%notitle]
+=== Another slide
+
 .Shorthand markup method for assigning quoted text anchor (id) and role (Asciidoctor only)
 ----
 [#free_the_world.big.goal]_free the world_
@@ -965,6 +1048,9 @@ include::{includedir}/ex-table.adoc[tag=b-base-h]
 <1> Unless the `cols` attribute is specified, the number of columns is equal to the number of cell separator characters on the first (non-blank) line between the block delimiters.
 <2> When a blank line follows the first non-blank line, the cell in the first line get promoted to the table header.
 
+[%notitle]
+=== Another slide
+
 .Table with two columns, a header, and two rows of content
 ----
 include::{includedir}/ex-table.adoc[tag=b-col-h-co]
@@ -979,6 +1065,9 @@ It means repeat the column specification across the remaining of columns.
 In this case, we are repeating the default formatting across 2 columns.
 When the cells in the header are not defined on a single line, you must use the `cols` attribute to set the number of columns in the table and the `%header` option (or `options=header` attribute) to promote the first row to the table header.
 
+[%notitle]
+=== Another slide
+
 .Table with three columns, a header, and two rows of content
 ----
 include::{includedir}/ex-table.adoc[tag=b-col-indv-co]
@@ -991,6 +1080,9 @@ include::{includedir}/ex-table.adoc[tag=b-col-indv]
 <1> In this example, the `cols` attribute has two functions.
 It specifies that this table has three columns, and it sets their relative widths.
 
+[%notitle]
+=== Another slide
+
 .Table with column containing AsciiDoc content
 ----
 include::{includedir}/ex-table.adoc[tag=b-col-a]
@@ -1000,6 +1092,9 @@ include::{includedir}/ex-table.adoc[tag=b-col-a]
 ====
 include::{includedir}/ex-table.adoc[tag=b-col-a]
 ====
+
+[%notitle]
+=== Another slide
 
 .Table from CSV data
 ----
@@ -1025,6 +1120,9 @@ include::{includedir}/ex-table-data.adoc[tag=s-csv]
 ----
 include::{includedir}/ex-table-data.adoc[tag=i-csv]
 ----
+
+[%notitle]
+=== Another slide
 
 .Table from DSV data using shorthand (Asciidoctor only)
 ----
@@ -1054,6 +1152,9 @@ IMPORTANT: You *must* set the `experimental` attribute in the document header to
 ----
 include::{includedir}/ex-ui.adoc[tag=key]
 ----
+
+[%notitle]
+=== Another slide
 
 [.result]
 ====
@@ -1102,6 +1203,9 @@ include::{includedir}/ex-header-attr.adoc[tag=b-attr]
 - Attribute defined in the document
 - Attribute passed to the API or CLI that ends in `@`
 - Intrinsic attribute value (default values)
+
+[%notitle]
+=== Another slide
 
 TIP: To make an attribute value that is passed to the API or CLI have a lower precedence than an assignment in the document, add an `@` symbol to the end of the attribute value.
 
@@ -1164,6 +1268,9 @@ include::{includedir}/ex-pass.adoc[tag=b-dollar]
 include::{includedir}/ex-pass.adoc[tag=b-dollar]
 ====
 ////
+
+[%notitle]
+=== Another slide
 
 .Raw (triple plus and inline pass macro)
 ----
@@ -1258,6 +1365,9 @@ include::{includedir}/ex-src.adoc[tag=fence]
 include::{includedir}/ex-src.adoc[tag=fence]
 ====
 
+[%notitle]
+=== Another slide
+
 .Markdown-style blockquote
 ----
 include::{includedir}/ex-quote.adoc[tag=md]
@@ -1268,6 +1378,9 @@ include::{includedir}/ex-quote.adoc[tag=md]
 include::{includedir}/ex-quote.adoc[tag=md]
 ====
 
+[%notitle]
+=== Another slide
+
 .Markdown-style blockquote with block content
 ----
 include::{includedir}/ex-quote.adoc[tag=md-alt]
@@ -1277,6 +1390,9 @@ include::{includedir}/ex-quote.adoc[tag=md-alt]
 ====
 include::{includedir}/ex-quote.adoc[tag=md-alt]
 ====
+
+[%notitle]
+=== Another slide
 
 .Markdown-style horizontal rules
 ----

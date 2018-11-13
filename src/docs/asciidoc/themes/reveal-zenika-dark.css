@@ -28,6 +28,15 @@
   src: url("fonts/Inconsolata/Inconsolata-Regular.ttf") format("truetype");
 }
 
+/**
+ZENIKA :
+rouge : 179/30/62
+vert : 143/189/163
+noir : 70/70/70
+bleu : 81/155/200
+rose : 239/82/91
+**/
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -35,7 +44,7 @@
 body {
   background: no-repeat center url('./logo-zenika.png');
   background-size: 60%;
-  background-color: white;
+  background-color: black;
 }
 
 .reveal {
@@ -84,30 +93,21 @@ body {
   text-shadow: none;
 }
 
-.reveal .slides table, .reveal .slides table th, .reveal .slides table td {
-  border: 1px solid #696969;
-  border-collapse: collapse;
+/** TABLES **/
+
+.reveal table th, .reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
 }
 
-.reveal .slides table th, .reveal .slides table td {
-  padding: 0px 10px;
+.reveal table th {
+  font-weight: bold;
+  color: #b30c37;
 }
 
-.reveal .slides table {
-  margin: 15px 0;
-  box-shadow: none;
-  border: 1px solid #b30c37;
-  border-left: 5px solid #b30c37;
-  border-collapse: collapse;
-}
-.reveal .slides table tr td {
-  border: 1px solid #AAAAAA;
-}
-.reveal .slides table tr th {
-  border: 1px solid #AAAAAA;
-  border-bottom: 5px solid #b30c37;
-/*  background-color: #AAAAAA;*/
-  color : #000000;
+.reveal table tbody tr:last-child th, .reveal table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .reveal .slides table.no-border,
@@ -120,14 +120,15 @@ body {
  * HEADERS
  *********************************************/
 
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, 
+.reveal h[level="3"] {
   hyphens: none;
   -ms-hyphens: none;
   -webkit-hyphens: none;
   color: #b30c37;
   font-family: "OpenSans Bold", sans-serif;
   font-weight: bold;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 .reveal h1 {
@@ -142,16 +143,29 @@ body {
 .reveal h2,
 .reveal h3 {
   margin: 0 -40px;
-  padding: 40px 0 40px 20px;
+  padding: 40px 0 30px 20px;
   text-align: left;
   font-size: 40px;
 }
 
-/** Title's subtitle **/
+/** subtitle in slide **/
+.reveal h[level="3"] {
+  margin: 0.8em 0 0.4em -1.2em;
+  display: inline-block;
+}
+
+/** Title slide's subtitle **/
 .reveal section.title h2 {
   text-align: center;
   font-style: italic;
 }
+
+/* .reveal h[level="3"]{
+  margin: 0 -40px;
+  padding: 40px 0 40px 20px;
+  text-align: left;
+  font-size: 40px;
+} */
 
 .reveal p.author {
   height: 20%;
@@ -174,14 +188,8 @@ body {
   font-style: normal;
 }
 
-.reveal strong {
-  color: #b30c37;
-  font-style: italic;
-  font-weight: normal;
-}
-
 .reveal li {
-  margin: 0.8em 0 0 0;
+  margin: 0.2em 0 0 0;
 }
 
 .reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul {
@@ -203,45 +211,32 @@ body {
   font-weight: normal;
 }
 
+/** FONT AWESOME **/
 
-/*********************************************
- * CODE
- *********************************************/
-
-.reveal pre {
-  margin: 15px 0;
-  box-shadow: none;
-  border: 1px solid #b30c37;
-  border-left: 5px solid #b30c37;
-  width:100%;
-  white-space: pre-wrap;
+.reveal .fa[title="Note"] {
+  color: rgb(81,155,200)
 }
 
-.reveal h2 + pre,
-.reveal h3 + pre { /* Whole-slide code block */
-  border: none;
+.reveal .fa[title="Tip"] {
+  color:yellow
 }
 
-.reveal pre > code, .reveal .code {
-  color: black;
-  max-height: none;
-  font-family: 'Inconsolata', monospace;
-  font-size: 24px;
-  line-height: normal;
+.reveal .fa[title="Warning"] {
+  color:#bf6900
 }
+
+.reveal .fa[title="Important"] {
+  color: rgb(239,82,91)
+}
+
+.reveal .fa[title="Caution"] {
+  color: #b30c37;
+}
+
 
 /*********************************************
  * SPECIALS PAGES
  *********************************************/
-
-/*.slides section:first-child::after {
-    color: white;
-    font-size: 13px;
-    content: "VERSION";
-    position: absolute;
-    bottom: 5mm;
-    right: 5mm;
-}*/
 
 .reveal section.page-title h1 {
   height: 90%;
@@ -286,97 +281,6 @@ body {
   text-align: center;
 }
 
-.reveal section.page-tp1:after {
-  content: "Lab 1";
-}
-.reveal section.page-tp2:after {
-  content: "Lab 2";
-}
-.reveal section.page-tp3:after {
-  content: "Lab 3";
-}
-.reveal section.page-tp4:after {
-  content: "Lab 4";
-}
-.reveal section.page-tp5:after {
-  content: "Lab 5";
-}
-.reveal section.page-tp6:after {
-  content: "Lab 6";
-}
-.reveal section.page-tp7:after {
-  content: "Lab 7";
-}
-.reveal section.page-tp8:after {
-  content: "Lab 8";
-}
-.reveal section.page-tp9:after {
-  content: "Lab 9";
-}
-.reveal section.page-tp10:after {
-  content: "Lab 10";
-}
-.reveal section.page-tp11:after {
-  content: "Lab 11";
-}
-.reveal section.page-tp12:after {
-  content: "Lab 12";
-}
-.reveal section.page-tp13:after {
-  content: "Lab 13";
-}
-.reveal section.page-tp14:after {
-  content: "Lab 14";
-}
-.reveal section.page-tp15:after {
-  content: "Lab 15";
-}
-.reveal section.page-tp16:after {
-  content: "Lab 16";
-}
-.reveal section.page-tp17:after {
-  content: "Lab 17";
-}
-.reveal section.page-tp18:after {
-  content: "Lab 18";
-}
-.reveal section.page-tp19:after {
-  content: "Lab 19";
-}
-.reveal section.page-tp20:after {
-  content: "Lab 20";
-}
-.reveal section.page-tp21:after {
-  content: "Lab 21";
-}
-.reveal section.page-tp22:after {
-  content: "Lab 22";
-}
-.reveal section.page-tp23:after {
-  content: "Lab 23";
-}
-.reveal section.page-tp24:after {
-  content: "Lab 24";
-}
-.reveal section.page-tp25:after {
-  content: "Lab 25";
-}
-.reveal section.page-tp26:after {
-  content: "Lab 26";
-}
-.reveal section.page-tp27:after {
-  content: "Lab 27";
-}
-.reveal section.page-tp28:after {
-  content: "Lab 28";
-}
-.reveal section.page-tp29:after {
-  content: "Lab 29";
-}
-.reveal section.page-tp30:after {
-  content: "Lab 30";
-}
-
 .reveal section.page-demo {
   background: transparent center center no-repeat url('./images/demo.png');
   background-size: 50%;
@@ -399,7 +303,7 @@ body {
   transition: color .15s ease;
 }
 
-.reveal a:not(.image):hover {
+.reveal div:not(.slide-number) a:not(.image):hover {
   color: #b30c37;
   text-shadow: none;
   border: none;
