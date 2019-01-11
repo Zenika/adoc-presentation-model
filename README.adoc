@@ -8,7 +8,7 @@ This project is referenced in a best practices static site : https://bcouetil.gi
 
 == Result
 
-This tool chain generates, as Reveal.js slides, the link::https://bcouetil.gitlab.io/academy/sample/reveal/asciidoc-syntax-quick-reference.html[Syntax Quick Reference] and link::https://bcouetil.gitlab.io/academy/sample/reveal/reveal-my-asciidoc.html[advanced capabilities of Asciidoctor with Reveal.js]. PDF, HTML and source are linked within these presentations.
+This tool chain generates, as Reveal.js slides, the https://bcouetil.gitlab.io/academy/sample/reveal/asciidoc-syntax-quick-reference.html[Syntax Quick Reference] and https://bcouetil.gitlab.io/academy/sample/reveal/reveal-my-asciidoc.html[advanced capabilities of Asciidoctor with Reveal.js]. PDF, HTML and source are linked within these presentations.
 
 image::screenshot.jpg[width=600]
 
