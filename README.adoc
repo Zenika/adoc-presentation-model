@@ -2,9 +2,9 @@
 
 :imagesdir: ./src/docs/asciidoc/images/
 
-A full AsciiDoctor Maven sample generating HTML, Reveal.js and PDF.
+A full AsciiDoctor/Maven extended example generating both HTML PDF and Reveal.js slides.
 
-This bootstrapping project is referenced in a best practices static site : https://bcouetil.gitlab.io/academy/
+This project is referenced in a best practices static site : https://bcouetil.gitlab.io/academy/
 
 == Result
 
@@ -16,7 +16,7 @@ image::screenshot.jpg[width=600]
 
 Java 8 has to be installed and available in the PATH.
 
-== Generating
+== Usage
 
 Simply run the maven command :
 
@@ -25,4 +25,3 @@ Simply run the maven command :
 Or if you want automatic rebuild on file change :
 
   ./mvnw fizzed-watcher:run
-
