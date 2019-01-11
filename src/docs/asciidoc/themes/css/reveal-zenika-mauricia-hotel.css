@@ -1,0 +1,7 @@
+@import "reveal-zenika-dark.css";
+
+body {
+  background: url('../backgrounds/mauricia-hotel.jpg');
+  background-size: cover;
+  background-position: center;
+}

@@ -1,0 +1,547 @@
+= Reveal my Asciidoc : presentation-as-code in depth
+{localdate} - Benoit COUETIL
+:title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-zenika.png[pdfwidth=3in,align=left]
+:example-caption!:
+
+////
+ideas : 
+ - no background
+ - image & text side by side
+////
+
+ifndef::imagesdir[:imagesdir: ../../../target/generated-docs/images]
+
+//Press the `*s*` key to access speaker notes.
+//You can press `*b*` or `*.*` to blank your current screen. Hit it again to bring it back.
+//Press the `*esc*` key to get an overview of your slides.
+
+//This can't land on reveaj-js first slide...
+ifdef::backend-html5[]
+link:reveal/{docname}.html[icon:video-camera[] Slides]  link:{docname}.pdf[icon:file-pdf-o[] PDF] link:{docname}.adoc[icon:file-text-o[] Source]
+endif::backend-html5[]
+
+
+[%notitle]
+ifdef::backend-revealjs[== Sommaire]
+
+toc::[]
+
+<<<
+== Introduction
+
+Basic Asciidoctor capabilities are shown in link:asciidoc-syntax-quick-reference.html[this presentation].
+
+This presentation shows advanced Asciidoctor / Reveal.js capabilities, mostly helping going deeper in the everything-as-code devOps principle.
+
+.Guidelines for enriching the toolbox
+* As fewer binary images as possible
+* As simplest code as possible
+* No reveal.js or Asciidoctor fork
+
+//...So we put this at the end of second slide
+ifdef::backend-revealjs[]
+[.bottom]
+link:../{docname}.pdf[icon:file-pdf-o[] PDF]  link:../{docname}.html[icon:globe[] HTML]  link:../{docname}.adoc[icon:file-alt[] Source]
+endif::backend-revealjs[]
+
+== Diagram-as-code
+
+All these architecture diagrams use PlantUML, with a custom skin to fit the theme.
+
+=== Sequence diagram
+
+[plantuml, rma-sequence-diagram, svg, height=500]
+....
+participant User
+User -> A: DoWork
+activate A
+A -> B: << createRequest >>
+activate B
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+B --> A: RequestCreated
+deactivate B
+A -> User: Done
+deactivate A
+....
+
+=== Use case diagram
+
+////
+[plantuml, rma-use-case-diagram, svg]
+....
+left to right direction
+skinparam packageStyle rectangle
+actor customer
+actor clerk
+rectangle checkout {
+  customer -- (checkout)
+  (checkout) .> (payment) : include
+  (help) .> (checkout) : extends
+  (checkout) -- clerk
+}
+....
+////
+
+[plantuml, rma-use-case-diagram, svg, height=500]
+....
+left to right direction
+
+actor developpeur
+database repo as "repo\ncentral"
+agent jenkins as "Jenkins"
+
+rectangle admin as "Gerrit / Gitlab" {
+    agent ui as "front"
+    database repo_local as "repo\nlocal"
+}
+
+developpeur --> ui : push
+ui --> repo_local : push
+ui -left-> jenkins: "\npush "
+ui ..> repo : replication
+....
+
+=== Class diagram
+
+[plantuml, rma-class-diagram, svg, height=500]     
+....
+class BaseClass
+
+namespace net.dummy #DDDDDD {
+    .BaseClass <|-- Person
+    Meeting o-- Person
+
+    .BaseClass <|- Meeting
+}
+
+namespace net.foo {
+  net.dummy.Person  <|- Person
+  .BaseClass <|-- Person
+
+  net.dummy.Meeting o-- Person
+}
+
+BaseClass <|-- net.unused.Person
+....
+
+=== Activity diagram
+
+[plantuml, activity-diagram, svg, height=500]
+....
+(*) --> "Initialization"
+
+if "Some Test" then
+  -->[true] "Some Activity"
+  --> "Another activity"
+  -right-> (*)
+else
+  ->[false] "Something else"
+  -->[Ending process] (*)
+endif
+....
+
+=== Component diagram
+
+[plantuml, rma-component-diagram, svg]     
+....
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+rectangle "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+cloud {
+  [Example 1]
+}
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+....
+
+=== State diagram
+
+[plantuml, rma-state-diagram, svg, height=500]     
+....
+[*] --> NotShooting
+
+state "Not Shooting State" as NotShooting {
+  state "Idle mode" as Idle
+  state "Configuring mode" as Configuring
+  [*] --> Idle
+  Idle --> Configuring : EvConfig
+  Configuring --> Idle : EvConfig
+}
+....
+
+<<<
+== Chart-as-code
+
+We enable chart-as-code with a modified version of link:https://github.com/asciidoctor/asciidoctor-extensions-lab/tree/master/lib/chart-block-macro[chart-block-macro extension].
+
+It's based on C3JS, a layer on D3JS to draw charts easily, with nice mouseover animations.
+
+Here are some examples.
+
+////
+  # data-labels = false : Show labels on each data points.
+  # x-type = indexed : timeseries/category/indexed
+  # x-tick-angle = 0 : Rotate x axis tick text.
+  # height = 500
+  # width = 1000
+  # horizontal = false : rotate x & y
+  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
+  # order = desc : desc/asc/null
+////
+
+=== Pie chart
+
+[.title]
+What do you believe is the number one thing a compagny can do to improve code quality ?
+
+[chart,pie,order=null]
+....
+Code Review,27
+Unit Testing,19
+Functional Testing,13
+Continuous Integration,12
+Integration Testing,9
+Detailed Requirements,7
+Static Analysis,3
+Training/On-boarding,3
+User Stories,2
+Other,5
+....
+
+=== Source
+
+[source,asciidoc]
+----
+[chart,pie,order=null]
+....
+Code Review,27
+Unit Testing,19
+Functional Testing,13
+Continuous Integration,12
+Integration Testing,9
+Detailed Requirements,7
+Static Analysis,3
+Training/On-boarding,3
+User Stories,2
+Other,5
+....
+----
+
+=== Bar chart
+
+[chart,bar]
+....
+data1, 30, 200, 100, 400, 150, 250
+data2, 130, 100, 140, 200, 150, 50
+data3, 130, -150, 200, 300, -200, 100
+....
+
+=== Source
+
+[source,asciidoc]
+----
+[chart,bar]
+....
+data1, 30, 200, 100, 400, 150, 250
+data2, 130, 100, 140, 200, 150, 50
+data3, 130, -150, 200, 300, -200, 100
+....
+----
+
+=== Horizontal bar chart
+
+[.title]
+What are the main benefits of code review in 2018 ?
+
+[chart,bar,horizontal=true,x-type=category,data-labels=true]
+....
+x,Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+% Answered,90,73,59,57,52,37,31,28,28,26,26,20,16
+....
+
+=== Source
+
+[source,asciidoc]
+----
+[chart,bar,horizontal=true,x-type=category,data-labels=true]
+....
+x,Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+% Answered,90,73,59,57,52,37,31,28,28,26,26,20,16
+....
+----
+
+=== Combination
+
+Multiple data types at once (using inline JS)
+
+++++
+  <div id="combi"></div>
+  <script type="text/javascript">
+c3.generate({
+  bindto: '#combi',
+  size: { height: 500, width: 1000 },
+  data: {
+      columns: [
+        ['data1', 30, 20, 50, 40, 60, 50],
+        ['data2', 200, 130, 90, 240, 130, 220],
+        ['data3', 300, 200, 160, 400, 250, 250],
+        ['data4', 200, 130, 90, 240, 130, 220],
+        ['data5', 130, 120, 150, 140, 160, 150],
+        ['data6', 90, 70, 20, 50, 60, 120],
+      ],
+      type: 'bar',
+      types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+      },
+      groups: [
+          ['data1','data2']
+      ]
+  },
+  color: {
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C','#56A29A']
+  }
+});
+</script>
+++++
+
+=== Source
+
+[source,javascript]
+----
+++++
+<div id="combi"></div>
+<script type="text/javascript">
+c3.generate({
+  bindto: '#combi',
+  size: { height: 500, width: 1000 },
+  data: {
+      columns: [
+        ['data1', 30, 20, 50, 40, 60, 50],
+        ['data2', 200, 130, 90, 240, 130, 220],
+        ['data3', 300, 200, 160, 400, 250, 250],
+        ['data4', 200, 130, 90, 240, 130, 220],
+        ['data5', 130, 120, 150, 140, 160, 150],
+        ['data6', 90, 70, 20, 50, 60, 120],
+      ],
+      type: 'bar',
+      types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+      },
+      groups: [
+          ['data1','data2']
+      ]
+  },
+  color: {
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C','#56A29A']
+  }
+});
+</script>
+++++
+----
+
+== Timeline-as-code
+
+[.timeline]
+* *1997* - Mondrian (Google)
+* *2002* - Codestriker (IBM)
+* *2003* - Rietveld (Google)
+* *2004* - Gerrit (Google, Android, Eclipse, OpenStack, GWT, IBM...)
+* *2007* - Crucible (Atlassian)
+* *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
+* *2008* - Github
+* *2011* - Gitlab
+* *2012* - CodeFlow (Microsoft)
+
+=== Source
+
+[source,asciidoc]
+----
+[.timeline]
+* *1997* - Mondrian (Google)
+* *2002* - Codestriker (IBM)
+* *2003* - Rietveld (Google)
+* *2004* - Gerrit (Google, Android, Eclipse, OpenStack, GWT, IBM...)
+* *2007* - Crucible (Atlassian)
+* *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
+* *2008* - Github
+* *2011* - Gitlab
+* *2012* - CodeFlow (Microsoft)
+----
+
+To reveal lines as fragments, use `[%step]` and put the `[.timeline]` before the title. See the result on next slide.
+
+[.timeline]
+=== Timeline-as-code fragmented
+
+[%step]
+* *1997* - Mondrian (Google)
+* *2002* - Codestriker (IBM)
+* *2003* - Rietveld (Google)
+* *2004* - Gerrit (Google, Android, Eclipse, OpenStack, GWT, IBM...)
+* *2007* - Crucible (Atlassian)
+* *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
+* *2008* - Github
+* *2011* - Gitlab
+* *2012* - CodeFlow (Microsoft)
+
+== Pyramid-as-code
+
+[.pyramid]
+* Continuous deployment
+* Continuous reporting
+* Pre-commit pipeline
+* Continuous integration/testing
+* Design & architecture
+* Continuous improvement
+* Quality of work life
+* Organization and culture
+
+=== Source
+
+[source,asciidoc]
+----
+[.pyramid]
+* Continuous deployment
+* Continuous reporting
+* Pre-commit pipeline
+* Continuous integration/testing
+* Design & architecture
+* Continuous improvement
+* Quality of work life
+* Organization and culture
+----
+
+To reveal lines as fragments, use `[%step]` and put the `[.pyramid]` before the title. See the result on next slide.
+
+[.pyramid]
+=== Pyramid-as-code fragmented
+
+[%step]
+* Continuous deployment
+* Continuous reporting
+* Pre-commit pipeline
+* Continuous integration/testing
+* Design & architecture
+* Continuous improvement
+* Quality of work life
+* Organization and culture
+
+== Meme-as-code
+
+//For now, does not work under gitlab-ci, so we show a pre-generated image
+//meme::images/dont-reboot-it-just-patch.jpg[Don't revert it,Just FLIP]
+[.maxed-image]
+image::dont-revert-it-just-flip.png[]
+
+=== Source
+
+[source,asciidoc]
+----
+meme::images/dont-reboot-it-just-patch.jpg[Don't revert it,Just FLIP]
+----
+
+This needs ImageMagick installed when generating the documentation, see link:https://asciidoctor.org/docs/asciidoctor-diagram/[here].
+
+== Alignments
+
+Here are some alignments specific to Reveal.js slides.
+
+[.bottom]
+...We start with putting something at the bottom.
+
+[source,asciidoc]
+----
+[.bottom]
+...We start with putting something at the bottom.
+----
+
+=== Centering slide
+
+[.halign-center]
+You can also center horizontaly some text of the slide
+
+[source,asciidoc]
+----
+[.halign-center]
+You can also center horizontaly some text of the slide
+----
+
+=== Maxed-out image
+
+[.maxed-image]
+image::sunset.jpg[]
+
+=== Source
+
+Whatever the image size is, it will occupy maximum space without changing the ratio.
+
+[source,asciidoc]
+----
+[.maxed-image]
+image::sunset.jpg[]
+----
+
+== Last slide
+
+The last slide is there to open for questions.
+
+We chose to have a slide with transparent background to reveal the background image.
+
+[source,asciidoc]
+----
+[.questions]
+=== !
+
+[.bubbles]
+=== !
+
+[.hands]
+=== !
+----
+
+NOTE: They are appearing top to bottom here, this will be left to right on a standard presentation.
+
+TIP: You don't have to use one, but you will then loose the last section in the ToC, because it is always hidden for this purpose.
+
+ifdef::backend-revealjs[]
+[.questions]
+=== !
+endif::backend-revealjs[]
+
+ifdef::backend-revealjs[]
+[.bubbles]
+=== !
+endif::backend-revealjs[]
+
+ifdef::backend-revealjs[]
+[.hands]
+=== !
+endif::backend-revealjs[]
+
+// real last slide
+
+ifdef::backend-revealjs[]
+[.questions]
+== !
+endif::backend-revealjs[]

@@ -1,16 +1,28 @@
 = AsciiDoctor Maven Sample
 
+:imagesdir: ./src/docs/asciidoc/images/
+
 A full AsciiDoctor Maven sample generating HTML, Reveal.js and PDF.
 
 This bootstrapping project is referenced in a best practices static site : https://bcouetil.gitlab.io/academy/
 
+== Result
+
+This tool chain generates, as Reveal.js slides, the link::https://bcouetil.gitlab.io/academy/sample/reveal/asciidoc-syntax-quick-reference.html[Syntax Quick Reference] and link::https://bcouetil.gitlab.io/academy/sample/reveal/reveal-my-asciidoc.html[advanced capabilities of Asciidoctor with Reveal.js]. PDF, HTML and source are linked within these presentations.
+
+image::screenshot.jpg[width=600]
+
 == Prerequisites
 
-Java 8 and Maven 3.x have to be installed and available in the PATH.
+Java 8 has to be installed and available in the PATH.
 
 == Generating
 
 Simply run the maven command :
 
-  mvn
+  ./mvnw
+
+Or if you want automatic rebuild on file change :
+
+  ./mvnw fizzed-watcher:run
 

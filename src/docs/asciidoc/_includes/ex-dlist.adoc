@@ -90,7 +90,6 @@ Cloud Providers::
     . CloudBees
   IaaS:::
     . Amazon EC2
-    . Rackspace
 // end::3-mix[]
 
 // tag::qa[]

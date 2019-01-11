@@ -1,0 +1,8 @@
+@import "reveal-zenika-dark.css";
+
+body {
+  /* https://loading.io/pattern/bubble# fill=rgba(100%,100%,100%,0.188), stroke=#ffffff, count=15, maxRadius=3, minRadius=1, strokeWidth=0.3, speed=10, seed=31c2009e3286f8, width=351, height=200 */
+background: no-repeat center url('../bubbles-slow.svg'), 
+  no-repeat center url('../backgrounds/scuba-diving.jpg');
+background-size: cover, cover;
+}

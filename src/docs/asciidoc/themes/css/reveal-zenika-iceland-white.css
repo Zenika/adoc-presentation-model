@@ -1,0 +1,8 @@
+@import "reveal-zenika-light.css";
+
+body {
+    /* https://loading.io/pattern/dust# seed=0eb88bfcddad33, count=100, direction=vertical, reverse=off, scale=0.3, speed=10, width=354, height=200 */
+  background: no-repeat center url('../snow-slow.svg'), 
+    no-repeat center url('../backgrounds/iceland-white.jpg');
+  background-size: cover, cover;
+}

@@ -1,0 +1,7 @@
+@import "reveal-zenika-light.css";
+
+body {
+  background: url('../backgrounds/ocean-boats.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
