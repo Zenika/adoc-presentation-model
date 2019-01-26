@@ -52,7 +52,8 @@ endif::backend-html5[]
 == About
 
 AsciiDoc is a lightweight markup language for authoring notes, articles, documentation, books, web pages, slide decks and man pages in plain text.
-{description}
+
+This guide is a quick reference for the common AsciiDoc document and text formatting markup.
 
 [NOTE]
 ====
@@ -690,8 +691,6 @@ include::{includedir}/ex-image.adoc[tag=attr]
 
 include::{includedir}/ex-image.adoc[tag=ab-url]
 ----
-
-ifdef::backend-revealjs[=== !]
 
 [.result]
 ====

@@ -4,9 +4,10 @@
 :example-caption!:
 
 ////
+- .big-image + HTML
 ideas : 
  - no background
- - image & text side by side
+ - image & text side by side => HTML
 ////
 
 ifndef::imagesdir[:imagesdir: ../../../target/generated-docs/images]
@@ -20,9 +21,8 @@ ifdef::backend-html5[]
 link:reveal/{docname}.html[icon:video-camera[] Slides]  link:{docname}.pdf[icon:file-pdf-o[] PDF] link:{docname}.adoc[icon:file-text-o[] Source]
 endif::backend-html5[]
 
-
 [%notitle]
-ifdef::backend-revealjs[== Sommaire]
+ifdef::backend-revealjs[== Table of Contents]
 
 toc::[]
 
@@ -31,12 +31,12 @@ toc::[]
 
 Basic Asciidoctor capabilities are shown in link:asciidoc-syntax-quick-reference.html[this presentation].
 
-This presentation shows advanced Asciidoctor / Reveal.js capabilities, mostly helping going deeper in the everything-as-code devOps principle.
+The current presentation shows advanced Asciidoctor / Reveal.js capabilities, mostly helping going deeper in the everything-as-code devOps principle.
 
 .Guidelines for enriching the toolbox
-* As fewer binary images as possible
-* As simplest code as possible
-* No reveal.js or Asciidoctor fork
+* Fewest non-generated images
+* Simplest source code
+* Fewest reveal.js or Asciidoctor fork (none so far)
 
 //...So we put this at the end of second slide
 ifdef::backend-revealjs[]
@@ -44,13 +44,26 @@ ifdef::backend-revealjs[]
 link:../{docname}.pdf[icon:file-pdf-o[] PDF]  link:../{docname}.html[icon:globe[] HTML]  link:../{docname}.adoc[icon:file-alt[] Source]
 endif::backend-revealjs[]
 
+<<<
+== Reveal.js plugins
+
+The standard Asciidoctor / Reveal.js include the Zoom plugin with `Alt+Click`.
+
+Some plugins have been added in the toolbox :
+
+* link:https://github.com/denehyg/reveal.js-menu[Reveal.js Menu plugin] with icon:bars[] to navigate through the ToC, view keyboard shortcuts, change theme and transitions.
+* link:https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard[Chalkboard plugin], with icon:pencil-square-o[] to display a chalkboard and icon:pencil-alt[] to write directly on slides.
+* link:https://github.com/e-gor/Reveal.js-Title-Footer[Title Footer plugin] to display the title at the top.
+
+<<<
 == Diagram-as-code
 
 All these architecture diagrams use PlantUML, with a custom skin to fit the theme.
 
+[.maxed-image]
 === Sequence diagram
 
-[plantuml, rma-sequence-diagram, svg, height=500]
+[plantuml, rma-sequence-diagram, svg]
 ....
 participant User
 User -> A: DoWork
@@ -67,69 +80,142 @@ A -> User: Done
 deactivate A
 ....
 
+=== Source
+
+[source]
+----
+[plantuml, rma-sequence-diagram, svg]
+....
+participant User
+User -> A: DoWork
+activate A
+A -> B: << createRequest >>
+activate B
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+B --> A: RequestCreated
+deactivate B
+A -> User: Done
+deactivate A
+....
+----
+
+[.maxed-image]
 === Use case diagram
 
-////
 [plantuml, rma-use-case-diagram, svg]
 ....
 left to right direction
-skinparam packageStyle rectangle
-actor customer
-actor clerk
-rectangle checkout {
-  customer -- (checkout)
-  (checkout) .> (payment) : include
-  (help) .> (checkout) : extends
-  (checkout) -- clerk
-}
-....
-////
 
-[plantuml, rma-use-case-diagram, svg, height=500]
-....
-left to right direction
-
-actor developpeur
-database repo as "repo\ncentral"
+actor developer
+database repo as "central\nrepo"
 agent jenkins as "Jenkins"
 
 rectangle admin as "Gerrit / Gitlab" {
     agent ui as "front"
-    database repo_local as "repo\nlocal"
+    database repo_local as "local\nrepo"
 }
 
-developpeur --> ui : push
+developer --> ui : push
 ui --> repo_local : push
 ui -left-> jenkins: "\npush "
 ui ..> repo : replication
 ....
 
+=== Source
+
+[source]
+----
+[plantuml, rma-use-case-diagram, svg]
+....
+left to right direction
+
+actor developer
+database repo as "central\nrepo"
+agent jenkins as "Jenkins"
+
+rectangle admin as "Gerrit / Gitlab" {
+    agent ui as "front"
+    database repo_local as "local\nrepo"
+}
+
+developer --> ui : push
+ui --> repo_local : push
+ui -left-> jenkins: "\npush "
+ui ..> repo : replication
+....
+----
+
+[.maxed-image]
 === Class diagram
 
-[plantuml, rma-class-diagram, svg, height=500]     
+[plantuml, rma-class-diagram, svg]     
 ....
-class BaseClass
+abstract class ArrayList {
+  Object[] elementData
+  size()
+}
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+Interface BaseClass
 
-namespace net.dummy #DDDDDD {
+namespace net.dummy {
     .BaseClass <|-- Person
     Meeting o-- Person
 
     .BaseClass <|- Meeting
 }
-
 namespace net.foo {
   net.dummy.Person  <|- Person
   .BaseClass <|-- Person
 
   net.dummy.Meeting o-- Person
 }
-
 BaseClass <|-- net.unused.Person
 ....
 
+=== Source
+
+[source]
+----
+[plantuml, rma-class-diagram, svg]     
+....
+abstract class ArrayList {
+  Object[] elementData
+  size()
+}
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+Interface BaseClass
+
+namespace net.dummy {
+    .BaseClass <|-- Person
+    Meeting o-- Person
+
+    .BaseClass <|- Meeting
+}
+namespace net.foo {
+  net.dummy.Person  <|- Person
+  .BaseClass <|-- Person
+
+  net.dummy.Meeting o-- Person
+}
+BaseClass <|-- net.unused.Person
+....
+----
+
+[.maxed-image]
 === Activity diagram
 
-[plantuml, activity-diagram, svg, height=500]
+[plantuml, activity-diagram, svg]
 ....
 (*) --> "Initialization"
 
@@ -143,6 +229,26 @@ else
 endif
 ....
 
+=== Source
+
+[source]
+----
+[plantuml, activity-diagram, svg]
+....
+(*) --> "Initialization"
+
+if "Some Test" then
+  -->[true] "Some Activity"
+  --> "Another activity"
+  -right-> (*)
+else
+  ->[false] "Something else"
+  -->[Ending process] (*)
+endif
+....
+----
+
+[.maxed-image]
 === Component diagram
 
 [plantuml, rma-component-diagram, svg]     
@@ -167,24 +273,86 @@ database "MySql" {
   }
 }
 [Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
+[Example 1] -right-> [Folder 3]
 [Folder 3] --> [Frame 4]
 ....
 
+=== Source
+
+[source]
+----
+[plantuml, rma-component-diagram, svg]     
+....
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+rectangle "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+cloud {
+  [Example 1]
+}
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+[Another Component] --> [Example 1]
+[Example 1] -right-> [Folder 3]
+[Folder 3] --> [Frame 4]
+....
+----
+
+[.maxed-image]
 === State diagram
 
-[plantuml, rma-state-diagram, svg, height=500]     
+[plantuml, rma-state-diagram, svg]     
 ....
-[*] --> NotShooting
-
-state "Not Shooting State" as NotShooting {
-  state "Idle mode" as Idle
-  state "Configuring mode" as Configuring
-  [*] --> Idle
-  Idle --> Configuring : EvConfig
-  Configuring --> Idle : EvConfig
+[*] -left-> State1
+State1 -left-> State2 : Succeeded
+State1 --> [*] : Aborted
+State2 --> State3 : Succeeded
+State2 --> [*] : Aborted
+state State3 {
+  state "Accumulate Enough Data\nLong State Name" as long1
+  long1 : Just a test
+  [*] --> long1
+  long1 --> long1 : New Data
+  long1 --> ProcessData : Enough Data
 }
+State3 --> State3 : Failed
+State3 --> [*] : Succeeded
+State3 --> [*] : Aborted
 ....
+
+=== Source
+
+[source]
+----
+[plantuml, rma-state-diagram, svg]     
+....
+[*] -left-> State1
+State1 -left-> State2 : Succeeded
+State1 --> [*] : Aborted
+State2 --> State3 : Succeeded
+State2 --> [*] : Aborted
+state State3 {
+  state "Accumulate Enough Data\nLong State Name" as long1
+  long1 : Just a test
+  [*] --> long1
+  long1 --> long1 : New Data
+  long1 --> ProcessData : Enough Data
+}
+State3 --> State3 : Failed
+State3 --> [*] : Succeeded
+State3 --> [*] : Aborted
+....
+----
 
 <<<
 == Chart-as-code
@@ -211,7 +379,7 @@ Here are some examples.
 [.title]
 What do you believe is the number one thing a compagny can do to improve code quality ?
 
-[chart,pie,order=null]
+[chart,pie,order=null,legend=right]
 ....
 Code Review,27
 Unit Testing,19
@@ -227,9 +395,9 @@ Other,5
 
 === Source
 
-[source,asciidoc]
+[source]
 ----
-[chart,pie,order=null]
+[chart,pie,order=null,legend=right]
 ....
 Code Review,27
 Unit Testing,19
@@ -255,7 +423,7 @@ data3, 130, -150, 200, 300, -200, 100
 
 === Source
 
-[source,asciidoc]
+[source]
 ----
 [chart,bar]
 ....
@@ -270,20 +438,20 @@ data3, 130, -150, 200, 300, -200, 100
 [.title]
 What are the main benefits of code review in 2018 ?
 
-[chart,bar,horizontal=true,x-type=category,data-labels=true]
+[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
 ....
-x,Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
-% Answered,90,73,59,57,52,37,31,28,28,26,26,20,16
+x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
 ....
 
 === Source
 
-[source,asciidoc]
+[source]
 ----
-[chart,bar,horizontal=true,x-type=category,data-labels=true]
+[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
 ....
-x,Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
-% Answered,90,73,59,57,52,37,31,28,28,26,26,20,16
+x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
 ....
 ----
 
@@ -317,7 +485,7 @@ c3.generate({
       ]
   },
   color: {
-    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C','#56A29A']
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
   }
 });
 </script>
@@ -353,13 +521,17 @@ c3.generate({
       ]
   },
   color: {
-    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C','#56A29A']
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
   }
 });
 </script>
 ++++
 ----
 
+//=== Fragmented
+//TODO: Managed fragmented only for 2 clicks, nested 'onclick' does not work, need help
+
+<<<
 == Timeline-as-code
 
 [.timeline]
@@ -405,6 +577,7 @@ To reveal lines as fragments, use `[%step]` and put the `[.timeline]` before the
 * *2011* - Gitlab
 * *2012* - CodeFlow (Microsoft)
 
+<<<
 == Pyramid-as-code
 
 [.pyramid]
@@ -447,61 +620,37 @@ To reveal lines as fragments, use `[%step]` and put the `[.pyramid]` before the 
 * Quality of work life
 * Organization and culture
 
+<<<
+[.big-image]
 == Meme-as-code
 
 //For now, does not work under gitlab-ci, so we show a pre-generated image
-//meme::images/dont-reboot-it-just-patch.jpg[Don't revert it,Just FLIP]
-[.maxed-image]
-image::dont-revert-it-just-flip.png[]
-
-=== Source
+//meme::images/dont-reboot-it-just-patch.jpg[don't rollback it,just flip]
+image::dont-rollback-it-just-flip.png[]
 
 [source,asciidoc]
 ----
-meme::images/dont-reboot-it-just-patch.jpg[Don't revert it,Just FLIP]
+meme::images/dont-reboot-it-just-patch.jpg[don't rollback it,just flip]
 ----
 
 This needs ImageMagick installed when generating the documentation, see link:https://asciidoctor.org/docs/asciidoctor-diagram/[here].
 
-== Alignments
+<<<
+[.big-image]
+== Screenshot-as-code
 
-Here are some alignments specific to Reveal.js slides.
-
-[.bottom]
-...We start with putting something at the bottom.
-
-[source,asciidoc]
-----
-[.bottom]
-...We start with putting something at the bottom.
-----
-
-=== Centering slide
-
-[.halign-center]
-You can also center horizontaly some text of the slide
+//Not tested under gitlab-ci (would require headless chrome), so we show a pre-generated image 
+//screenshot::http://www.gebish.org[asciidoctorj-screenshot,dimension=1600x700,width=600]
+image::asciidoctorj-screenshot.png[]
 
 [source,asciidoc]
 ----
-[.halign-center]
-You can also center horizontaly some text of the slide
+screenshot::http://www.gebish.org[asciidoctorj-screenshot,dimension=1600x800,width=600]
 ----
 
-=== Maxed-out image
+This uses the link:https://github.com/asciidoctor/asciidoctorj-screenshot[screenshot asciidoc plugin] based on link:http://www.gebish.org[Geb].
 
-[.maxed-image]
-image::sunset.jpg[]
-
-=== Source
-
-Whatever the image size is, it will occupy maximum space without changing the ratio.
-
-[source,asciidoc]
-----
-[.maxed-image]
-image::sunset.jpg[]
-----
-
+<<<
 == Last slide
 
 The last slide is there to open for questions.
@@ -539,7 +688,109 @@ ifdef::backend-revealjs[]
 === !
 endif::backend-revealjs[]
 
-// real last slide
+<<<
+== Positionning and sizing
+
+Here are some positionning and sizing introduced specifically for Reveal.js slides.
+
+[source,asciidoc]
+----
+[.halign-center]
+You can center anything horizontally.
+
+[.bottom]
+You can put anything at the bottom.
+----
+
+[.halign-center]
+You can center anything horizontally.
+
+[.bottom]
+You can put anything at the bottom.
+
+=== Text wrapping near image
+
+image::one-ring.jpg[width=300,float=left]
+
+Three Rings for the Elven-kings under the sky,
+
+Seven for the Dwarf-lords in their halls of stone,
+
+Nine for Mortal Men doomed to die,
+
+One for the Dark Lord on his dark throne
+
+image::one-ring.jpg[width=450,float=right]
+
+In the Land of Mordor where the Shadows lie.
+
+[.green]
+*One Ring image:one-ring.jpg[width=40] to rule them all, One Ring image:one-ring.jpg[width=40] to find them,*
+
+[.green]
+*One Ring image:one-ring.jpg[width=40] to bring them all and in the darkness bind them*
+
+In the Land of Mordor where the Shadows lie.
+
+=== Source
+
+[source,asciidoc]
+----
+image::one-ring.jpg[width=300,float=left] <1>
+
+Three Rings for the Elven-kings under the sky,
+
+Seven for the Dwarf-lords in their halls of stone,
+
+Nine for Mortal Men doomed to die,
+
+One for the Dark Lord on his dark throne
+
+image::one-ring.jpg[width=450,float=right] <2>
+
+In the Land of Mordor where the Shadows lie.
+
+[.green] <3>
+*One Ring image:one-ring.jpg[width=40] to rule them all, One Ring image:one-ring.jpg[width=40] to find them,*
+
+[.green] <3>
+*One Ring image:one-ring.jpg[width=40] to bring them all and in the darkness bind them*
+
+In the Land of Mordor where the Shadows lie.
+----
+<1> `::` block image float left
+<2> `::` block image float right
+<3> `:` inline images
+
+=== Maxed-out image
+
+[.maxed-image]
+image::sunset.jpg[]
+
+=== Source
+
+Whatever the image size is, it will cover space without changing the ratio.
+
+[source,asciidoc]
+----
+[.maxed-image]
+image::sunset.jpg[]
+----
+
+=== Big image
+
+[.big-image]
+image::sunset.jpg[]
+
+`[.big-image]` is the same as `[.maxed-image]` but smaller, to give some space for text.
+
+[source,asciidoc]
+----
+[.big-image]
+image::sunset.jpg[]
+----
+
+// real last slide 
 
 ifdef::backend-revealjs[]
 [.questions]

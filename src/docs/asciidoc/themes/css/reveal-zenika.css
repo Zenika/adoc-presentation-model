@@ -80,8 +80,8 @@ body {
   padding: 30px 30px;
 }
 
-/* stack of sub slides, must be hidden */
-.reveal .slides section.stack {
+/* stack of sub slides, must be hidden, and references should not have shadow */
+.reveal .slides section.stack, .reveal .slides section[id="references"] {
   background: transparent;
   box-shadow: none;
 }
@@ -353,15 +353,6 @@ span.hljs-comment, span.hljs-emphasis {
 
 /** FONT AWESOME **/
 
-.reveal div.admonitionblock table td.icon,
-.reveal div.admonitionblock table td.content {
-  vertical-align: middle;
-}
-
-.reveal div:not(.chalkboard-button) .fa {
-  font-size: 40px;
-}
-
 /* Font awesome images are blue by default */
 .reveal a.image i.fa,
 .reveal span.icon i.fa:not(.fa-check-circle):not(.fa-times-circle) {
@@ -378,38 +369,6 @@ span.hljs-comment, span.hljs-emphasis {
   color: #B11E3E; /* red */
 }
 
-/* text in admonition blocks */
-.reveal div.admonitionblock td.content {
-  color: #888888;/* grey */
-  border-left: 1px solid #888888
-}
-
-/* a light bulb anything else than yellow is weird */
-.reveal div.admonitionblock.tip td.icon {
-  text-shadow: 0px 0px 10px black;
-  color: yellow;
-}
-
-/* NOTE icon */
-.reveal div.admonitionblock.note td.icon {
-  color : rgb(81,155,200);/* blue */
-}
-
-/* WARNING icon */
-.reveal div.admonitionblock.warning td.icon {
-  color: #bf6900;
-}
-
-/* IMPORTANT icon */
-.reveal div.admonitionblock.important td.icon {
-  color: #B11E3E;
-}
-
-/* CAUTION icon */ 
-.reveal div.admonitionblock.caution td.icon {
-  color: rgb(239,82,91); /* pink */
-}
-
 /**** MARGINS ****/
 
 .reveal .exampleblock table {
@@ -419,10 +378,9 @@ span.hljs-comment, span.hljs-emphasis {
 /* paragraphs margin */
 .reveal table,
 .reveal .listingblock,
-/*.reveal div.paragraph.lead p,*/
 .reveal .paragraph,
 .reveal .exampleblock > div.content,
-.reveal section > .ulist, .reveal .olist,
+.reveal section > .ulist, .reveal .olist, .reveal .dlist,
 .reveal .literalblock {
   margin-bottom: 1.25rem;
 }
@@ -440,7 +398,7 @@ span.hljs-comment, span.hljs-emphasis {
   font-family: "M+ 1m";
   font-size: 80%;
   padding: 10px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .reveal pre:not(.ght) {
@@ -451,7 +409,11 @@ span.hljs-comment, span.hljs-emphasis {
   padding: 0.5em;
   font-size: 80%;
   margin-bottom: 0.75rem;
-  /*background: #888;*/
+}
+
+/* code should bot have the large border of other listing blocks */
+.reveal pre.listingblock {
+  padding: 0.1em;
 }
 
 /* title of code/image block */
@@ -471,10 +433,11 @@ span.hljs-comment, span.hljs-emphasis {
   font-style: normal!important;
   letter-spacing: 0;
   word-spacing: -.15em;
-  line-height: 1.45;
+  line-height: 120%;
   text-rendering: optimizeSpeed;
   word-wrap: break-word;
   padding: 0;
+  font-weight: normal;
 }
 
 /* lead paragraph is bigger */
@@ -506,7 +469,7 @@ span.hljs-comment, span.hljs-emphasis {
 }
 
 /*********************************************
- * SPECIALS PAGES
+ * TITLE PAGE
  *********************************************/
 
 .reveal section.page-title h1 {
@@ -526,6 +489,66 @@ span.hljs-comment, span.hljs-emphasis {
 }
 
 /*********************************************
+ * OVERVIEW
+ *********************************************/
+
+.reveal.overview .slides section:not(.stack):hover, .reveal.overview .slides section:not(.stack).present {
+  outline: 10px solid #8DBF44; /* green */
+  outline-offset: 10px;
+}
+
+/*********************************************
+ * ADMONITION BLOCK (NOTE, TOP, WARNING, CAUTION)
+ *********************************************/
+
+.reveal .admonitionblock table td.icon,
+.reveal .admonitionblock table td.content {
+  vertical-align: middle;
+}
+ 
+.reveal .admonitionblock td.icon .fa {
+  font-size: 40px;
+}
+
+/* text in admonition blocks */
+.reveal .admonitionblock td.content {
+  color: #888888;/* grey */
+  border-left: 1px solid #888888
+}
+
+/* Multiple DIV in an admonition block : give them some space */
+.reveal .admonitionblock table td > div:not(:last-child),
+.reveal .exampleblock .content > *:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+/* a light bulb anything else than yellow is weird */
+.reveal .admonitionblock.tip td.icon {
+  text-shadow: 0px 0px 10px black;
+  color: yellow;
+}
+
+/* NOTE icon */
+.reveal .admonitionblock.note td.icon {
+  color : rgb(81,155,200);/* blue */
+}
+
+/* WARNING icon */
+.reveal .admonitionblock.warning td.icon {
+  color: #bf6900;
+}
+
+/* IMPORTANT icon */
+.reveal .admonitionblock.important td.icon {
+  color: #B11E3E;
+}
+
+/* CAUTION icon */ 
+.reveal .admonitionblock.caution td.icon {
+  color: rgb(239,82,91); /* pink */
+}
+
+/*********************************************
  * LINKS
  *********************************************/
 
@@ -539,9 +562,9 @@ span.hljs-comment, span.hljs-emphasis {
   border: none;
 }
 
-/*******************************
+/*********************************************
  * SLIDES NUMBERS, MENU & CHALKBOARD
- ******************************/
+ *********************************************/
 
 .reveal .slide-number, .reveal .slide-number-wrapper {
   left: 8px;
@@ -582,13 +605,16 @@ span.hljs-comment, span.hljs-emphasis {
  * IMAGES
  *********************************************/
 
+ /* block image */
 .reveal .imageblock img {
   display: block;
-  margin: 20px auto;
+  margin: 0px auto;
+  padding: 20px;
 }
 
-.reveal section.full-page-image img {
-  margin: 0
+ /* inline image : strangely shifted down so we perform a small adjustement */
+.reveal span.image img {
+  margin-bottom: -3px;
 }
 
 /* [.maxed-image] on section or image block */
@@ -596,6 +622,17 @@ span.hljs-comment, span.hljs-emphasis {
     object-fit: contain;
     height: 550px;
     width: 1040px;
+    padding: 0px; /* to disable padding that else gives space around images */
+}
+
+/* [.big-image] on section or image block */
+.reveal section.big-image > div > img, .imageblock.big-image img {
+  object-fit: contain;
+  height: 420px;
+  width: 1040px;
+  /* we define margin instead of padding, because we need space for text */
+  margin: 20px 0px;
+  padding: 0px;
 }
 
 .reveal section img.with-border {
@@ -604,6 +641,10 @@ span.hljs-comment, span.hljs-emphasis {
 
 .reveal figcaption {
   text-align: center;
+}
+
+.reveal section.full-page-image img {
+  margin: 0
 }
 
 /*********************************************
@@ -632,9 +673,9 @@ span.hljs-comment, span.hljs-emphasis {
   background-color: rgb(141,191,68) !important;
 }
 
-/***********************
-* last slide 
-************************/ 
+/*********************************************
+ * LAST SLIDE
+ *********************************************/
 
 /* .questions */
 
@@ -709,9 +750,9 @@ span.hljs-comment, span.hljs-emphasis {
 }
 
 
-/****************
-* C3.JS
-*****************/
+/*********************************************
+ * C3.JS
+ *********************************************/
 
 .c3 svg g {
   font-size: 18px;
@@ -737,9 +778,9 @@ text.c3-axis-y-label, text.c3-axis-y2-label {
   stroke-width: 3px;
 }
 
-/*******************
-* Timeline
-********************/
+/*********************************************
+ * Timeline-as-code
+ *********************************************/
 
 .timeline ul {
   position: relative;
@@ -849,9 +890,9 @@ text.c3-axis-y-label, text.c3-axis-y2-label {
   left: 522px;
 }
 
-/*******************
-* Footer
-********************/
+/*********************************************
+ * Footer
+ *********************************************/
 
 .reveal footer {
   text-shadow: 0 0 10px black;
@@ -882,18 +923,18 @@ text.c3-axis-y-label, text.c3-axis-y2-label {
 	opacity: 0;
 }
 
-/******************
-* Table of content
-******************/
+/*********************************************
+ * Table of content
+ *********************************************/
 
 /* in our reveal.js setup, last slide has no title, so we hide the "!" title in TOC */
 .toc ol li:last-child {
   display: none;
 }
 
-/*****************
-* Pyramid-as-code
-*****************/
+/*********************************************
+ * Pyramid-as-code
+ *********************************************/
 
 /* bubble arrow */
 .pyramid li {

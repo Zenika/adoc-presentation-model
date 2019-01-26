@@ -114,4 +114,3 @@ title_footer.initialize=function(title,background)
 	var div_class_reveal=document.querySelectorAll('.reveal')[0];
 	div_class_reveal.appendChild(title_footer);
 };
-

@@ -54,14 +54,18 @@ end
 
 class C3jsChartBuilder
 
+  # height = 500 : whole chart height in pixels
+  # width = 1000 : whole chart width in pixels
   # data-labels = false : Show labels on each data points.
   # x-type = indexed : timeseries/category/indexed
   # x-tick-angle = 0 : Rotate x axis tick text.
-  # height = 500
-  # width = 1000
+  # x-label = undefined : label of x axis
+  # y-label = undefined : label of y axis
+  # y-range = undefined_undefined : y axis min and max values separated by '_'
   # horizontal = false : rotate x & y
   # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
   # order = desc : desc/asc/null
+  # legend = bottom : legend position bottom/right/inset
 
   def self.chart(raw_data, attrs)
 
@@ -75,8 +79,12 @@ class C3jsChartBuilder
     horizontal = (attrs.key? 'horizontal') ? attrs['horizontal'] : 'false'
     axis_x_type = (attrs.key? 'x-type') ? attrs['x-type'] : 'indexed'
     axis_x_text_angle = (attrs.key? 'x-tick-angle') ? attrs['x-tick-angle'] : '0'
+    axis_x_label = (attrs.key? 'x-label') ? "'" + attrs['x-label'] + "'" : 'undefined'
+    axis_y_label = (attrs.key? 'y-label') ? "'" + attrs['y-label'] + "'" : 'undefined'
     data_labels = (attrs.key? 'data-labels') ? attrs['data-labels'] : 'false'
     order = (attrs.key? 'order') ? attrs['order'] : 'desc'
+    y_range = ((attrs.key? 'y-range') ? attrs['y-range'] : 'undefined_undefined').split("_")
+    legend = (attrs.key? 'legend') ? attrs['legend'] : 'bottom'
 
     x_data = (axis_x_type == 'category') ? 'x: \'x\',' : ''
 
@@ -101,11 +109,18 @@ class C3jsChartBuilder
             tick: {
               rotate: #{axis_x_text_angle},
               multiline: false
-            }
+            },
+            label: #{axis_x_label}
+          },
+          y: {
+            min: #{y_range[0]},
+            max: #{y_range[1]},
+            label: #{axis_y_label}
           }
         },
+        legend: { position: '#{legend}' },
         color: {
-              pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C','#56A29A']
+              pattern: ['#8DBF44','#444444','#53A3DA','#D6D6B1','#B11E3E','#888888','#FFE119','#000075','#E8575C','#56A29A']
           }
         });
         </script>
