@@ -54,6 +54,7 @@ end
 
 class C3jsChartBuilder
 
+  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
   # height = 500 : whole chart height in pixels
   # width = 1000 : whole chart width in pixels
   # data-labels = false : Show labels on each data points.
@@ -63,7 +64,6 @@ class C3jsChartBuilder
   # y-label = undefined : label of y axis
   # y-range = undefined_undefined : y axis min and max values separated by '_'
   # horizontal = false : rotate x & y
-  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
   # order = desc : desc/asc/null
   # legend = bottom : legend position bottom/right/inset
 
