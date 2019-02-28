@@ -1,4 +1,4 @@
-= Reveal my Asciidoc : presentation-as-code in depth
+= Reveal my Asciidoc : a deep dive into presentation-as-code
 {localdate} - Benoit COUETIL
 :title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-zenika.png[pdfwidth=3in,align=left]
 :example-caption!:
@@ -49,11 +49,14 @@ endif::backend-revealjs[]
 
 The standard Asciidoctor / Reveal.js include the Zoom plugin with `Alt+Click`.
 
-Some plugins have been added in the toolbox :
+Some plugins have been added in the toolbox, see menu for shortcuts :
 
 * link:https://github.com/denehyg/reveal.js-menu[Reveal.js Menu plugin] with icon:bars[] to navigate through the ToC, view keyboard shortcuts, change theme and transitions.
 * link:https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard[Chalkboard plugin], with icon:pencil-square-o[] to display a chalkboard and icon:pencil-alt[] to write directly on slides.
 * link:https://github.com/e-gor/Reveal.js-Title-Footer[Title Footer plugin] to display the title at the top.
+* link:https://github.com/dougalsutherland/reveal.js-notes-pointer[Notes Pointer plugin] to point both on speaker notes and presentation window.
+* link:https://github.com/denniskniep/reveal.js-plugin-spotlight[Spotlight plugin] to show a spotlight.
+* link:https://github.com/PiDayDev/reveal-skip-fragments[Skip Fragments plugin] to skip fragments (slide steps).
 
 <<<
 == Diagram-as-code
@@ -563,6 +566,8 @@ c3.generate({
 
 To reveal lines as fragments, use `[%step]` and put the `[.timeline]` before the title. See the result on next slide.
 
+TIP: You can skip fragments with `PageDown` / `PageUp`.
+
 [.timeline]
 === Timeline-as-code fragmented
 
@@ -606,6 +611,8 @@ To reveal lines as fragments, use `[%step]` and put the `[.timeline]` before the
 ----
 
 To reveal lines as fragments, use `[%step]` and put the `[.pyramid]` before the title. See the result on next slide.
+
+TIP: You can skip fragments with `PageDown` / `PageUp`.
 
 [.pyramid]
 === Pyramid-as-code fragmented

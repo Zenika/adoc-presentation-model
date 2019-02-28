@@ -184,7 +184,7 @@
 								<revealjsdir>../reveal.js-${revealjs.version}</revealjsdir>
 								<!-- default closest to Zenika's graphic chart : -->
 								<!-- <revealjs_theme>blood</revealjs_theme> -->
-								<revealjs_customtheme>themes/css/reveal-zenika-tokyo-shibuya.css</revealjs_customtheme>
+								<revealjs_customtheme>themes/css/reveal-containers-dark.css</revealjs_customtheme>
 								<!-- none, fade, slide, convex, concave, zoom -->
 								<!-- dynamic : PRES-asciidoc.html?transition=convex -->
 								<revealjs_transition>slide</revealjs_transition>
@@ -217,6 +217,7 @@
 								<toc>left</toc>
 								<toclevels>2</toclevels>
 								<sectanchors>true</sectanchors>
+								<sectnums/><!-- for sections to be numbered -->
 								<favicon>themes/favicon-white.png</favicon>
 								<linkcss />
 								<stylesheet>html-zenika.css</stylesheet>

@@ -50,7 +50,7 @@ var RevealChalkboard = window.RevealChalkboard || (function(){
 			background = [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ];
 			pen = [ 'url(' + path + 'img/boardmarker.png), auto',
 				'url(' + path + 'img/chalk.png), auto' ];
-			draw = [ drawWithPen , drawWithChalk ]; //BCOUETIL : 2nd changed from drawWithChalk
+			draw = [ drawWithPen , drawWithChalk ];
 			color = [ 'rgba(0,0,255,1)', 'rgba(255,255,255,0.5)'  ];
 	}
 	
@@ -126,6 +126,7 @@ var RevealChalkboard = window.RevealChalkboard || (function(){
 	setupDrawingCanvas(1);
 
 	var mode = 0; // 0: notes canvas, 1: chalkboard
+	var eraserOn = false; //BCT true if eraser is active
 
 	var mouseX = 0;
 	var mouseY = 0;
@@ -956,10 +957,10 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 
 			mouseX = evt.pageX;
 			mouseY = evt.pageY;
-			startDrawing( (mouseX - xOffset)/scale, (mouseY-yOffset)/scale, ( evt.button == 2) );
+			startDrawing( (mouseX - xOffset)/scale, (mouseY-yOffset)/scale, ( evt.button == 2) /* eraserOn */ ); //BCT : right click => button for smartphone easier usage
 			// broadcast
 			var message = new CustomEvent('send');
-			message.content = { sender: 'chalkboard-plugin', type: 'startDrawing', x: (mouseX - xOffset)/scale, y: (mouseY-yOffset)/scale, erase: ( evt.button == 2) };
+			message.content = { sender: 'chalkboard-plugin', type: 'startDrawing', x: (mouseX - xOffset)/scale, y: (mouseY-yOffset)/scale, erase: ( evt.button == 2) /* eraserOn */ }; //BCT : right click => button for smartphone easier usage
 			document.dispatchEvent( message );
 /*
 			xLast = mouseX;
@@ -1212,6 +1213,12 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 		}
 	};
 
+	//BCT : toggle eraser on/off
+	function toggleEraser() {
+		console.log("toggleEraser");
+		eraserOn = !eraserOn;
+	}
+
 	function clear() {
 		if ( !readOnly ) {
 			recordEvent( { type:"clear", begin: Date.now() - slideStart } );
@@ -1280,6 +1287,7 @@ console.log( 'Create printout for slide ' + storage[1].data[i].slide.h + "." + s
 	this.drawWithChalk = drawWithChalk;
 	this.toggleNotesCanvas = toggleNotesCanvas;
 	this.toggleChalkboard = toggleChalkboard;
+	this.toggleEraser = toggleEraser;
 	this.startRecording = startRecording;
 	this.clear = clear;
 	this.reset = resetSlide;

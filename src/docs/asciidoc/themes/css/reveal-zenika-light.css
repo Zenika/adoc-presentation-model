@@ -13,9 +13,14 @@ rose : 239/82/91
   color: black;
 }
 
-.reveal .slides section,
-.reveal .slides section[data-state="title"],
-.reveal .slides section > section,
+.reveal .slides section.title {
+  background: #FFFC;
+  height: initial;
+  text-align: center;
+}
+
+.reveal .slides section:not(.title):not(.stack),
+.reveal .slides section > section,  
 .reveal .slides section.stack > section.stack {
   background: white;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
@@ -87,5 +92,5 @@ rose : 239/82/91
 /* .bubbles */
 
 .reveal section.bubbles {
-  background-position: 45% -400% !important;
+  background-position: 45% -200% !important;
 }

@@ -22,7 +22,6 @@ vert / android green : 141/191/68 #8DBF44
 bleu / carolina blue : #53A3DA
 gris clair / davy's grey : #888888
 gris foncé / arsenic : #444444
-
 rose / sunset orange : 239/82/91 #EF525B => 
 vermillon : #E43238
 violet : #9D145F
@@ -59,8 +58,9 @@ body {
 
 /* When using the shorthand property the order of the property values is: background-color, background-image, background-repeat, background-attachment, background-position */
 body {
-  background: black url('../logo-zenika.png') no-repeat center;
-  background-size: 60%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            black url('../logo-zenika.png') no-repeat center;
+  background-size: cover, 30%;
 }
 
 .reveal {

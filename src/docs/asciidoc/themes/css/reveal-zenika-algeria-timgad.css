@@ -1,11 +1,7 @@
 @import "reveal-zenika-light.css";
 
 body {
-  background: center url('../backgrounds/algeria-timgad.jpg');
-  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              center url('../backgrounds/algeria-timgad.jpg');
+  background-size: cover, cover;
 }
-
-/* FOR A ZENIKA LOGO IN TOP RIGHT  
-background: no-repeat 98% 5% url('./favicon.png'), center url('./backgrounds/algeria-timgad.jpg');
-background-size: 3%, cover;
-*/

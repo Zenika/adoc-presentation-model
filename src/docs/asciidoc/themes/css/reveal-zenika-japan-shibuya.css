@@ -1,9 +1,11 @@
 @import "reveal-zenika-dark.css";
 
 body {
-  background: no-repeat center url('../backgrounds/tokyo-shibuya.jpg');
-  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              center url('../backgrounds/japan-shibuya.jpg');
+  background-size: cover, cover;
 }
+
 
 /***********************
 * last slide 

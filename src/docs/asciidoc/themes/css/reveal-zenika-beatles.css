@@ -1,7 +1,6 @@
 @import "reveal-zenika-dark.css";
 
 body {
-  background: url('../backgrounds/beatles.jpg');
+  background: center url('../backgrounds/beatles.jpg');
   background-size: cover;
-  background-position: center;
 }

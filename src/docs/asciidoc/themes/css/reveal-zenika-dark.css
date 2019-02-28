@@ -13,12 +13,17 @@ rose : 239/82/91
   color: white;
 }
 
-.reveal .slides section,
-.reveal .slides section[data-state="title"],
-.reveal .slides section > section,
+.reveal .slides section.title {
+  background: #222A;
+  height: initial;
+  text-align: center;
+}
+
+.reveal .slides section:not(.title):not(.stack),
+.reveal .slides section > section,  
 .reveal .slides section.stack > section.stack {
   background: #222;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 ::selection {
@@ -86,10 +91,10 @@ rose : 239/82/91
 
 /***********************
 * last slide 
-************************/ 
+************************/
 
 /* .bubbles */
 
 .reveal section.bubbles {
-  background-position: 45% -400% !important;
+  background-position: 45% -200% !important;
 }
