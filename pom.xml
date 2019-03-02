@@ -153,10 +153,11 @@
 						<!-- block extension to include c3js (line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge) -->
 						<require>./src/docs/asciidoc/lib/c3js-block-macro.rb</require>
 					</requires>
-					<attributes>
-						<icons>font</icons>
+					<attributes><!-- common to all backends -->
+						<icons>font</icons><!-- for Font Awesome icons -->
 						<idseparator>-</idseparator>
 						<idprefix />
+						<experimental/><!-- kbd / menu / btn macros -->
 						<!-- custom -->
 						<project-version>${project.version}</project-version>
 						<root-project-dir>${user.dir}</root-project-dir>
@@ -184,7 +185,7 @@
 								<revealjsdir>../reveal.js-${revealjs.version}</revealjsdir>
 								<!-- default closest to Zenika's graphic chart : -->
 								<!-- <revealjs_theme>blood</revealjs_theme> -->
-								<revealjs_customtheme>themes/css/reveal-containers-dark.css</revealjs_customtheme>
+								<revealjs_customtheme>themes/css/reveal-code-php-dark.css</revealjs_customtheme>
 								<!-- none, fade, slide, convex, concave, zoom -->
 								<!-- dynamic : PRES-asciidoc.html?transition=convex -->
 								<revealjs_transition>slide</revealjs_transition>
@@ -238,6 +239,7 @@
 								<imagesdir>${project.build.directory}/generated-docs/images</imagesdir>
 								<toc />
 								<toclevels>3</toclevels>
+								<sectnums/><!-- for sections to be numbered -->
 								<pagenums />
 								<pdf-style>${user.dir}/src/docs/asciidoc/themes/pdf-theme.yml</pdf-style>
 								<pdf-fontsdir>${user.dir}/src/docs/asciidoc/themes/fonts/pdf</pdf-fontsdir>

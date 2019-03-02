@@ -1,20 +1,9 @@
 = Reveal my Asciidoc : a deep dive into presentation-as-code
 {localdate} - Benoit COUETIL
 :title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-zenika.png[pdfwidth=3in,align=left]
-:example-caption!:
-
-////
-- .big-image + HTML
-ideas : 
- - no background
- - image & text side by side => HTML
-////
+//:example-caption!:
 
 ifndef::imagesdir[:imagesdir: ../../../target/generated-docs/images]
-
-//Press the `*s*` key to access speaker notes.
-//You can press `*b*` or `*.*` to blank your current screen. Hit it again to bring it back.
-//Press the `*esc*` key to get an overview of your slides.
 
 //This can't land on reveaj-js first slide...
 ifdef::backend-html5[]
@@ -789,7 +778,7 @@ image::sunset.jpg[]
 [.big-image]
 image::sunset.jpg[]
 
-`[.big-image]` is the same as `[.maxed-image]` but smaller, to give some space for text.
+`[.big-image]` is the same as `[.maxed-image]` but gives some space for text.
 
 [source,asciidoc]
 ----
