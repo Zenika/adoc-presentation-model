@@ -48,6 +48,226 @@ Some plugins have been added in the toolbox, see menu for shortcuts :
 * link:https://github.com/PiDayDev/reveal-skip-fragments[Skip Fragments plugin] to skip fragments (slide steps).
 
 <<<
+== Chart-as-code
+
+We enable chart-as-code with a modified version of link:https://github.com/asciidoctor/asciidoctor-extensions-lab/tree/master/lib/chart-block-macro[chart-block-macro extension].
+
+It's based on C3JS, a layer on D3JS to draw charts easily, with nice mouseover animations.
+
+Here are some examples.
+
+////
+  # data-labels = false : Show labels on each data points.
+  # x-type = indexed : timeseries/category/indexed
+  # x-tick-angle = 0 : Rotate x axis tick text.
+  # height = 500
+  # width = 1000
+  # horizontal = false : rotate x & y
+  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
+  # order = desc : desc/asc/null
+////
+
+=== Pie chart
+
+[.title]
+What do you believe is the number one thing a compagny can do to improve code quality ?
+
+[chart,pie,order=null,legend=right]
+....
+Code Review,27
+Unit Testing,19
+Functional Testing,13
+Continuous Integration,12
+Integration Testing,9
+Detailed Requirements,7
+Static Analysis,3
+Training/On-boarding,3
+User Stories,2
+Other,5
+....
+
+=== Source
+
+[source]
+----
+[chart,pie,order=null,legend=right]
+....
+Code Review,27
+Unit Testing,19
+Functional Testing,13
+Continuous Integration,12
+Integration Testing,9
+Detailed Requirements,7
+Static Analysis,3
+Training/On-boarding,3
+User Stories,2
+Other,5
+....
+----
+
+=== Bar chart
+
+[chart,bar]
+....
+data1, 30, 200, 100, 400, 150, 250
+data2, 130, 100, 140, 200, 150, 50
+data3, 130, -150, 200, 300, -200, 100
+....
+
+=== Source
+
+[source]
+----
+[chart,bar]
+....
+data1, 30, 200, 100, 400, 150, 250
+data2, 130, 100, 140, 200, 150, 50
+data3, 130, -150, 200, 300, -200, 100
+....
+----
+
+=== Horizontal bar chart
+
+[.title]
+What are the main benefits of code review in 2018 ?
+
+[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
+....
+x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
+....
+
+=== Source
+
+[source]
+----
+[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
+....
+x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
+....
+----
+
+=== Combination
+
+Multiple data types at once (using inline JS)
+
+++++
+  <div id="combi"></div>
+  <script type="text/javascript">
+c3.generate({
+  bindto: '#combi',
+  size: { height: 500, width: 1000 },
+  data: {
+      columns: [
+        ['data1', 30, 20, 50, 40, 60, 50],
+        ['data2', 200, 130, 90, 240, 130, 220],
+        ['data3', 300, 200, 160, 400, 250, 250],
+        ['data4', 200, 130, 90, 240, 130, 220],
+        ['data5', 130, 120, 150, 140, 160, 150],
+        ['data6', 90, 70, 20, 50, 60, 120],
+      ],
+      type: 'bar',
+      types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+      },
+      groups: [
+          ['data1','data2']
+      ]
+  },
+  color: {
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
+  }
+});
+</script>
+++++
+
+=== Source
+
+[source,javascript]
+----
+++++
+<div id="combi"></div>
+<script type="text/javascript">
+c3.generate({
+  bindto: '#combi',
+  size: { height: 500, width: 1000 },
+  data: {
+      columns: [
+        ['data1', 30, 20, 50, 40, 60, 50],
+        ['data2', 200, 130, 90, 240, 130, 220],
+        ['data3', 300, 200, 160, 400, 250, 250],
+        ['data4', 200, 130, 90, 240, 130, 220],
+        ['data5', 130, 120, 150, 140, 160, 150],
+        ['data6', 90, 70, 20, 50, 60, 120],
+      ],
+      type: 'bar',
+      types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+      },
+      groups: [
+          ['data1','data2']
+      ]
+  },
+  color: {
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
+  }
+});
+</script>
+++++
+----
+
+//=== Fragmented
+//TODO: Managed fragmented only for 2 clicks, nested 'onclick' does not work, need help
+
+<<<
+== Word-cloud-as-code
+
+[cloud]
+....
+Efficience du Delivery,Management 3.0,DevOps,Audit,Arkéa,Connaissance,Agilité,Maturité,Géants du Web,Open Source,Time To Market,Q.V.T.,Culture,Organisation,Investissement,Gagnant/gagnant,Incertitude,Complexité
+....
+
+=== Source
+
+[source]
+----
+[cloud]
+....
+Efficience du Delivery,Management 3.0,DevOps,Audit,Arkéa,Connaissance,Agilité,Maturité,Géants du Web,Open Source,Time To Market,Q.V.T.,Culture,Organisation,Investissement,Gagnant/gagnant,Incertitude,Complexité
+....
+----
+
+* Words are on a single line
+* Words get smaller and smaller from 80% for the first to 20% for the last
+* Colors are picked in circle from a list
+* One word out of three is vertical
+* Outside of these rules, the layout is random
+
+[source]
+----
+[cloud,fragment]
+....
+Efficience du Delivery,Management 3.0,DevOps,Audit,Arkéa,Connaissance,Agilité,Maturité,Géants du Web,Open Source,Time To Market,Q.V.T.,Culture,Organisation,Investissement,Gagnant/gagnant,Incertitude,Complexité
+....
+----
+
+This way you can fragment the words, see next slide for result.
+
+TIP: You can skip fragments with `PageDown` / `PageUp`.
+
+=== Word Cloud fragmented
+
+[cloud,fragment]
+....
+Efficience du Delivery,Management 3.0,DevOps,Audit,Arkéa,Connaissance,Agilité,Maturité,Géants du Web,Open Source,Time To Market,Q.V.T.,Culture,Organisation,Investissement,Gagnant/gagnant,Incertitude,Complexité
+....
+
+<<<
 == Diagram-as-code
 
 All these architecture diagrams use PlantUML, with a custom skin to fit the theme.
@@ -345,183 +565,6 @@ State3 --> [*] : Succeeded
 State3 --> [*] : Aborted
 ....
 ----
-
-<<<
-== Chart-as-code
-
-We enable chart-as-code with a modified version of link:https://github.com/asciidoctor/asciidoctor-extensions-lab/tree/master/lib/chart-block-macro[chart-block-macro extension].
-
-It's based on C3JS, a layer on D3JS to draw charts easily, with nice mouseover animations.
-
-Here are some examples.
-
-////
-  # data-labels = false : Show labels on each data points.
-  # x-type = indexed : timeseries/category/indexed
-  # x-tick-angle = 0 : Rotate x axis tick text.
-  # height = 500
-  # width = 1000
-  # horizontal = false : rotate x & y
-  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
-  # order = desc : desc/asc/null
-////
-
-=== Pie chart
-
-[.title]
-What do you believe is the number one thing a compagny can do to improve code quality ?
-
-[chart,pie,order=null,legend=right]
-....
-Code Review,27
-Unit Testing,19
-Functional Testing,13
-Continuous Integration,12
-Integration Testing,9
-Detailed Requirements,7
-Static Analysis,3
-Training/On-boarding,3
-User Stories,2
-Other,5
-....
-
-=== Source
-
-[source]
-----
-[chart,pie,order=null,legend=right]
-....
-Code Review,27
-Unit Testing,19
-Functional Testing,13
-Continuous Integration,12
-Integration Testing,9
-Detailed Requirements,7
-Static Analysis,3
-Training/On-boarding,3
-User Stories,2
-Other,5
-....
-----
-
-=== Bar chart
-
-[chart,bar]
-....
-data1, 30, 200, 100, 400, 150, 250
-data2, 130, 100, 140, 200, 150, 50
-data3, 130, -150, 200, 300, -200, 100
-....
-
-=== Source
-
-[source]
-----
-[chart,bar]
-....
-data1, 30, 200, 100, 400, 150, 250
-data2, 130, 100, 140, 200, 150, 50
-data3, 130, -150, 200, 300, -200, 100
-....
-----
-
-=== Horizontal bar chart
-
-[.title]
-What are the main benefits of code review in 2018 ?
-
-[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
-....
-x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
-Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
-....
-
-=== Source
-
-[source]
-----
-[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
-....
-x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
-Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
-....
-----
-
-=== Combination
-
-Multiple data types at once (using inline JS)
-
-++++
-  <div id="combi"></div>
-  <script type="text/javascript">
-c3.generate({
-  bindto: '#combi',
-  size: { height: 500, width: 1000 },
-  data: {
-      columns: [
-        ['data1', 30, 20, 50, 40, 60, 50],
-        ['data2', 200, 130, 90, 240, 130, 220],
-        ['data3', 300, 200, 160, 400, 250, 250],
-        ['data4', 200, 130, 90, 240, 130, 220],
-        ['data5', 130, 120, 150, 140, 160, 150],
-        ['data6', 90, 70, 20, 50, 60, 120],
-      ],
-      type: 'bar',
-      types: {
-          data3: 'spline',
-          data4: 'line',
-          data6: 'area',
-      },
-      groups: [
-          ['data1','data2']
-      ]
-  },
-  color: {
-    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
-  }
-});
-</script>
-++++
-
-=== Source
-
-[source,javascript]
-----
-++++
-<div id="combi"></div>
-<script type="text/javascript">
-c3.generate({
-  bindto: '#combi',
-  size: { height: 500, width: 1000 },
-  data: {
-      columns: [
-        ['data1', 30, 20, 50, 40, 60, 50],
-        ['data2', 200, 130, 90, 240, 130, 220],
-        ['data3', 300, 200, 160, 400, 250, 250],
-        ['data4', 200, 130, 90, 240, 130, 220],
-        ['data5', 130, 120, 150, 140, 160, 150],
-        ['data6', 90, 70, 20, 50, 60, 120],
-      ],
-      type: 'bar',
-      types: {
-          data3: 'spline',
-          data4: 'line',
-          data6: 'area',
-      },
-      groups: [
-          ['data1','data2']
-      ]
-  },
-  color: {
-    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
-  }
-});
-</script>
-++++
-----
-
-//=== Fragmented
-//TODO: Managed fragmented only for 2 clicks, nested 'onclick' does not work, need help
 
 <<<
 == Timeline-as-code

@@ -140,7 +140,7 @@ var RevealSpotlight = window.RevealSpotlight || (function () {
   }
 
   function setSpotlight(isOn) {
-    console.log( "setSpotlight()=" + isOn );
+    //console.log( "setSpotlight()=" + isOn );
     isSpotlightOn = isOn;
     var container = drawBoard.container;
     if (isOn) {
@@ -153,12 +153,12 @@ var RevealSpotlight = window.RevealSpotlight || (function () {
   }
 
   function togglePresentationMode() {
-    console.log( "togglePresentationMode()" );
+    //console.log( "togglePresentationMode()" );
     setCursor(!isCursorOn);
   }
 
   function setCursor(isOn) {
-    console.log( "setCursor()=" + isOn );
+    //console.log( "setCursor()=" + isOn );
     isCursorOn = isOn;
     if (isOn) {
       document.body.style.userSelect = "auto";

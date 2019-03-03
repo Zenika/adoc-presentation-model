@@ -1,4 +1,4 @@
-keyboard: { // Reserved : N SPACE P ← H → L ↑ K ↓ J Home End, B . Pause F ESC O S
+keyboard: { // Reserved : N SPACE P H L K J Left Right Up Down Home End, B . Pause F ESC O S
 	// List of codes here : https://keycode.info/
 	// TODO : Use API to show shortcuts in '?' : Reveal.registerKeyboardShortcut('V', 'View slide fragments');
 	34: function() { let {h, v} = Reveal.getIndices(); Reveal.slide(h, v, +Infinity); }, // 'PageDown' show all fragments

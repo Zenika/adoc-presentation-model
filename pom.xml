@@ -152,6 +152,7 @@
 						<require>asciidoctor-diagram</require>
 						<!-- block extension to include c3js (line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge) -->
 						<require>./src/docs/asciidoc/lib/c3js-block-macro.rb</require>
+						<require>./src/docs/asciidoc/lib/cloud-block-macro.rb</require>
 					</requires>
 					<attributes><!-- common to all backends -->
 						<icons>font</icons><!-- for Font Awesome icons -->
