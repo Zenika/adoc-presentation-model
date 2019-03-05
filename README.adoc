@@ -1,10 +1,8 @@
-= AsciiDoctor Maven Sample
+= AsciiDoctor Presentation Model
 
 :imagesdir: ./src/docs/asciidoc/images/
 
-A full AsciiDoctor/Maven extended example generating both HTML PDF and Reveal.js slides.
-
-This project is referenced in a best practices static site : https://bcouetil.gitlab.io/academy/
+An AsciiDoctor/Maven model to generate HTML PDF and/pr Reveal.js slides, in compliance with Zenika graphic charter.
 
 == Result
 
@@ -18,7 +16,9 @@ Java 8 has to be installed and available in the PATH.
 
 == Usage
 
-Simply run the maven command :
+Clone and create some adocs in `src/docs/asciidoc`.
+
+To generate run the maven command :
 
   ./mvnw
 
