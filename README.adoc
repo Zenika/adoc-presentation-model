@@ -2,7 +2,7 @@
 
 :imagesdir: ./src/docs/asciidoc/images/
 
-An AsciiDoctor/Maven model to generate HTML PDF and/pr Reveal.js slides, in compliance with Zenika graphic charter.
+An Asciidoc/Maven model to generate HTML PDF and/pr Reveal.js slides, in compliance with Zenika graphic charter.
 
 == Result
 
