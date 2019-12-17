@@ -8,15 +8,45 @@
 	<description>Extended Example for both AsciiDoctor PDF + HTML documentation generation</description>
 	<packaging>pom</packaging>
 
+	<!-- Changing one version can break everything, so read this carefully : -->
+	<!-- https://github.com/asciidoctor/asciidoctor-maven-examples/blob/master/asciidoc-to-revealjs-example/pom.xml -->
+
 	<properties>
 		<adoc.skip>false</adoc.skip>
+		<maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 		<project.slides.directory>${project.build.directory}/generated-docs</project.slides.directory>
-		<revealjs.version>3.7.0</revealjs.version>
-		<!-- Use 'master' as version and remove the 'v' prefixing the download url to use the current snapshot version -->
-		<asciidoctor-revealjs.version>master</asciidoctor-revealjs.version>
+		<asciidoctor.maven.plugin.version>2.0.0-RC.1</asciidoctor.maven.plugin.version>
+        <asciidoctorj.version>2.1.0</asciidoctorj.version>
+        <jruby.version>9.2.8.0</jruby.version>
+        <revealjs.version>3.8.0</revealjs.version>
+        <!-- Use 'master' as version and remove the 'v' prefixing the download url to use the current snapshot version  -->
+        <asciidoctor-revealjs.version>master</asciidoctor-revealjs.version>
 	</properties>
 
-	<dependencies />
+    <dependencies>
+        <dependency>
+            <groupId>rubygems</groupId>
+            <artifactId>asciidoctor-revealjs</artifactId>
+            <version>2.0.0</version>
+            <type>gem</type>
+            <!-- Avoid downloading gems included in AsciidoctorJ -->
+            <exclusions>
+                <exclusion>
+                    <groupId>rubygems</groupId>
+                    <artifactId>asciidoctor</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>rubygems</groupId>
+                    <artifactId>thread_safe</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>rubygems</groupId>
+                    <artifactId>concurrent-ruby</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
 	<build>
 
@@ -51,19 +81,6 @@
 				<version>1.3.0</version>
 				<executions>
 					<execution>
-						<id>install-asciidoctor-revealjs</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>wget</goal>
-						</goals>
-						<configuration>
-							<url>https://github.com/asciidoctor/asciidoctor-reveal.js/archive/${asciidoctor-revealjs.version}.zip</url>
-							<unpack>true</unpack>
-							<outputFileName>asciidoctor-reveal.js-${asciidoctor-revealjs.version}.zip</outputFileName>
-							<outputDirectory>${project.build.directory}</outputDirectory>
-						</configuration>
-					</execution>
-					<execution>
 						<id>install-revealjs</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -79,41 +96,65 @@
 				</executions>
 			</plugin>
 
+			<plugin>
+                <groupId>de.saumya.mojo</groupId>
+                <artifactId>gem-maven-plugin</artifactId>
+                <version>1.1.5</version>
+                <configuration>
+                    <jrubyVersion>${jruby.version}</jrubyVersion>
+                    <gemHome>${project.build.directory}/gems</gemHome>
+                    <gemPath>${project.build.directory}/gems</gemPath>
+                </configuration>
+                <executions>
+                    <!-- Install required gems in target directory -->
+                    <execution>
+                        <id>install-gems</id>
+                        <goals>
+                            <goal>initialize</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
 			<!-- to generate asciidoc Reveal.js + HTML + PDF documents -->
 			<!-- usage : mvn -->
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<!-- to increment versions, see pom.xml examples on Asciidoctor Github -->
-				<!-- 1.5.7 and 1.5.7.1 show too many warnings on PDF -->
-				<version>1.5.6</version>
+				<version>${asciidoctor.maven.plugin.version}</version>
 				<dependencies>
+
+					<dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                        <version>${jruby.version}</version>
+                    </dependency>
+                    <!-- Comment this section to use the default AsciidoctorJ artifact provided by the plugin -->
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj</artifactId>
+                        <version>${asciidoctorj.version}</version>
+                    </dependency>
 
 					<dependency>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctorj-pdf</artifactId>
-						<version>1.5.0-alpha.16</version>
+						<version>1.5.0-beta.7</version>
 					</dependency>
 
 					<dependency>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctorj-diagram</artifactId>
-						<version>1.5.9</version>
+						<version>1.5.18</version>
 					</dependency>
 
-					<!-- comment to use the default version -->
 					<dependency>
-						<groupId>org.jruby</groupId>
-						<artifactId>jruby-complete</artifactId>
-						<version>9.1.17.0</version>
+						<groupId>net.sourceforge.plantuml</groupId>
+						<artifactId>plantuml</artifactId>
+						<version>1.2019.5</version>
 					</dependency>
-
-					<!-- comment to use the default version -->
-					<!-- <dependency>
-						<groupId>org.asciidoctor</groupId>
-						<artifactId>asciidoctorj</artifactId>
-						<version>1.5.7</version>
-					</dependency> -->
 
 					<!-- install chrome-driver 
 						Win10 : choco install chromedriver
@@ -147,9 +188,11 @@
 					
 				</dependencies>
 				<configuration>
+					<gemPath>${project.build.directory}/gems</gemPath>
 					<sourceDirectory>src/docs/asciidoc</sourceDirectory>
 					<requires>
 						<require>asciidoctor-diagram</require>
+						<require>asciidoctor-revealjs</require>
 						<!-- block extension to include c3js (line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge) -->
 						<require>./src/docs/asciidoc/lib/c3js-block-macro.rb</require>
 						<require>./src/docs/asciidoc/lib/cloud-block-macro.rb</require>
@@ -171,8 +214,8 @@
 				<executions>
 					<execution>
 						<id>asciidoc-to-revealjs</id>
-						<!-- after html because it's also an html -->
 						<phase>generate-resources</phase>
+						<!-- <phase>none</phase> -->
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
@@ -206,6 +249,7 @@
 					<execution>
 						<id>asciidoc-to-html</id>
 						<phase>generate-resources</phase>
+						<!-- <phase>none</phase> -->
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
@@ -230,12 +274,13 @@
 					<execution>
 						<id>asciidoc-to-pdf</id>
 						<phase>generate-resources</phase>
+						<!-- <phase>none</phase> -->
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
 						<configuration>
 							<backend>pdf</backend>
-							<sourceHighlighter>rouge</sourceHighlighter>
+							<!-- <sourceHighlighter>rouge</sourceHighlighter> -->
 							<attributes>
 								<imagesdir>${project.build.directory}/generated-docs/images</imagesdir>
 								<toc />
@@ -278,6 +323,13 @@
 		</plugins>
 
 	</build>
+
+    <repositories>
+        <repository>
+            <id>rubygems-releases</id>
+            <url>http://rubygems-proxy.torquebox.org/releases</url>
+        </repository>
+    </repositories>
 
 </project>
 

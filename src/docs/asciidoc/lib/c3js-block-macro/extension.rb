@@ -86,6 +86,13 @@ class C3jsChartBuilder
     y_range = ((attrs.key? 'y-range') ? attrs['y-range'] : 'undefined_undefined').split("_")
     legend = (attrs.key? 'legend') ? attrs['legend'] : 'bottom'
 
+    # if (attrs['onclick'] == 'true')
+    #   onclick = ', onclick: function (d, i) { this.load({ columns: ['+raw_data[2].to_s+']});}'
+    #   raw_data = '[' + raw_data[0].to_s + ',' + raw_data[1].to_s + ']'
+    # else
+    #   onclick = ''
+    # end
+
     x_data = (axis_x_type == 'category') ? 'x: \'x\',' : ''
 
     # create the JS string

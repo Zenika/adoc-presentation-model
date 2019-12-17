@@ -468,6 +468,12 @@ span.hljs-comment, span.hljs-emphasis {
   padding-bottom: 0.25em;
 }
 
+/** to override a large space surrounding p's added in reveal.js 3.8.0 **/
+.reveal p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 /*********************************************
  * TITLE PAGE
  *********************************************/

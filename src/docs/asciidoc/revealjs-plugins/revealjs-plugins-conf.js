@@ -4,14 +4,14 @@ keyboard: { // Reserved : N SPACE P H L K J Left Right Up Down Home End, B . Pau
 	34: function() { let {h, v} = Reveal.getIndices(); Reveal.slide(h, v, +Infinity); }, // 'PageDown' show all fragments
 	33: function() { let {h, v} = Reveal.getIndices(); Reveal.slide(h, v, -1); }, // 'PageUp' show no fragment
 	73: function() { window.open("../index.html","_self") }, // 'i' to index page
-	76: function() { RevealSpotlight.toggleSpotlight() }, // Spotlight : alternative to toggleSpotlightOnMouseDown toggle spotlight by pressing key 'c'
-	// 80: function() { RevealSpotlight.togglePresentationMode(); }, // Spotlight : 'p' enter/leave presentation mode
-	78: function() { RevealChalkboard.toggleNotesCanvas() }, // toggle notes canvas when 'n' is pressed
-	67: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'c' is pressed
-	46: function() { RevealChalkboard.clear() }, // clear chalkboard when 'DEL' is pressed
-	 8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-	68: function() { RevealChalkboard.download() },	// download recorded chalkboard drawing when 'd' is pressed
-}, 
+	76: function() { RevealSpotlight.toggleSpotlight() }, // 'L' : Spotlight key, alternative to click
+	88: function() { RevealSpotlight.togglePresentationMode(); }, // X : toggle presentation mode
+	78: function() { RevealChalkboard.toggleNotesCanvas() }, // N : toggle notes canvas
+	67: function() { RevealChalkboard.toggleChalkboard() },	// C : toggle chalkboard
+	46: function() { RevealChalkboard.clear() }, // DEL : clear chalkboard
+	 8: function() { RevealChalkboard.reset() }, // BASKSPACE : reset chalkboard data on current slide
+	68: function() { RevealChalkboard.download() },	// D : download recorded chalkboard drawing
+},
 //
 // CHALKBOARD PLUGIN https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
 //
@@ -29,7 +29,7 @@ notes_pointer: {
 	pointer: {
 		size: 15,  // in pixels (scaled like the rest of reveal.js)
 		color: 'rgba(239,82,91,0.8)',  // something valid for css background-color
-		key: 'P' // '.' does not work
+		key: 'O' // '.' does not work
 	},
 	notes: {
 		key: 'S'
@@ -41,8 +41,12 @@ notes_pointer: {
 spotlight: {
 	size: 120, // size of the spotlight
 	lockPointerInsideCanvas: false, // true: Locks the mouse pointer inside the presentation
-	toggleSpotlightOnMouseDown: false, // toggle spotlight by holding down the mouse key
-	presentingCursor: 'none', // choose the cursor when spotlight is on. Maybe "crosshair"?. Does not draw cursor in presentation mode
+	toggleSpotlightOnMouseDown: true, // toggle spotlight by holding down the mouse key
+	spotlightCursor: 'none', // choose the cursor when spotlight is on
+	presentingCursor: 'crosshair', // choose the cursor when presentation mode / spotlight is on
+	initialPresentationMode: false, // true : initially in presentation mode
+	disablingUserSelect: true, // true : disable selecting in presentation mode
+	fadeInAndOut: 100, // set to a number as transition duration in ms to enable fade in and out
 	useAsPointer: false, // enable pointer mode
 },
 //
@@ -68,8 +72,8 @@ menu: {
 		</li>
 		<li class="slide-menu-item">
 			<h3>Notes Pointer / Spotlight</h3>
-			<p>P : Toggle pointer on/off</p>
-			<p>L : Toggle spotlight on/off</p>
+			<p>O : Toggle pointer on/off</p>
+			<p>L or (X then LEFT CLICK) : Toggle spotlight on/off</p>
 		</li>
 		<li class="slide-menu-item">
 			<h3>Skip fragments</h3>

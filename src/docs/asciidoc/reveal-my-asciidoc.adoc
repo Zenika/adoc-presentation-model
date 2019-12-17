@@ -1,7 +1,6 @@
 = Reveal my Asciidoc : a deep dive into presentation-as-code
 {localdate} - Benoit COUETIL
 :title-logo-image: image:{root-project-dir}/src/docs/asciidoc/themes/logo-zenika.png[pdfwidth=3in,align=left]
-//:example-caption!:
 
 ifndef::imagesdir[:imagesdir: ../../../target/generated-docs/images]
 
@@ -40,7 +39,7 @@ The standard Asciidoctor / Reveal.js include the Zoom plugin with `Alt+Click`.
 
 Some plugins have been added in the toolbox, see menu for shortcuts :
 
-* link:https://github.com/denehyg/reveal.js-menu[Reveal.js Menu plugin] with icon:bars[] to navigate through the ToC, view keyboard shortcuts, change theme and transitions.
+* link:https://github.com/denehyg/reveal.js-menu[Menu plugin] with icon:bars[] to navigate through the ToC, view keyboard shortcuts, change theme and transitions.
 * link:https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard[Chalkboard plugin], with icon:pencil-square-o[] to display a chalkboard and icon:pencil-alt[] to write directly on slides.
 * link:https://github.com/e-gor/Reveal.js-Title-Footer[Title Footer plugin] to display the title at the top.
 * link:https://github.com/dougalsutherland/reveal.js-notes-pointer[Notes Pointer plugin] to point both on speaker notes and presentation window.
@@ -57,14 +56,19 @@ It's based on C3JS, a layer on D3JS to draw charts easily, with nice mouseover a
 Here are some examples.
 
 ////
+  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
+  # height = 500 : whole chart height in pixels
+  # width = 1000 : whole chart width in pixels
   # data-labels = false : Show labels on each data points.
   # x-type = indexed : timeseries/category/indexed
   # x-tick-angle = 0 : Rotate x axis tick text.
-  # height = 500
-  # width = 1000
+  # x-label = undefined : label of x axis
+  # y-label = undefined : label of y axis
+  # y-range = undefined_undefined : y axis min and max values separated by '_'
   # horizontal = false : rotate x & y
-  # type = line : line/spline/step/area/area-spline/area-step/bar/scatter/pie/donut/gauge
   # order = desc : desc/asc/null
+  # hide = false : hide data before click on legend
+  # legend = bottom : legend position bottom/right/inset
 ////
 
 === Pie chart
@@ -227,9 +231,14 @@ c3.generate({
 <<<
 == Word-cloud-as-code
 
+// [cloud]
+// ....
+// DevOps,Q.V.T.,Efficience du delivery,Dev eXp,Agnostic Agile,Cloud,K.I.S.S.,Continuous Everything,Everything-As-Code,Mgmt 3.0
+// ....
+
 [cloud]
 ....
-Efficience du Delivery,Management 3.0,DevOps,Audit,Arkéa,Connaissance,Agilité,Maturité,Géants du Web,Open Source,Time To Market,Q.V.T.,Culture,Organisation,Investissement,Gagnant/gagnant,Incertitude,Complexité
+Continuous-Everything, Keep It Simple Stupid, Everything-As-Code, Don't Repeat Yourself, You build it You run it, Separation of concerns, Shift left, 80% of effects from 20% of causes, You Ain't Gonna Need It, Fail fast, What is measured improves, Culture Automation Lean Measurement Sharing, Value over cost
 ....
 
 === Source
@@ -566,6 +575,87 @@ State3 --> [*] : Aborted
 ....
 ----
 
+[.maxed-image]
+=== Work Breakdown Structure
+
+[plantuml, wbs, svg]     
+....
+@startwbs
+* Business Process Modelling WBS
+** Launch the project
+*** Stakeholder Research
+*** Implementation Plan
+** Design phase
+*** AsIs Processes Completed
+****< AsIs Processes Completed1
+****> AsIs Processes Completed2
+***< AsIs performance metrics
+***< Identify Quick Wins
+@endwbs
+....
+
+[.maxed-image]
+=== Timing diagram
+
+[plantuml, timing, svg]     
+....
+'skinparam backgroundColor white # does not work
+
+robust "Web Browser" as WB
+concise "Web User" as WU
+
+WB is Initializing
+WU is Absent
+
+@WB
+0 is idle
++200 is Processing
++100 is Waiting
+WB@0 <-> @50 : {50 ms lag}
+
+@WU
+WU -> WB : URL
+0 is Waiting #white
++500 is ok #white
+@200 <-> @+150 : {150 ms}
+....
+
+[.maxed-image]
+=== Mind Map
+
+[plantuml, mindmap, svg]     
+....
+@startmindmap
+* Debian
+** Ubuntu
+*** Linux Mint
+*** Kubuntu
+*** Lubuntu
+*** KDE Neon
+** LMDE
+** SolydXK
+** SteamOS
+** Raspbian with a very long name
+*** <s>Raspmbc</s> => OSMC
+*** <s>Raspyfi</s> => Volumio
+@endmindmap
+....
+
+// NOT WORKING FOR NOW 05/2019, update plantUml dependency later
+
+// [.maxed-image]
+// === Gantt diagram
+
+// [plantuml, gantt, svg]     
+// ....
+// @startgantt
+// [Test prototype] lasts 10 days
+// [Prototype completed] happens at [Test prototype]'s end
+// [Setup assembly line] lasts 12 days
+// [Setup assembly line] starts at [Test prototype]'s end
+// @endgantt
+// ....
+
 <<<
 == Timeline-as-code
 
@@ -663,9 +753,7 @@ TIP: You can skip fragments with `PageDown` / `PageUp`.
 [.big-image]
 == Meme-as-code
 
-//For now, does not work under gitlab-ci, so we show a pre-generated image
-//meme::images/dont-reboot-it-just-patch.jpg[don't rollback it,just flip]
-image::dont-rollback-it-just-flip.png[]
+meme::images/dont-reboot-it-just-patch.jpg[don't rollback it,just flip]
 
 [source,asciidoc]
 ----
