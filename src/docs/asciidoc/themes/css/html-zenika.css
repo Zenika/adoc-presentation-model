@@ -119,6 +119,11 @@ b.button::before, b.button::after {
   font-size: small;
 }
 
+/* don't display speaker notes in HTML backend */
+.sidebarblock.notes {
+  display: none;
+}
+
 /****************
 C3JS
 *****************/

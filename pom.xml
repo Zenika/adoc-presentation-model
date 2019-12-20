@@ -229,7 +229,7 @@
 								<revealjsdir>../reveal.js-${revealjs.version}</revealjsdir>
 								<!-- default closest to Zenika's graphic chart : -->
 								<!-- <revealjs_theme>blood</revealjs_theme> -->
-								<revealjs_customtheme>themes/css/reveal-code-php-dark.css</revealjs_customtheme>
+								<revealjs_customtheme>themes/css/reveal-containers-dark.css</revealjs_customtheme>
 								<!-- none, fade, slide, convex, concave, zoom -->
 								<!-- dynamic : PRES-asciidoc.html?transition=convex -->
 								<revealjs_transition>slide</revealjs_transition>
@@ -243,6 +243,7 @@
 								<docinfo>shared</docinfo>
 								<toc>macro</toc>
 								<toclevels>1</toclevels>
+								<revealjs_plugin_pdf/><!-- fixes '?print-pdf' -->
 							</attributes>
 						</configuration>
 					</execution>
@@ -283,12 +284,13 @@
 							<!-- <sourceHighlighter>rouge</sourceHighlighter> -->
 							<attributes>
 								<imagesdir>${project.build.directory}/generated-docs/images</imagesdir>
-								<toc />
-								<toclevels>3</toclevels>
-								<sectnums/><!-- for sections to be numbered -->
-								<pagenums />
 								<pdf-style>${user.dir}/src/docs/asciidoc/themes/pdf-theme.yml</pdf-style>
 								<pdf-fontsdir>${user.dir}/src/docs/asciidoc/themes/fonts/pdf</pdf-fontsdir>
+								<title-page/><!-- recently title page has been deactivated by default -->
+								<toc/><!-- table of content -->
+								<toclevels>3</toclevels>
+								<pagenums/><!-- for pages to be numbered -->
+								<sectnums/><!-- for sections to be numbered -->
 							</attributes>
 						</configuration>
 					</execution>
