@@ -3,24 +3,31 @@ keyboard: { // Reserved : N SPACE P H L K J Left Right Up Down Home End, B . Pau
 	// TODO : Use API to show shortcuts in '?' : Reveal.registerKeyboardShortcut('V', 'View slide fragments');
 	34: function() { let {h, v} = Reveal.getIndices(); Reveal.slide(h, v, +Infinity); }, // 'PageDown' show all fragments
 	33: function() { let {h, v} = Reveal.getIndices(); Reveal.slide(h, v, -1); }, // 'PageUp' show no fragment
-	73: function() { window.open("../index.html","_self") }, // 'i' to index page
+	73: function() { window.open("../index.html","_self") }, // 'I' to index page
 	76: function() { RevealSpotlight.toggleSpotlight() }, // 'L' : Spotlight key, alternative to click
-	88: function() { RevealSpotlight.togglePresentationMode(); }, // X : toggle presentation mode
-	78: function() { RevealChalkboard.toggleNotesCanvas() }, // N : toggle notes canvas
-	67: function() { RevealChalkboard.toggleChalkboard() },	// C : toggle chalkboard
-	46: function() { RevealChalkboard.clear() }, // DEL : clear chalkboard
-	 8: function() { RevealChalkboard.reset() }, // BASKSPACE : reset chalkboard data on current slide
-	68: function() { RevealChalkboard.download() },	// D : download recorded chalkboard drawing
+	88: function() { RevealSpotlight.togglePresentationMode(); }, // 'X' : toggle presentation mode
+	78: function() { RevealChalkboard.toggleNotesCanvas() }, // 'N' : toggle notes canvas
+	67: function() { RevealChalkboard.toggleChalkboard() },	// 'C' : toggle chalkboard
+	46: function() { RevealChalkboard.clear() }, // 'DEL' : clear chalkboard
+	 8: function() { RevealChalkboard.reset() }, // 'BASKSPACE' : reset chalkboard data on current slide
+	68: function() { RevealChalkboard.download() },	// 'D' : download recorded chalkboard drawing
+	90: function() { RevealChalkboard.colorNext() }, // 'Z' : cycle colors forward
+	65: function() { RevealChalkboard.colorPrev() }, // 'A' : cycle colors backward
 },
 //
 // CHALKBOARD PLUGIN https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard
 //
 chalkboard: { 
+	penWidth: 3,
+    chalkWidth: 4,
+    chalkEffect: 0.1,
+    erasorDiameter: 20,
 	readOnly: false, // Configuation option allowing to prevent changes to existing drawings.
 	transition: 800, // Gives the duration (in milliseconds) of the transition for a slide change, so that the notes canvas is drawn after the transition is completed.
 	theme: "chalkboard", // Can be set to either "chalkboard" or "whiteboard".
 	color: [ 'rgba(150,150,150,1)', 'rgba(255,255,255,0.5)' ], // The first value gives the pen color, the second value gives the color of the chalk.
-	background: [ 'rgba(141,191,68,.1)', 'revealjs-plugins/chalkboard/img/blackboard.png' ] // The first value expects a (semi-)transparent color which is used to provide visual feedback that the notes canvas is enabled, the second value expects a filename to a background image for the chalkboard.
+	background: [ 'rgba(141,191,68,.1)', 'revealjs-plugins/chalkboard/img/blackboard.png' ], // The first value expects a (semi-)transparent color which is used to provide visual feedback that the notes canvas is enabled, the second value expects a filename to a background image for the chalkboard.
+	grid: false, // This pattern can be modified by setting the color, the distance between lines, and the line width, e.g. { color: 'rgb(127,127,255,0.1)', distance: 40, width: 2}
 },
 //
 // NOTES POINTER PLUGIN https://github.com/dougalsutherland/reveal.js-notes-pointer
@@ -84,6 +91,8 @@ menu: {
 			<h3>Chalkboard</h3>
 			<p>N : Notes canvas on/off</p>
 			<p>C : Chalkboard on/off</p>
+			<p>Z : Cycle pen colors forward</p>
+			<p>A : Cycle pen colors backward</p>
 			<p>DEL : Clear canvas/chalkboard</p>
 			<p>BASCKSPACE : Reset chalkboard data on current slide</p>
 			<p>D : Download drawing as JSON</p>
@@ -120,26 +129,19 @@ menu: {
 		{ name: 'security-binary-lock', theme: 'themes/css/reveal-security-binary-lock.css' },
 		{ name: 'zenika-algeria-timgad', theme: 'themes/css/reveal-zenika-algeria-timgad.css' },
 		{ name: 'zenika-argentina-perito-moreno', theme: 'themes/css/reveal-zenika-argentina-perito-moreno.css' },
-		{ name: 'zenika-bali-river', theme: 'themes/css/reveal-zenika-bali.css' },
 		{ name: 'zenika-brest-sea', theme: 'themes/css/reveal-zenika-brest-sea.css' },
-		{ name: 'zenika-cambodia-relax', theme: 'themes/css/reveal-zenika-cambodia-relax.css' },
+		{ name: 'zenika-helm-boat', theme: 'themes/css/reveal-zenika-helm-boat.css' },
 		{ name: 'zenika-iceland-blocks', theme: 'themes/css/reveal-zenika-iceland-blocks.css' },
-		{ name: 'zenika-iceland-waterfall-shirt', theme: 'themes/css/reveal-zenika-iceland-waterfall-shirt.css' },
 		{ name: 'zenika-iceland-waterfall-zenikanard', theme: 'themes/css/reveal-zenika-iceland-waterfall-zenikanard.css' },
 		{ name: 'zenika-iceland-white', theme: 'themes/css/reveal-zenika-iceland-white.css' },
 		{ name: 'zenika-japan-roe', theme: 'themes/css/reveal-zenika-japan-biche.css' },
 		{ name: 'zenika-japan-fujisan', theme: 'themes/css/reveal-zenika-japan-fujisan.css' },
 		{ name: 'zenika-japan-garden', theme: 'themes/css/reveal-zenika-japan-garden.css' },
-		{ name: 'zenika-las-vegas', theme: 'themes/css/reveal-zenika-usa-city.css' },
 		{ name: 'zenika-ocean-boats', theme: 'themes/css/reveal-zenika-ocean-boats.css' },
-		{ name: 'zenika-patagonia', theme: 'themes/css/reveal-zenika-patagonia.css' },
 		{ name: 'zenika-pilat-back', theme: 'themes/css/reveal-zenika-pilat-back.css' },
-		{ name: 'zenika-pilat-black-bag', theme: 'themes/css/reveal-zenika-pilat-black-bag.css' },
-		{ name: 'zenika-pompei', theme: 'themes/css/reveal-zenika-pompei.css' },
 		{ name: 'zenika-rock-climbing', theme: 'themes/css/reveal-zenika-rock-climbing.css' },
 		{ name: 'zenika-thailand-back', theme: 'themes/css/reveal-zenika-thailand-back.css' },
 		{ name: 'zenika-thailand-shirt', theme: 'themes/css/reveal-zenika-thailand-shirt.css' },
-		{ name: 'zenika-vietnam-flag', theme: 'themes/css/reveal-zenika-vietnam-flag.css' },
 		{ name: '########## dark ##########', theme: 'themes/css/reveal-zenika-dark.css' },
 		{ name: 'code-html-green', theme: 'themes/css/reveal-code-html-green.css' },
 		{ name: 'code-html-pink', theme: 'themes/css/reveal-code-html-pink.css' },
@@ -148,7 +150,6 @@ menu: {
 		{ name: 'containers-dark', theme: 'themes/css/reveal-containers-dark.css' },
 		{ name: 'matrix-cuneiform', theme: 'themes/css/reveal-matrix-cuneiform.css' },
 		{ name: 'zenika-cambodia-sunset', theme: 'themes/css/reveal-zenika-cambodia-sunset.css' },
-		{ name: 'zenika-greece-beach', theme: 'themes/css/reveal-zenika-greece-beach.css' },
 		{ name: 'zenika-japan-shibuya', theme: 'themes/css/reveal-zenika-japan-shibuya.css' },
 		{ name: 'zenika-japan-street-old', theme: 'themes/css/reveal-zenika-japan-street-old.css' },
 		{ name: 'zenika-japan-table', theme: 'themes/css/reveal-zenika-japan-table.css' },

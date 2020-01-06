@@ -188,7 +188,7 @@ var RevealNotes = (function() {
         pointer.style.marginTop = '-' + Math.round(s / 2) + 'px';
         pointer.style.backgroundColor = pointer_options.color || 'rgba(255, 0, 0, 0.8)';
         pointer.style.borderRadius = '50%';
-        pointer.style.zIndex = 20;
+        pointer.style.zIndex = 10000; // bugged on Firefox (pointer behind some slides) but works fine on Chrome 
         pointer.style.display = 'none';
         slides.appendChild(pointer);  // a *slides* element, so position scales
 
