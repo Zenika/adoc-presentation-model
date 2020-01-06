@@ -1,12 +1,3 @@
-# Eclipse
-.classpath
-.project
-**.log
-.settings/
-
-# VS Code
-.factorypath
 .vscode/
-
-# Maven
-target/
+.settings/
+build-docs/

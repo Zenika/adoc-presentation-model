@@ -1,7 +1,0 @@
-@import "reveal-zenika-dark.css";
-
-body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              bottom url('../backgrounds/greece-beach.jpg');
-  background-size: cover, cover;
-}

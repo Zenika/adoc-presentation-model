@@ -1,27 +1,31 @@
 = AsciiDoctor Presentation Model
 
-:imagesdir: ./src/docs/asciidoc/images/
+:imagesdir: ./docs/guides/images/
 
-An Asciidoc/Maven model to generate HTML PDF and/pr Reveal.js slides, in compliance with Zenika graphic charter.
+image:https://circleci.com/gh/Zenika/adoc-presentation-model.svg?style=shield&circle-token=26dfc3c8f4f3584b25f57e3bf317ed2a239b2dc4["CircleCI", link="https://circleci.com/gh/Zenika/adoc-presentation-model"]
+
+An Asciidoc model to generate HTML PDF and/or Reveal.js slides, in compliance with Zenika graphic charter.
 
 == Result
 
-This tool chain generates, as Reveal.js slides, the https://bcouetil.gitlab.io/academy/sample/reveal/asciidoc-syntax-quick-reference.html[Syntax Quick Reference] and https://bcouetil.gitlab.io/academy/sample/reveal/reveal-my-asciidoc.html[advanced capabilities of Asciidoctor with Reveal.js]. PDF, HTML and source are linked within these presentations.
+This tool chain generates, as Reveal.js slides, the https://zenika.github.io/adoc-presentation-model/reveal/syntax-quick-reference.html[Syntax Quick Reference] and https://zenika.github.io/adoc-presentation-model/reveal/reveal-my-asciidoc.html[advanced capabilities of Asciidoctor with Reveal.js]. PDF, HTML and source are linked within these presentations.
 
 image::screenshot.jpg[width=600]
 
-== Prerequisites
+== Generation
 
-Java 8 has to be installed and available in the PATH.
+Generation is based on link:https://hub.docker.com/r/asciidoctor/docker-asciidoctor/dockerfile[Asciidoctor Docker Image].
 
-== Usage
+Slides, HTML and PDF are generated in `build-docs`.
 
-Clone and create some adocs in `src/docs/asciidoc`.
+WARNING: Target folder is cleaned each time to ensure update of generated content
 
-To generate run the maven command :
+Run this command on a given folder :
 
-  ./mvnw
+  ./generate.sh guides
 
-Or if you want automatic rebuild on file change :
+Or run this to generate all :
 
-  ./mvnw fizzed-watcher:run
+  ./generate.sh
+
+NOTE: This script is also used by CircleCI
