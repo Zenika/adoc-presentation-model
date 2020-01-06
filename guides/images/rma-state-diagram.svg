@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="560px" preserveAspectRatio="none" style="width:861px;height:560px;" version="1.1" viewBox="0 0 861 560" width="861px" zoomAndPan="magnify"><defs/><g><ellipse cx="789.8935" cy="33" fill="#B30C37" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#8DBF44" height="50" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="88" x="656.8935" y="8"/><line style="stroke: #FFFFFF; stroke-width: 1.5;" x1="656.8935" x2="744.8935" y1="38.9531" y2="38.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="68" x="666.8935" y="29.708">State1</text><rect fill="#8DBF44" height="50" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="88" x="346.8935" y="8"/><line style="stroke: #FFFFFF; stroke-width: 1.5;" x1="346.8935" x2="434.8935" y1="38.9531" y2="38.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="68" x="356.8935" y="29.708">State2</text><ellipse cx="390.8935" cy="539" fill="none" rx="10" ry="10" style="stroke: #B30C37; stroke-width: 1.0;"/><ellipse cx="391.3935" cy="539.5" fill="#B30C37" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/><rect fill="#8DBF44" height="306.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="446" x="167.8935" y="140"/><rect fill="#FFFFFF" height="270" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.0;" width="440" x="170.8935" y="173.9531"/><line style="stroke: #FFFFFF; stroke-width: 1.5;" x1="167.8935" x2="613.8935" y1="170.9531" y2="170.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="68" x="356.8935" y="161.708">State3</text><rect fill="#8DBF44" height="82.8594" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="275" x="178.8935" y="240.9531"/><line style="stroke: #FFFFFF; stroke-width: 1.5;" x1="178.8935" x2="453.8935" y1="292.8594" y2="292.8594"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="255" x="188.8935" y="262.6611">Accumulate Enough Data</text><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="173" x="229.8935" y="283.6143">Long State Name</text><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="105" x="183.8935" y="314.5674">Just a test</text><ellipse cx="316.3935" cy="193.9531" fill="#B30C37" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/><rect fill="#8DBF44" height="50" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="147" x="242.8935" y="381.9531"/><line style="stroke: #FFFFFF; stroke-width: 1.5;" x1="242.8935" x2="389.8935" y1="412.9063" y2="412.9063"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="127" x="252.8935" y="403.6611">ProcessData</text><!--link *start*State3 to long1--><path d="M316.3935,204.1052 C316.3935,212.0506 316.3935,223.7176 316.3935,235.6339 " fill="none" id="*start*State3-long1" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="316.3935,240.746,320.3935,231.746,316.3935,235.746,312.3935,231.746,316.3935,240.746" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link long1 to long1--><path d="M454.1388,273.8853 C465.1071,275.7593 471.8935,278.6152 471.8935,282.4531 C471.8935,285.6314 467.2394,288.1362 459.4105,289.9676 " fill="none" id="long1-long1" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="454.1388,291.0209,463.7481,293.1799,459.0419,290.0412,462.1806,285.335,454.1388,291.0209" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="97" x="477.8935" y="289.1611">New Data</text><!--link long1 to ProcessData--><path d="M316.3935,324.2561 C316.3935,341.3923 316.3935,360.8539 316.3935,376.5909 " fill="none" id="long1-ProcessData" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="316.3935,381.7762,320.3935,372.7762,316.3935,376.7762,312.3935,372.7762,316.3935,381.7762" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="130" x="317.3935" y="359.6611">Enough Data</text><!--link State1 to *start--><path d="M750.1947,33 C760.0407,33 769.8867,33 779.7327,33 " fill="none" id="State1-*start" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="745.0459,33,754.0459,37,750.0459,33,754.0459,29,745.0459,33" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link State2 to State1--><path d="M440.2643,33 C499.853,33 599.1696,33 656.4575,33 " fill="none" id="State2-State1" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="434.9797,33,443.9797,37,439.9797,33,443.9797,29,434.9797,33" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="110" x="490.8935" y="25.708">Succeeded</text><!--link State1 to *end--><path d="M712.2678,58.133 C742.0137,128.0535 813.7425,327.5524 722.8935,447 C683.0014,499.4498 465.8125,529.7687 406.095,537.1959 " fill="none" id="State1-*end" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="401.1275,537.8058,410.5479,540.679,406.0902,537.1964,409.5729,532.7387,401.1275,537.8058" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="767.8935" y="300.208">Aborted</text><!--link State2 to State3--><path d="M390.8935,58.4521 C390.8935,77.3923 390.8935,105.0113 390.8935,134.7125 " fill="none" id="State2-State3" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="390.8935,139.8869,394.8935,130.8869,390.8935,134.8869,386.8935,130.8869,390.8935,139.8869" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="110" x="391.8935" y="105.708">Succeeded</text><!--link State2 to *end--><path d="M346.8301,41.0161 C266.2328,56.6719 100.2526,93.8521 66.8935,140 C-13.0407,250.5785 -15.3615,338.1368 66.8935,447 C105.6527,498.2972 316.9013,529.3513 375.6992,537.0884 " fill="none" id="State2-*end" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="380.9025,537.7642,372.4928,532.6381,375.9442,537.1201,371.4622,540.5714,380.9025,537.7642" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="67.8935" y="300.208">Aborted</text><!--link State3 to State3--><path d="M614.2631,264.2123 C635.4764,270.1915 648.8935,279.9541 648.8935,293.5 C648.8935,305.9876 637.4909,315.26 619.0895,321.3171 " fill="none" id="State3-State3" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="614.2631,322.7877,624.0382,323.9907,619.046,321.3303,621.7064,316.3381,614.2631,322.7877" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="61" x="654.8935" y="300.208">Failed</text><!--link State3 to *end--><path d="M319.4948,447.2315 C316.5083,457.1743 313.924,467.1486 311.8935,477 C309.9197,486.5765 306.7741,490.6696 311.8935,499 C325.8725,521.7468 357.2432,532.0398 375.9747,536.3077 " fill="none" id="State3-*end" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="380.8978,537.357,372.9295,531.5685,376.0077,536.3146,371.2616,539.3927,380.8978,537.357" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="110" x="312.8935" y="494.708">Succeeded</text><!--link State3 to *end--><path d="M437.049,447.1266 C436.9851,464.9039 434.3372,482.5444 427.8935,499 C422.9729,511.566 412.0468,522.5483 403.3363,529.8098 " fill="none" id="State3-*end-1" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="399.2742,533.0663,408.7982,530.5576,403.1753,529.9388,403.7941,524.3159,399.2742,533.0663" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="434.8935" y="494.708">Aborted</text><!--
+@startuml
+
+
+
+
+skinparam backgroundColor transparent
+skinparam defaultFontColor #519BC8
+skinparam defaultFontSize 18
+skinparam defaultFontStyle bold
+skinparam arrowColor #519BC8
+skinparam arrowThickness 2
+skinparam shadowing false
+
+skinparam note {
+    backgroundColor #888888
+    fontColor white
+    borderColor white
+}
+skinparam actor {
+    borderColor #EF525B
+    backgroundColor #EF525B
+    fontColor #EF525B
+}
+skinparam agent {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam database {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+} 
+skinparam rectangle {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam cloud {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam folder {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam package {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam frame {
+    borderColor black
+    backGroundcolor white
+    fontColor 888888
+}
+skinparam component {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam artifact {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam node {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam queue {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam file {
+    borderColor white
+    backGroundcolor #888888
+    fontColor white
+}
+skinparam storage {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam interface {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam boundary {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam entity {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam control {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam sequence {
+    ParticipantFontColor white
+    ParticipantBackgroundColor #8DBF44
+    ParticipantBorderColor white
+	LifeLineBorderColor #888888
+	LifeLineBorderThickness 2
+    DividerFontColor #555555
+    DividerBorderColor #888888
+    DividerBackGroundcolor #EEEEEE
+    GroupHeaderFontColor #555555
+    GroupBorderColor #888888
+    GroupBackGroundcolor #EEEEEE
+}
+skinparam usecase {
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+}
+skinparam activity {
+    startColor #B30C37
+    endColor #B30C37
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+    diamondBackgroundColor #EEEEEE
+    diamondBorderColor #888888
+    diamondFontColor #888888
+}
+skinparam class {
+    fontColor white
+    backgroundColor white
+    borderColor #8DBF44
+    headerBackgroundColor #8DBF44
+    headerFontColor #8DBF44
+    stereotypeBorderColor #B11E3E
+}
+skinparam stereotype {
+    cBackgroundColor physical
+    cBorderColor white
+    eBackgroundColor pink
+    eBorderColor white
+    iBackgroundColor moccasin
+    iBorderColor white
+    aBackgroundColor lavender
+    aBorderColor white
+}
+skinparam state {
+    attributeFontColor white
+    backgroundColor #8DBF44
+    fontColor white
+    borderColor white
+    startColor #B30C37
+    endColor #B30C37
+}
+[*] -left-> State1
+State1 -left-> State2 : Succeeded
+State1 - -> [*] : Aborted
+State2 - -> State3 : Succeeded
+State2 - -> [*] : Aborted
+state State3 {
+  state "Accumulate Enough Data\nLong State Name" as long1
+  long1 : Just a test
+  [*] - -> long1
+  long1 - -> long1 : New Data
+  long1 - -> ProcessData : Enough Data
+}
+State3 - -> State3 : Failed
+State3 - -> [*] : Succeeded
+State3 - -> [*] : Aborted
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 GMT 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-b10
+Operating System: Linux
+OS Version: 4.4.0-96-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

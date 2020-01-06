@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="351px" preserveAspectRatio="none" style="width:734px;height:351px;" version="1.1" viewBox="0 0 734 351" width="734px" zoomAndPan="magnify"><defs/><g><!--cluster Some Group--><polygon fill="#EEEEEE" points="14,16,143,16,150,42.9531,529,42.9531,529,96,14,96,14,16" style="stroke: #888888; stroke-width: 1.5;"/><line style="stroke: #888888; stroke-width: 1.5;" x1="14" x2="150" y1="42.9531" y2="42.9531"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="123" x="18" y="34.708">Some Group</text><!--cluster Other Groups--><rect fill="#EEEEEE" height="80" style="stroke: #888888; stroke-width: 1.5;" width="285" x="67" y="150"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="137" x="141" y="168.708">Other Groups</text><path d="M380.1011,182.591 C383.0762,176.0767 387.278,176.5972 391.4917,181.3375 C394.7538,173.9665 399.8698,173.6705 405.46,178.7192 C408.0179,173.5701 412.4864,171.899 416.5724,177.0746 C419.2615,170.3039 425.14,171.0695 428.6194,176.2799 C430.7862,169.6325 437.1125,166.7099 442.23,173.2298 C446.9827,167.64 452.7138,169.0192 454.5131,176.0942 C459.036,171.5719 463.657,172.2321 466.7977,177.7802 C471.4585,172.3994 475.8622,173.4367 478.647,179.6907 C483.1689,174.072 487.6592,174.1325 490.7439,181.0748 C495.0457,175.6936 499.1669,176.0048 503.3914,181.1674 C515.5729,184.9689 519.0638,192.8106 510.1138,203.0914 C516.5147,211.4454 516.9926,219.199 504.9159,222.6396 C501.4988,230.8454 496.671,231.4133 490.7401,225.0928 C486.5902,230.3115 482.415,230.2823 478.5645,224.7537 C476.4309,231.6746 472.5137,232.4549 467.2808,227.7658 C464.4208,233.6967 459.3274,235.6324 454.8506,229.421 C450.4924,235.1917 445.6719,236.4646 441.0504,229.7112 C437.8023,234.8458 432.7095,234.3217 429.6616,229.4824 C424.9743,233.3192 420.9222,234.0451 418.2824,227.284 C413.4912,233.6684 408.9416,232.5386 404.9245,226.4547 C399.7897,230.4896 395.9712,228.979 393.4292,223.3656 C389.4058,228.1506 383.7987,228.8748 381.0191,222.0375 C371.6427,216.3607 369.2728,209.9777 378.0505,201.6566 C370.3645,194.3369 369.9103,187.9881 380.1011,182.591 " fill="#EEEEEE" style="stroke: #888888; stroke-width: 1.5;"/><!--cluster MySql--><path d="M521,114 C521,104 620.5,104 620.5,104 C620.5,104 720,104 720,114 L720,329 C720,339 620.5,339 620.5,339 C620.5,339 521,339 521,329 L521,114 " fill="#519BC8" style="stroke: #FFFFFF; stroke-width: 1.5;"/><path d="M521,114 C521,124 620.5,124 620.5,124 C620.5,124 720,124 720,114 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="62" x="589.5" y="142.708">MySql</text><!--cluster This is my folder--><polygon fill="#EEEEEE" points="529,150,702,150,709,176.9531,712,176.9531,712,230,529,230,529,150" style="stroke: #888888; stroke-width: 1.5;"/><line style="stroke: #888888; stroke-width: 1.5;" x1="529" x2="709" y1="176.9531" y2="176.9531"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="167" x="533" y="168.708">This is my folder</text><!--cluster Foo--><rect fill="#FFFFFF" height="80" style="stroke: #000000; stroke-width: 1.5;" width="118" x="531" y="251"/><path d="M577,252 L577,264.9531 L567,274.9531 L531,274.9531 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="36" x="534" y="268.708">Foo</text><!--entity HTTP--><ellipse cx="254" cy="67.5" fill="#EF525B" rx="8" ry="8" style="stroke: #B30C37; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="53" x="227.5" y="101.208">HTTP</text><!--entity First Component--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="188" x="22" y="47"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="17" y="52"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="17" y="77.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="168" x="32" y="73.708">First Component</text><!--entity Another Component--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="223" x="298.5" y="47"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="293.5" y="52"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="293.5" y="77.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="203" x="308.5" y="73.708">Another Component</text><!--entity FTP--><ellipse cx="84" cy="201.5" fill="#EF525B" rx="8" ry="8" style="stroke: #B30C37; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="37" x="65.5" y="235.208">FTP</text><!--entity Second Component--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="215" x="128.5" y="181"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="123.5" y="186"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="123.5" y="211.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="195" x="138.5" y="207.708">Second Component</text><!--entity Example 1--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="124" x="379" y="181"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="374" y="186"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="374" y="211.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="104" x="389" y="207.708">Example 1</text><!--entity Folder 3--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="103" x="538.5" y="181"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="533.5" y="186"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="533.5" y="211.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="83" x="548.5" y="207.708">Folder 3</text><!--entity Frame 4--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="102" x="539" y="282"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="534" y="287"/><rect fill="#8DBF44" height="5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="10" x="534" y="312.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="82" x="549" y="308.708">Frame 4</text><!--link HTTP to First Component--><path d="M244.7328,67.5 C233.1773,67.5 221.6219,67.5 210.0664,67.5 " fill="none" id="HTTP-First Component" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link FTP to Second Component--><path d="M93.2031,201.5 C104.9169,201.5 116.6307,201.5 128.3445,201.5 " fill="none" id="FTP-Second Component" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link First Component to FTP--><path d="M111.0701,88.1438 C104.4853,115.7178 92.9939,163.8379 87.3383,187.521 " fill="none" id="First Component-FTP" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="86.1598,192.4557,92.141,184.631,87.3213,187.5925,84.3598,182.7727,86.1598,192.4557" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link Another Component to Example 1--><path d="M414.7758,88.1438 C420.2213,111.6823 429.1305,150.1931 435.0299,175.6936 " fill="none" id="Another Component-Example 1" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="436.1677,180.6119,438.0361,170.9419,435.0407,175.7406,430.242,172.7451,436.1677,180.6119" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link Example 1 to Folder 3--><path d="M503.2773,201.5 C513.1817,201.5 523.086,201.5 532.9903,201.5 " fill="none" id="Example 1-Folder 3" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="538.1697,201.5,529.1697,197.5,533.1697,201.5,529.1697,205.5,538.1697,201.5" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link Folder 3 to Frame 4--><path d="M590,222.4273 C590,238.241 590,260.0283 590,276.8843 " fill="none" id="Folder 3-Frame 4" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="590,281.9451,594,272.9451,590,276.9451,586,272.9451,590,281.9451" style="stroke: #519BC8; stroke-width: 2.0;"/><!--
+@startuml
+
+
+
+
+skinparam backgroundColor transparent
+skinparam defaultFontColor #519BC8
+skinparam defaultFontSize 18
+skinparam defaultFontStyle bold
+skinparam arrowColor #519BC8
+skinparam arrowThickness 2
+skinparam shadowing false
+
+skinparam note {
+    backgroundColor #888888
+    fontColor white
+    borderColor white
+}
+skinparam actor {
+    borderColor #EF525B
+    backgroundColor #EF525B
+    fontColor #EF525B
+}
+skinparam agent {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam database {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+} 
+skinparam rectangle {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam cloud {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam folder {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam package {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam frame {
+    borderColor black
+    backGroundcolor white
+    fontColor 888888
+}
+skinparam component {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam artifact {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam node {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam queue {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam file {
+    borderColor white
+    backGroundcolor #888888
+    fontColor white
+}
+skinparam storage {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam interface {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam boundary {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam entity {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam control {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam sequence {
+    ParticipantFontColor white
+    ParticipantBackgroundColor #8DBF44
+    ParticipantBorderColor white
+	LifeLineBorderColor #888888
+	LifeLineBorderThickness 2
+    DividerFontColor #555555
+    DividerBorderColor #888888
+    DividerBackGroundcolor #EEEEEE
+    GroupHeaderFontColor #555555
+    GroupBorderColor #888888
+    GroupBackGroundcolor #EEEEEE
+}
+skinparam usecase {
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+}
+skinparam activity {
+    startColor #B30C37
+    endColor #B30C37
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+    diamondBackgroundColor #EEEEEE
+    diamondBorderColor #888888
+    diamondFontColor #888888
+}
+skinparam class {
+    fontColor white
+    backgroundColor white
+    borderColor #8DBF44
+    headerBackgroundColor #8DBF44
+    headerFontColor #8DBF44
+    stereotypeBorderColor #B11E3E
+}
+skinparam stereotype {
+    cBackgroundColor physical
+    cBorderColor white
+    eBackgroundColor pink
+    eBorderColor white
+    iBackgroundColor moccasin
+    iBorderColor white
+    aBackgroundColor lavender
+    aBorderColor white
+}
+skinparam state {
+    attributeFontColor white
+    backgroundColor #8DBF44
+    fontColor white
+    borderColor white
+    startColor #B30C37
+    endColor #B30C37
+}
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+rectangle "Other Groups" {
+  FTP - [Second Component]
+  [First Component] - -> FTP
+}
+cloud {
+  [Example 1]
+}
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+[Another Component] - -> [Example 1]
+[Example 1] -right-> [Folder 3]
+[Folder 3] - -> [Frame 4]
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 GMT 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-b10
+Operating System: Linux
+OS Version: 4.4.0-96-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

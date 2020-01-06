@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="286px" preserveAspectRatio="none" style="width:488px;height:286px;" version="1.1" viewBox="0 0 488 286" width="488px" zoomAndPan="magnify"><defs/><g><line style="stroke: #000000; stroke-width: 1.7;" x1="10" x2="10" y1="10" y2="249.8125"/><line style="stroke: #000000; stroke-width: 1.7;" x1="471" x2="471" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="166" x2="166" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="216" x2="216" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="266" x2="266" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="316" x2="316" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="366" x2="366" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="416" x2="416" y1="10" y2="249.8125"/><line style="stroke: #AAAAAA; stroke-width: 0.5; stroke-dasharray: 3.0,5.0;" x1="466" x2="466" y1="10" y2="249.8125"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="134" x="15" y="26.708">Web Browser</text><line style="stroke: #000000; stroke-width: 1.0;" x1="10" x2="150" y1="31.9531" y2="31.9531"/><line style="stroke: #000000; stroke-width: 1.0;" x1="150" x2="160" y1="31.9531" y2="10"/><line style="stroke: #038048; stroke-width: 1.5;" x1="126" x2="166" y1="111.9063" y2="111.9063"/><line style="stroke: #038048; stroke-width: 1.5;" x1="166" x2="266" y1="91.9063" y2="91.9063"/><line style="stroke: #038048; stroke-width: 1.5;" x1="266" x2="316" y1="71.9063" y2="71.9063"/><line style="stroke: #038048; stroke-width: 1.5;" x1="316" x2="466" y1="51.9063" y2="51.9063"/><line style="stroke: #038048; stroke-width: 1.5;" x1="166" x2="166" y1="91.9063" y2="111.9063"/><line style="stroke: #038048; stroke-width: 1.5;" x1="266" x2="266" y1="71.9063" y2="91.9063"/><line style="stroke: #038048; stroke-width: 1.5;" x1="316" x2="316" y1="51.9063" y2="71.9063"/><line style="stroke: #FF0000; stroke-width: 1.5;" x1="166" x2="191" y1="81.9063" y2="81.9063"/><polygon fill="#FF0000" points="173.5175,79.1701,173.5175,84.6424,166,81.9063" style="stroke: #FF0000; stroke-width: 1.5;"/><polygon fill="#FF0000" points="183.4825,84.6424,183.4825,79.1701,191,81.9063" style="stroke: #FF0000; stroke-width: 1.5;"/><text fill="#000000" font-family="Serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="86" x="135.5" y="73.6045">{50 ms lag}</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="107" x="15" y="107.6611">Initializing</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="37" x="15" y="87.6611">idle</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="111" x="15" y="67.6611">Processing</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="15" y="47.6611">Waiting</text><line style="stroke: #000000; stroke-width: 1.7;" x1="10" x2="471" y1="10" y2="10"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="99" x="15" y="158.6143">Web User</text><line style="stroke: #000000; stroke-width: 1.0;" x1="10" x2="115" y1="163.8594" y2="163.8594"/><line style="stroke: #000000; stroke-width: 1.0;" x1="115" x2="125" y1="163.8594" y2="141.9063"/><polygon fill="#FFFFFF" points="70,207.8125,154,207.8125,166,219.8125,154,231.8125,70,231.8125" style="stroke: #FFFFFF; stroke-width: 1.5;"/><path d="M70,207.8125 L154,207.8125 L166,219.8125 L154,231.8125 L70,231.8125 " fill="#FFFFFF" style="stroke: #038048; stroke-width: 1.5;"/><polygon fill="#FFFFFF" points="178,207.8125,404,207.8125,416,219.8125,404,231.8125,178,231.8125,166,219.8125" style="stroke: #038048; stroke-width: 1.5;"/><polygon fill="#FFFFFF" points="428,207.8125,466,207.8125,466,231.8125,428,231.8125,416,219.8125" style="stroke: #FFFFFF; stroke-width: 1.5;"/><path d="M466,207.8125 L428,207.8125 L416,219.8125 L428,231.8125 L466,231.8125 " fill="#FFFFFF" style="stroke: #038048; stroke-width: 1.5;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="82" y="226.0439">Absent</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="79" x="251.5" y="226.0439">Waiting</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="24" x="428" y="226.0439">ok</text><line style="stroke: #FF0000; stroke-width: 1.0;" x1="266" x2="341" y1="198.8125" y2="198.8125"/><polygon fill="#FF0000" points="273.5175,196.0763,273.5175,201.5487,266,198.8125" style="stroke: #FF0000; stroke-width: 1.0;"/><polygon fill="#FF0000" points="333.4825,201.5487,333.4825,196.0763,341,198.8125" style="stroke: #FF0000; stroke-width: 1.0;"/><text fill="#000000" font-family="Serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="268.5" y="190.5107">{150 ms}</text><line style="stroke: #000000; stroke-width: 1.7;" x1="10" x2="471" y1="141.9063" y2="141.9063"/><line style="stroke: #000000; stroke-width: 2.0;" x1="166" x2="166" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="216" x2="216" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="266" x2="266" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="316" x2="316" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="366" x2="366" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="416" x2="416" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="466" x2="466" y1="249.8125" y2="254.8125"/><line style="stroke: #000000; stroke-width: 2.0;" x1="166" x2="466" y1="249.8125" y2="249.8125"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="13" x="159.5" y="272.5205">0</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="39" x="246.5" y="272.5205">200</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="39" x="296.5" y="272.5205">300</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="39" x="396.5" y="272.5205">500</text><line style="stroke: #0000FF; stroke-width: 1.0;" x1="166" x2="166" y1="219.8125" y2="111.9063"/><polygon fill="#0000FF" points="168.7362,119.4238,163.2638,119.4238,166,111.9063" style="stroke: #0000FF; stroke-width: 1.0;"/><text fill="#0000FF" font-family="Serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="166" y="132.4189">URL</text><!--
+@startuml
+
+
+
+
+skinparam backgroundColor transparent
+skinparam defaultFontColor #519BC8
+skinparam defaultFontSize 18
+skinparam defaultFontStyle bold
+skinparam arrowColor #519BC8
+skinparam arrowThickness 2
+skinparam shadowing false
+
+skinparam note {
+    backgroundColor #888888
+    fontColor white
+    borderColor white
+}
+skinparam actor {
+    borderColor #EF525B
+    backgroundColor #EF525B
+    fontColor #EF525B
+}
+skinparam agent {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam database {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+} 
+skinparam rectangle {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam cloud {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam folder {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam package {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam frame {
+    borderColor black
+    backGroundcolor white
+    fontColor 888888
+}
+skinparam component {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam artifact {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam node {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam queue {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam file {
+    borderColor white
+    backGroundcolor #888888
+    fontColor white
+}
+skinparam storage {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam interface {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam boundary {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam entity {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam control {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam sequence {
+    ParticipantFontColor white
+    ParticipantBackgroundColor #8DBF44
+    ParticipantBorderColor white
+	LifeLineBorderColor #888888
+	LifeLineBorderThickness 2
+    DividerFontColor #555555
+    DividerBorderColor #888888
+    DividerBackGroundcolor #EEEEEE
+    GroupHeaderFontColor #555555
+    GroupBorderColor #888888
+    GroupBackGroundcolor #EEEEEE
+}
+skinparam usecase {
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+}
+skinparam activity {
+    startColor #B30C37
+    endColor #B30C37
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+    diamondBackgroundColor #EEEEEE
+    diamondBorderColor #888888
+    diamondFontColor #888888
+}
+skinparam class {
+    fontColor white
+    backgroundColor white
+    borderColor #8DBF44
+    headerBackgroundColor #8DBF44
+    headerFontColor #8DBF44
+    stereotypeBorderColor #B11E3E
+}
+skinparam stereotype {
+    cBackgroundColor physical
+    cBorderColor white
+    eBackgroundColor pink
+    eBorderColor white
+    iBackgroundColor moccasin
+    iBorderColor white
+    aBackgroundColor lavender
+    aBorderColor white
+}
+skinparam state {
+    attributeFontColor white
+    backgroundColor #8DBF44
+    fontColor white
+    borderColor white
+    startColor #B30C37
+    endColor #B30C37
+}
+robust "Web Browser" as WB
+concise "Web User" as WU
+WB is Initializing
+WU is Absent
+@WB
+0 is idle
++200 is Processing
++100 is Waiting
+WB@0 <-> @50 : {50 ms lag}
+@WU
+WU -> WB : URL
+0 is Waiting #white
++500 is ok #white
+@200 <-> @+150 : {150 ms}
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 GMT 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-b10
+Operating System: Linux
+OS Version: 4.4.0-96-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

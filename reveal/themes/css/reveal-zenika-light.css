@@ -1,0 +1,96 @@
+@import "reveal-zenika.css";
+
+/**
+ZENIKA :
+rouge : 179/30/62
+vert : 143/189/163
+noir : 70/70/70
+bleu : 81/155/200
+rose : 239/82/91
+**/
+
+.reveal {
+  color: black;
+}
+
+.reveal .slides section.title {
+  background: #FFFC;
+  height: initial;
+  text-align: center;
+}
+
+.reveal .slides section:not(.title):not(.stack),
+.reveal .slides section > section,  
+.reveal .slides section.stack > section.stack {
+  background: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+::selection {
+  color: white;
+  background-color: black;
+}
+
+/** FONT AWESOME **/
+
+/*
+.reveal .fa[title="Tip"] {
+  text-shadow: 0px 0px 10px black;
+  color: yellow;
+}*/
+
+/* keywords */
+.reveal *:not(pre)>code {
+  background-color: #eee;
+  color: black;
+}
+
+.reveal pre {
+  background: #eee;
+}
+
+/****************
+* C3JS
+*****************/
+
+.c3 svg {
+  fill: black;
+}
+
+/*******************
+* Timeline dark
+********************/
+
+.timeline ul, .pyramid ul {
+  color: white;
+}
+
+/* bubble */
+.timeline li, .pyramid li {
+    background: #999999;
+}
+
+/* right bubble arrow */
+.timeline ul li:nth-child(even):before {
+  border-right-color: #999999;
+}
+
+/* left bubble arrow */
+.timeline ul li:nth-child(odd):before {
+	border-left-color: #999999;
+}
+
+/* point on timeline */
+.timeline ul li:after {
+  border-color: white;
+}
+
+/***********************
+* last slide 
+************************/ 
+
+/* .bubbles */
+
+.reveal section.bubbles {
+  background-position: 45% -200% !important;
+}

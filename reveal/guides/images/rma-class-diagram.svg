@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="259px" preserveAspectRatio="none" style="width:748px;height:259px;" version="1.1" viewBox="0 0 748 259" width="748px" zoomAndPan="magnify"><defs/><g><!--cluster net.dummy--><polygon fill="#EEEEEE" points="14,16.5,135,16.5,142,43.4531,148,43.4531,148,247,14,247,14,16.5" style="stroke: #888888; stroke-width: 1.5;"/><line style="stroke: #888888; stroke-width: 1.5;" x1="14" x2="142" y1="43.4531" y2="43.4531"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="115" x="18" y="35.208">net.dummy</text><!--cluster net.foo--><polygon fill="#EEEEEE" points="160,158,239,158,246,184.9531,280,184.9531,280,247,160,247,160,158" style="stroke: #888888; stroke-width: 1.5;"/><line style="stroke: #888888; stroke-width: 1.5;" x1="160" x2="246" y1="184.9531" y2="184.9531"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="73" x="164" y="176.708">net.foo</text><!--cluster net.unused--><polygon fill="#EEEEEE" points="293,158,415,158,422,184.9531,425,184.9531,425,247,293,247,293,158" style="stroke: #888888; stroke-width: 1.5;"/><line style="stroke: #888888; stroke-width: 1.5;" x1="293" x2="422" y1="184.9531" y2="184.9531"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="116" x="297" y="176.708">net.unused</text><!--class net.dummy.Person--><rect fill="#FFFFFF" height="50" id="net.dummy.Person" style="stroke: #8DBF44; stroke-width: 1.5;" width="104" x="29" y="189"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="104" x="29" y="189"/><ellipse cx="45" cy="206" fill="#CCFFCC" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M48,212.125 Q47.3906,212.4375 46.7109,212.5938 Q46.0313,212.75 45.2813,212.75 Q42.625,212.75 41.2344,211 Q39.8438,209.25 39.8438,205.9531 Q39.8438,202.6406 41.2344,200.8906 Q42.625,199.1406 45.2813,199.1406 Q46.0313,199.1406 46.7188,199.2969 Q47.4063,199.4531 48,199.7656 L48,202.6563 Q47.3281,202.0469 46.7031,201.7578 Q46.0781,201.4688 45.4063,201.4688 Q43.9844,201.4688 43.2578,202.6016 Q42.5313,203.7344 42.5313,205.9531 Q42.5313,208.1719 43.2578,209.2969 Q43.9844,210.4219 45.4063,210.4219 Q46.0781,210.4219 46.7031,210.1406 Q47.3281,209.8594 48,209.2344 L48,212.125 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="70" x="60" y="212.2314">Person</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="30" x2="132" y1="223" y2="223"/><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="30" x2="132" y1="231" y2="231"/><!--class net.dummy.Meeting--><rect fill="#FFFFFF" height="50" id="net.dummy.Meeting" style="stroke: #8DBF44; stroke-width: 1.5;" width="117" x="22.5" y="47.5"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="117" x="22.5" y="47.5"/><ellipse cx="38.5" cy="64.5" fill="#CCFFCC" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M41.5,70.625 Q40.8906,70.9375 40.2109,71.0938 Q39.5313,71.25 38.7813,71.25 Q36.125,71.25 34.7344,69.5 Q33.3438,67.75 33.3438,64.4531 Q33.3438,61.1406 34.7344,59.3906 Q36.125,57.6406 38.7813,57.6406 Q39.5313,57.6406 40.2188,57.7969 Q40.9063,57.9531 41.5,58.2656 L41.5,61.1563 Q40.8281,60.5469 40.2031,60.2578 Q39.5781,59.9688 38.9063,59.9688 Q37.4844,59.9688 36.7578,61.1016 Q36.0313,62.2344 36.0313,64.4531 Q36.0313,66.6719 36.7578,67.7969 Q37.4844,68.9219 38.9063,68.9219 Q39.5781,68.9219 40.2031,68.6406 Q40.8281,68.3594 41.5,67.7344 L41.5,70.625 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="83" x="53.5" y="70.7314">Meeting</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="23.5" x2="138.5" y1="81.5" y2="81.5"/><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="23.5" x2="138.5" y1="89.5" y2="89.5"/><!--class net.foo.Person--><rect fill="#FFFFFF" height="50" id="net.foo.Person" style="stroke: #8DBF44; stroke-width: 1.5;" width="104" x="168" y="189"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="104" x="168" y="189"/><ellipse cx="184" cy="206" fill="#CCFFCC" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M187,212.125 Q186.3906,212.4375 185.7109,212.5938 Q185.0313,212.75 184.2813,212.75 Q181.625,212.75 180.2344,211 Q178.8438,209.25 178.8438,205.9531 Q178.8438,202.6406 180.2344,200.8906 Q181.625,199.1406 184.2813,199.1406 Q185.0313,199.1406 185.7188,199.2969 Q186.4063,199.4531 187,199.7656 L187,202.6563 Q186.3281,202.0469 185.7031,201.7578 Q185.0781,201.4688 184.4063,201.4688 Q182.9844,201.4688 182.2578,202.6016 Q181.5313,203.7344 181.5313,205.9531 Q181.5313,208.1719 182.2578,209.2969 Q182.9844,210.4219 184.4063,210.4219 Q185.0781,210.4219 185.7031,210.1406 Q186.3281,209.8594 187,209.2344 L187,212.125 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="70" x="199" y="212.2314">Person</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="169" x2="271" y1="223" y2="223"/><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="169" x2="271" y1="231" y2="231"/><!--class net.unused.Person--><rect fill="#FFFFFF" height="50" id="net.unused.Person" style="stroke: #8DBF44; stroke-width: 1.5;" width="104" x="307" y="189"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="104" x="307" y="189"/><ellipse cx="323" cy="206" fill="#CCFFCC" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M326,212.125 Q325.3906,212.4375 324.7109,212.5938 Q324.0313,212.75 323.2813,212.75 Q320.625,212.75 319.2344,211 Q317.8438,209.25 317.8438,205.9531 Q317.8438,202.6406 319.2344,200.8906 Q320.625,199.1406 323.2813,199.1406 Q324.0313,199.1406 324.7188,199.2969 Q325.4063,199.4531 326,199.7656 L326,202.6563 Q325.3281,202.0469 324.7031,201.7578 Q324.0781,201.4688 323.4063,201.4688 Q321.9844,201.4688 321.2578,202.6016 Q320.5313,203.7344 320.5313,205.9531 Q320.5313,208.1719 321.2578,209.2969 Q321.9844,210.4219 323.4063,210.4219 Q324.0781,210.4219 324.7031,210.1406 Q325.3281,209.8594 326,209.2344 L326,212.125 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="70" x="338" y="212.2314">Person</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="308" x2="410" y1="223" y2="223"/><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="308" x2="410" y1="231" y2="231"/><!--class ArrayList--><rect fill="#FFFFFF" height="91.9063" id="ArrayList" style="stroke: #8DBF44; stroke-width: 1.5;" width="230" x="346" y="26.5"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="230" x="346" y="26.5"/><ellipse cx="410" cy="43.5" fill="#E6E6FA" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M409.9219,38.75 L408.6875,44.125 L411.1406,44.125 L409.9219,38.75 Z M408.3281,36.375 L411.5,36.375 L415.0469,49.5 L412.4531,49.5 L411.6406,46.25 L408.1719,46.25 L407.3906,49.5 L404.7969,49.5 L408.3281,36.375 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="93" x="432" y="49.7314">ArrayList</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="347" x2="575" y1="60.5" y2="60.5"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="218" x="352" y="81.208">Object[] elementData</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="347" x2="575" y1="89.4531" y2="89.4531"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="55" x="352" y="110.1611">size()</text><!--class TimeUnit--><rect fill="#FFFFFF" height="112.8594" id="TimeUnit" style="stroke: #8DBF44; stroke-width: 1.5;" width="126" x="611" y="16"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="126" x="611" y="16"/><ellipse cx="627" cy="33" fill="#FFC0CB" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M631.1563,39.5 L622.9844,39.5 L622.9844,26.375 L631.1563,26.375 L631.1563,28.6563 L625.5625,28.6563 L625.5625,31.5 L630.625,31.5 L630.625,33.7813 L625.5625,33.7813 L625.5625,37.2188 L631.1563,37.2188 L631.1563,39.5 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="92" x="642" y="39.2314">TimeUnit</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="612" x2="736" y1="50" y2="50"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="55" x="617" y="70.708">DAYS</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="617" y="91.6611">HOURS</text><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="93" x="617" y="112.6143">MINUTES</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="612" x2="736" y1="120.8594" y2="120.8594"/><!--class BaseClass--><rect fill="#FFFFFF" height="50" id="BaseClass" style="stroke: #8DBF44; stroke-width: 1.5;" width="136" x="175" y="47.5"/><rect fill="#8DBF44" height="34" style="stroke: #8DBF44; stroke-width: 1.5;" width="136" x="175" y="47.5"/><ellipse cx="191" cy="64.5" fill="#FFE4B5" rx="12" ry="12" style="stroke: #FFFFFF; stroke-width: 1.0;"/><path d="M187.0156,60.1563 L187.0156,57.875 L194.8281,57.875 L194.8281,60.1563 L192.2188,60.1563 L192.2188,68.7188 L194.8281,68.7188 L194.8281,71 L187.0156,71 L187.0156,68.7188 L189.625,68.7188 L189.625,60.1563 L187.0156,60.1563 Z "/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-style="italic" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="102" x="206" y="70.7314">BaseClass</text><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="176" x2="310" y1="81.5" y2="81.5"/><line style="stroke: #8DBF44; stroke-width: 1.5;" x1="176" x2="310" y1="89.5" y2="89.5"/><!--link BaseClass to net.dummy.Person--><path d="M198.7737,111.1298 C170.4063,135.9075 134.3999,167.3575 109.7116,188.9216 " fill="none" id="BaseClass-net.dummy.Person" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="none" points="194.3696,105.6822,214.0376,97.7974,203.5795,116.2264,194.3696,105.6822" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link net.dummy.Meeting to net.dummy.Person--><path d="M81,111.1298 C81,135.9075 81,167.3575 81,188.9216 " fill="none" id="net.dummy.Meeting-net.dummy.Person" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#FFFFFF" points="81,97.7974,77,103.7974,81,109.7974,85,103.7974,81,97.7974" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link BaseClass to net.dummy.Meeting--><path d="M154.6438,72.5 C149.6076,72.5 144.5714,72.5 139.5352,72.5 " fill="none" id="BaseClass-net.dummy.Meeting" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="none" points="154.6971,65.4999,174.697,72.5,154.697,79.4999,154.6971,65.4999" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link net.dummy.Person to net.foo.Person--><path d="M153.1364,214 C158.004,214 162.8716,214 167.7393,214 " fill="none" id="net.dummy.Person-net.foo.Person" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="none" points="153.125,220.9999,133.125,214,153.125,206.9999,153.125,220.9999" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link BaseClass to net.foo.Person--><path d="M235.6297,117.8436 C231.8025,141.3889 227.2717,169.2632 224.0763,188.9216 " fill="none" id="BaseClass-net.foo.Person" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="none" points="228.7699,116.4152,238.8881,97.7974,242.5885,118.6614,228.7699,116.4152" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link net.dummy.Meeting to net.foo.Person--><path d="M115.265,107.3813 C140.1005,132.6635 173.0978,166.2542 195.3647,188.9216 " fill="none" id="net.dummy.Meeting-net.foo.Person" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#FFFFFF" points="105.8504,97.7974,107.2015,104.8808,114.2597,106.358,112.9086,99.2746,105.8504,97.7974" style="stroke: #519BC8; stroke-width: 2.0;"/><!--link BaseClass to net.unused.Person--><path d="M276.6692,113.5706 C296.651,137.9449 321.3386,168.0596 338.4411,188.9216 " fill="none" id="BaseClass-net.unused.Person" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="none" points="271.0047,117.7022,263.7385,97.7974,281.8316,108.8265,271.0047,117.7022" style="stroke: #519BC8; stroke-width: 2.0;"/><!--
+@startuml
+
+
+
+
+skinparam backgroundColor transparent
+skinparam defaultFontColor #519BC8
+skinparam defaultFontSize 18
+skinparam defaultFontStyle bold
+skinparam arrowColor #519BC8
+skinparam arrowThickness 2
+skinparam shadowing false
+
+skinparam note {
+    backgroundColor #888888
+    fontColor white
+    borderColor white
+}
+skinparam actor {
+    borderColor #EF525B
+    backgroundColor #EF525B
+    fontColor #EF525B
+}
+skinparam agent {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam database {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+} 
+skinparam rectangle {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam cloud {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam folder {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam package {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam frame {
+    borderColor black
+    backGroundcolor white
+    fontColor 888888
+}
+skinparam component {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam artifact {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam node {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam queue {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam file {
+    borderColor white
+    backGroundcolor #888888
+    fontColor white
+}
+skinparam storage {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam interface {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam boundary {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam entity {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam control {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam sequence {
+    ParticipantFontColor white
+    ParticipantBackgroundColor #8DBF44
+    ParticipantBorderColor white
+	LifeLineBorderColor #888888
+	LifeLineBorderThickness 2
+    DividerFontColor #555555
+    DividerBorderColor #888888
+    DividerBackGroundcolor #EEEEEE
+    GroupHeaderFontColor #555555
+    GroupBorderColor #888888
+    GroupBackGroundcolor #EEEEEE
+}
+skinparam usecase {
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+}
+skinparam activity {
+    startColor #B30C37
+    endColor #B30C37
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+    diamondBackgroundColor #EEEEEE
+    diamondBorderColor #888888
+    diamondFontColor #888888
+}
+skinparam class {
+    fontColor white
+    backgroundColor white
+    borderColor #8DBF44
+    headerBackgroundColor #8DBF44
+    headerFontColor #8DBF44
+    stereotypeBorderColor #B11E3E
+}
+skinparam stereotype {
+    cBackgroundColor physical
+    cBorderColor white
+    eBackgroundColor pink
+    eBorderColor white
+    iBackgroundColor moccasin
+    iBorderColor white
+    aBackgroundColor lavender
+    aBorderColor white
+}
+skinparam state {
+    attributeFontColor white
+    backgroundColor #8DBF44
+    fontColor white
+    borderColor white
+    startColor #B30C37
+    endColor #B30C37
+}
+abstract class ArrayList {
+  Object[] elementData
+  size()
+}
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+Interface BaseClass
+
+namespace net.dummy {
+    .BaseClass <|- - Person
+    Meeting o- - Person
+
+    .BaseClass <|- Meeting
+}
+namespace net.foo {
+  net.dummy.Person  <|- Person
+  .BaseClass <|- - Person
+
+  net.dummy.Meeting o- - Person
+}
+BaseClass <|- - net.unused.Person
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 GMT 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-b10
+Operating System: Linux
+OS Version: 4.4.0-96-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

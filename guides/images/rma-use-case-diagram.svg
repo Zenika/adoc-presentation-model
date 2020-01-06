@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="240px" preserveAspectRatio="none" style="width:723px;height:240px;" version="1.1" viewBox="0 0 723 240" width="723px" zoomAndPan="magnify"><defs/><g><!--cluster admin--><rect fill="#EEEEEE" height="111" style="stroke: #888888; stroke-width: 1.5;" width="489.5" x="222.5" y="16.5"/><text fill="#888888" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="140" x="397.25" y="35.208">Gerrit / Gitlab</text><!--entity ui--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="71" x="230.5" y="70"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="51" x="240.5" y="96.708">front</text><!--entity repo_local--><path d="M637,58 C637,48 670.5,48 670.5,48 C670.5,48 704,48 704,58 L704,108.9063 C704,118.9063 670.5,118.9063 670.5,118.9063 C670.5,118.9063 637,118.9063 637,108.9063 L637,58 " fill="#519BC8" style="stroke: #FFFFFF; stroke-width: 1.5;"/><path d="M637,58 C637,68 670.5,68 670.5,68 C670.5,68 704,68 704,58 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="47" x="647" y="88.708">local</text><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="647" y="109.6611">repo</text><!--entity developer--><ellipse cx="56.5" cy="58.5" fill="#EF525B" rx="8" ry="8" style="stroke: #EF525B; stroke-width: 2.0;"/><path d="M56.5,66.5 L56.5,93.5 M43.5,74.5 L69.5,74.5 M56.5,93.5 L43.5,108.5 M56.5,93.5 L69.5,108.5 " fill="none" style="stroke: #EF525B; stroke-width: 2.0;"/><text fill="#EF525B" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="101" x="6" y="128.208">developer</text><!--entity repo--><path d="M484,164 C484,154 530,154 530,154 C530,154 576,154 576,164 L576,214.9063 C576,224.9063 530,224.9063 530,224.9063 C530,224.9063 484,224.9063 484,214.9063 L484,164 " fill="#519BC8" style="stroke: #FFFFFF; stroke-width: 1.5;"/><path d="M484,164 C484,174 530,174 530,174 C530,174 576,174 576,164 " fill="none" style="stroke: #FFFFFF; stroke-width: 1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="494" y="194.708">central</text><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="46" x="494" y="215.6611">repo</text><!--entity jenkins--><rect fill="#8DBF44" height="40.9531" style="stroke: #FFFFFF; stroke-width: 1.5;" width="94" x="219" y="189"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="74" x="229" y="215.708">Jenkins</text><!--link developer to ui--><path d="M107.2141,90.5 C143.3079,90.5 191.1887,90.5 224.9015,90.5 " fill="none" id="developer-ui" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="230.1866,90.5,221.1866,86.5,225.1866,90.5,221.1866,94.5,230.1866,90.5" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="138" y="86.208">push</text><!--link ui to repo_local--><path d="M301.5422,89.8849 C377.1877,88.5759 553.5884,85.5232 631.8824,84.1683 " fill="none" id="ui-repo_local" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="636.8955,84.0815,627.8276,80.2379,631.8962,84.1681,627.9661,88.2367,636.8955,84.0815" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="505" y="81.208">push</text><!--link jenkins to ui--><path d="M266,183.7467 C266,162.0975 266,131.5431 266,111.39 " fill="none" id="jenkins-ui" style="stroke: #519BC8; stroke-width: 2.0;"/><polygon fill="#519BC8" points="266,188.7718,270,179.7718,266,183.7718,262,179.7718,266,188.7718" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="244.5" y="146.208"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="50" x="213.5" y="167.1611">push</text><!--link ui to repo--><path d="M301.6042,103.8516 C347.2799,120.98 426.8142,150.8053 478.9335,170.3501 " fill="none" id="ui-repo" style="stroke: #519BC8; stroke-width: 2.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#519BC8" points="483.8897,172.2086,476.8672,165.3032,479.208,170.453,474.0582,172.7938,483.8897,172.2086" style="stroke: #519BC8; stroke-width: 2.0;"/><text fill="#519BC8" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="109" x="344" y="116.208">replication</text><!--
+@startuml
+
+
+
+
+skinparam backgroundColor transparent
+skinparam defaultFontColor #519BC8
+skinparam defaultFontSize 18
+skinparam defaultFontStyle bold
+skinparam arrowColor #519BC8
+skinparam arrowThickness 2
+skinparam shadowing false
+
+skinparam note {
+    backgroundColor #888888
+    fontColor white
+    borderColor white
+}
+skinparam actor {
+    borderColor #EF525B
+    backgroundColor #EF525B
+    fontColor #EF525B
+}
+skinparam agent {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam database {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+} 
+skinparam rectangle {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam cloud {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam folder {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam package {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam frame {
+    borderColor black
+    backGroundcolor white
+    fontColor 888888
+}
+skinparam component {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam artifact {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam node {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam queue {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam file {
+    borderColor white
+    backGroundcolor #888888
+    fontColor white
+}
+skinparam storage {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam interface {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam boundary {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam entity {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam control {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam sequence {
+    ParticipantFontColor white
+    ParticipantBackgroundColor #8DBF44
+    ParticipantBorderColor white
+	LifeLineBorderColor #888888
+	LifeLineBorderThickness 2
+    DividerFontColor #555555
+    DividerBorderColor #888888
+    DividerBackGroundcolor #EEEEEE
+    GroupHeaderFontColor #555555
+    GroupBorderColor #888888
+    GroupBackGroundcolor #EEEEEE
+}
+skinparam usecase {
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+}
+skinparam activity {
+    startColor #B30C37
+    endColor #B30C37
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+    diamondBackgroundColor #EEEEEE
+    diamondBorderColor #888888
+    diamondFontColor #888888
+}
+skinparam class {
+    fontColor white
+    backgroundColor white
+    borderColor #8DBF44
+    headerBackgroundColor #8DBF44
+    headerFontColor #8DBF44
+    stereotypeBorderColor #B11E3E
+}
+skinparam stereotype {
+    cBackgroundColor physical
+    cBorderColor white
+    eBackgroundColor pink
+    eBorderColor white
+    iBackgroundColor moccasin
+    iBorderColor white
+    aBackgroundColor lavender
+    aBorderColor white
+}
+skinparam state {
+    attributeFontColor white
+    backgroundColor #8DBF44
+    fontColor white
+    borderColor white
+    startColor #B30C37
+    endColor #B30C37
+}
+left to right direction
+
+actor developer
+database repo as "central\nrepo"
+agent jenkins as "Jenkins"
+
+rectangle admin as "Gerrit / Gitlab" {
+    agent ui as "front"
+    database repo_local as "local\nrepo"
+}
+
+developer - -> ui : push
+ui - -> repo_local : push
+ui -left-> jenkins: "\npush "
+ui ..> repo : replication
+@enduml
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 GMT 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-b10
+Operating System: Linux
+OS Version: 4.4.0-96-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

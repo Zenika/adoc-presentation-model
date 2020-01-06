@@ -1,0 +1,972 @@
+@font-face {
+  font-family: 'OpenSans Bold';
+  src: url("../fonts/Open_sans/OpenSans-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'OpenSans Regular';
+  src: url("../fonts/Open_sans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Lato Regular';
+  src: url("../fonts/Lato2/Lato-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'M+ 1m';
+  src: url("../fonts/M+1m/mplus-1m-regular.ttf") format("truetype");
+}
+
+/**
+ZENIKA COLORS :
+rouge / deep carmine : 177/30/62 #B11E3E
+vert / android green : 141/191/68 #8DBF44
+bleu / carolina blue : #53A3DA
+gris clair / davy's grey : #888888
+gris foncé / arsenic : #444444
+rose / sunset orange : 239/82/91 #EF525B => 
+vermillon : #E43238
+violet : #9D145F
+
+rose 2 / indian red : #E8575C
+blue ciel / colombia blue : BFDCD0
+beige pastel gray : #D6D6B1
+black olive : #3F3F37
+orange : #F58231
+jaune / vivid yellow : #FFE119
+menthe / polished pine : #56A29A
+bleu nuit / navy : #000075
+
+rouge - gris foncé - beige - bleu - vert
+https://coolors.co/B11E3E-444444-D6D6B1-53A3DA-8DBF44
+
+violet - jaune - bleu nuit - rose - menthe
+https://coolors.co/9D145F-FFE119-000075-E8575C-56A29A
+
+**/
+
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+
+/* FOR A ZENIKA LOGO IN TOP RIGHT  
+body {
+  background: no-repeat center url('./logo-zenika.png'), no-repeat 98% 5% url('./favicon.png');
+  background-size: 60%, 3%;
+  background-color: black;
+}
+*/
+
+/* When using the shorthand property the order of the property values is: background-color, background-image, background-repeat, background-attachment, background-position */
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            black url('../logo-zenika.png') no-repeat center;
+  background-size: cover, 30%;
+}
+
+.reveal {
+  font-family: 'Lato Regular', sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 30px 30px;
+}
+
+/* stack of sub slides, must be hidden, and references should not have shadow */
+.reveal .slides section.stack, .reveal .slides section[id="references"] {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* general borders in slides */
+.reveal .slides section[data-state="title"],
+.reveal .slides section > section {
+  padding: 30px;
+}
+
+.reveal .slides section > section.full-page-image {
+  padding: 0 0;
+}
+
+/* trick for vertical align of full page image */
+.reveal .slides section > section.full-page-image div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* [.title-vcenter] - trick for vertical align whole slide content */
+.reveal section > section.title-vcenter {
+  padding-top: 220px;
+}
+
+/* [.halign-center] -center horizontally if explicited asked */
+.reveal .halign-center {
+  text-align: center;
+}
+
+/* moves the whole section slightly to the left */
+.reveal .slides section > section {
+  margin-left: -30px;
+}
+
+.reveal.overview .slides section {
+  height: 650px;
+}
+
+.reveal .slide-background {
+  background-size: contain;
+}
+
+::selection {
+  text-shadow: none;
+}
+
+/**** TABLES ****/
+
+.reveal table th, .reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+/* center column horizontally if explicited asked */
+.reveal table td.halign-center {
+  text-align: center;
+}
+
+/* center column vertically if explicited asked */
+.reveal table td.valign-middle {
+  vertical-align: middle;
+}
+
+/* titles always centered */
+.reveal table th {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(141,191,68);
+}
+
+.reveal table tbody tr:last-child th, .reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal .slides table.no-border,
+.reveal .slides table.no-border tr td,
+.reveal .slides table.no-border tr th {
+  border: none;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, 
+.reveal h[level="3"], #toctitle {
+  color: #B11E3E;
+  font-family: "OpenSans Bold", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+}
+
+.reveal h1 {
+  height: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  float: none;
+  font-size: 60px;
+}
+
+/* slide title */
+.reveal h2, .reveal h3, #toctitle {
+  margin: 0px 0px 40px -20px;
+  padding: 0 0 0px 20px;
+  text-align: left;
+  font-size: 40px;
+}
+
+/** subtitle in slide **/
+.reveal h[level="3"] {
+  margin: 0.6em 0 0.8em -0.4em;
+  display: inline-block;
+}
+
+/** Title slide's subtitle **/
+.reveal section.title h2 {
+  text-align: center;
+  font-style: italic;
+}
+
+.reveal p.author {
+  height: 20%;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  justify-content: flex-end;
+  text-align: right;
+  color: #888;
+  font-style: italic;
+}
+
+/*********************************************
+ * CONTENT
+ *********************************************/
+
+/** bold **/
+.reveal strong {
+  /* font-weight: bold; => bold is not visible, a color is better */
+  /*color: rgb(81,155,200);  blue */
+  font-weight: bold;
+}
+
+/** comments in italic **/
+span.hljs-comment, span.hljs-emphasis {
+  font-style: italic;
+}
+
+/* explicitely pushed to bottom */
+.reveal .bottom {
+  position: absolute;
+  bottom: 20px;
+}
+
+/** forced colors **/
+
+.reveal .green {
+  color: rgb(141,191,68); /* green */
+}
+
+.reveal .blue {
+  color : rgb(81,155,200); /* blue */
+}
+
+.reveal .orange {
+  color: #bf6900; /* orange */
+}
+
+.reveal .red {
+  color: #B11E3E; /* red */
+}
+
+.reveal .pink {
+  color: rgb(239,82,91); /* pink */
+}
+
+/** italic **/
+.reveal em {
+  font-style: italic;
+}
+
+.reveal li {
+  margin: 0.2em 0 0 0;
+}
+
+/* moving text not to have bullet points outside current zone */
+.reveal ul, .reveal ol {
+  margin-left: 1em;
+}
+
+/** QUOTE **/
+
+.quoteblock {
+  margin: 0 1em 1.25em 1.5em;
+  display: table
+}
+
+.quoteblock>.title {
+  margin-left: -1.5em;
+  margin-bottom: .75em
+}
+
+.reveal div.quoteblock {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-left: 3rem;
+}
+
+.quoteblock blockquote {
+  font-size: 120%;
+  word-spacing: .1em;
+  letter-spacing: 0;
+  font-style: italic;
+  text-align: justify
+}
+
+.quoteblock blockquote:before {
+  content: "\201c";
+  float: left;
+  font-size: 2.75em;
+  font-weight: bold;
+  line-height: .6em;
+  margin-left: -.6em;
+  color: rgb(141,191,68);/* green */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .1)
+}
+
+.quoteblock .attribution {
+  margin-top: .5em;
+  margin-right: .5ex;
+  text-align: right
+}
+
+/* author */
+.quoteblock .attribution, .verseblock .attribution {
+  font-style: italic;
+  color: #888
+}
+
+.quoteblock .attribution cite, .verseblock .attribution cite {
+  display: block;
+  letter-spacing: -.025em;
+}
+
+/** SPECIAL TEXT **/
+
+.reveal .small {
+  font-size: smaller;
+}
+
+.reveal .x-small {
+  font-size: 20px;
+}
+
+.reveal .big {
+  font-size: larger;
+}
+
+.reveal .underline {
+  text-decoration: underline;
+}
+
+.reveal span.line-through {
+  text-decoration: line-through;
+}
+
+/** FONT AWESOME **/
+
+/* Font awesome images are blue by default */
+.reveal a.image i.fa,
+.reveal span.icon i.fa:not(.fa-check-circle):not(.fa-times-circle) {
+  color : rgb(81,155,200);/* blue */
+}
+
+/* OK symbol is green */
+.reveal i.fa-check-circle {
+  color: rgb(141,191,68); /* green */
+}
+
+/* KO symbol is red */
+.reveal i.fa-times-circle {
+  color: #B11E3E; /* red */
+}
+
+/**** MARGINS ****/
+
+.reveal .exampleblock table {
+  margin-bottom: 0;
+}
+
+/* paragraphs margin */
+.reveal table,
+.reveal .listingblock,
+.reveal .paragraph,
+.reveal .exampleblock > div.content,
+.reveal section > .ulist, .reveal .olist, .reveal .dlist,
+.reveal .literalblock {
+  margin-bottom: 1.25rem;
+}
+
+.reveal .exampleblock .content > .ulist > ul,
+.reveal .qlist > ol,
+.reveal .dlist,
+.reveal .olist {
+  margin-left: 20px;
+}
+
+/** CODE **/
+
+.reveal code {
+  font-family: "M+ 1m";
+  font-size: 80%;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.reveal pre:not(.ght) {
+  font-family: "Droid Sans Mono","DejaVu Sans Mono","Monospace",monospace;
+  font-weight: normal;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em;
+  font-size: 80%;
+  margin-bottom: 0.75rem;
+}
+
+/* code should bot have the large border of other listing blocks */
+.reveal pre.listingblock {
+  padding: 0.1em;
+}
+
+/* title of code/image block */
+.reveal div.title, .reveal table > caption.title {
+  font-size: 26px;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #B11E3E;
+  text-align: left;
+}
+
+/* keywords */
+.reveal *:not(pre)>code {
+  font-family: "Droid Sans Mono","DejaVu Sans Mono","Monospace",monospace;
+  font-size: .9em;
+  font-style: normal!important;
+  letter-spacing: 0;
+  word-spacing: -.15em;
+  line-height: 120%;
+  text-rendering: optimizeSpeed;
+  word-wrap: break-word;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* lead paragraph is bigger */
+.reveal div.paragraph.lead {
+  font-size: 120%;
+}
+
+/** Super and sub **/
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+/** EXAMPLE BLOC **/
+
+.exampleblock>.content {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #888;
+  padding: 0.5em;
+  border-radius: 4px;
+  padding-bottom: 0.25em;
+}
+
+/** to override a large space surrounding p's added in reveal.js 3.8.0 **/
+.reveal p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/*********************************************
+ * TITLE PAGE
+ *********************************************/
+
+.reveal section.page-title h1 {
+  height: 90%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  color: white;
+  float: none;
+}
+
+.reveal section.page-title ul {
+  margin-top: 620px;
+}
+
+/*********************************************
+ * OVERVIEW
+ *********************************************/
+
+.reveal.overview .slides section:not(.stack):hover, .reveal.overview .slides section:not(.stack).present {
+  outline: 10px solid #8DBF44; /* green */
+  outline-offset: 10px;
+}
+
+/*********************************************
+ * ADMONITION BLOCK (NOTE, TOP, WARNING, CAUTION)
+ *********************************************/
+
+.reveal .admonitionblock table td.icon,
+.reveal .admonitionblock table td.content {
+  vertical-align: middle;
+}
+ 
+.reveal .admonitionblock td.icon .fa {
+  font-size: 40px;
+}
+
+/* text in admonition blocks */
+.reveal .admonitionblock td.content {
+  color: #888888;/* grey */
+  border-left: 1px solid #888888
+}
+
+/* Multiple DIV in an admonition block : give them some space */
+.reveal .admonitionblock table td > div:not(:last-child),
+.reveal .exampleblock .content > *:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+/* a light bulb anything else than yellow is weird */
+.reveal .admonitionblock.tip td.icon {
+  text-shadow: 0px 0px 10px black;
+  color: yellow;
+}
+
+/* NOTE icon */
+.reveal .admonitionblock.note td.icon {
+  color : rgb(81,155,200);/* blue */
+}
+
+/* WARNING icon */
+.reveal .admonitionblock.warning td.icon {
+  color: #bf6900;
+}
+
+/* IMPORTANT icon */
+.reveal .admonitionblock.important td.icon {
+  color: #B11E3E;
+}
+
+/* CAUTION icon */ 
+.reveal .admonitionblock.caution td.icon {
+  color: rgb(239,82,91); /* pink */
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+
+.reveal .slides a:not(.image), .chalkboard-button a, .slide-menu-button a {
+  color: rgb(81,155,200);
+}
+
+.reveal a:not(.image):hover {
+  color: #B11E3E;
+  text-shadow: none;
+  border: none;
+}
+
+/*********************************************
+ * SLIDES NUMBERS, MENU & CHALKBOARD
+ *********************************************/
+
+.reveal .slide-number, .reveal .slide-number-wrapper {
+  left: 8px;
+  right: 85%; /* without this shift, down arrow is visible but not clickable */
+  background-color: transparent;
+}
+
+.reveal .chalkboard-button[id="toggle-chalkboard"] {
+  left: 15px !important;
+  bottom: 140px !important;
+}
+
+.reveal .chalkboard-button[id="toggle-notes"] {
+  left: 17px !important;
+  bottom: 100px !important;
+}
+
+.reveal .slide-menu-button {
+  left: 15px !important;
+  bottom: 60px !important;
+}
+
+/* Slide number and other clickable objects */
+.reveal .slide-number a, .reveal .slide-number-wrapper a, 
+.reveal .chalkboard-button a, .reveal .slide-menu-button a {
+  position: unset; /* default is "relative" on "a", and then the slide numbers are out of the view */
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Slide number color */
+.reveal .slide-number a {
+  color: #B11E3E;
+}
+
+/*********************************************
+ * IMAGES
+ *********************************************/
+
+ /* block image */
+.reveal .imageblock img {
+  display: block;
+  margin: 0px auto;
+  padding: 20px;
+}
+
+ /* inline image : strangely shifted down so we perform a small adjustement */
+.reveal span.image img {
+  margin-bottom: -3px;
+}
+
+/* [.maxed-image] on section or image block */
+.reveal section.maxed-image > div > img, .imageblock.maxed-image img {
+    object-fit: contain;
+    height: 540px;
+    width: 1040px;
+    padding: 0px; /* to disable padding that else gives space around images */
+}
+
+/* [.half-image] on section or image block */
+.reveal section.half-image > div > img, .imageblock.half-image img {
+  object-fit: contain;
+  height: 300px;
+  width: 1040px;
+  padding: 0px; /* to disable padding that else gives space around images */
+}
+
+/* [.big-image] on section or image block */
+.reveal section.big-image > div > img, .imageblock.big-image img {
+  object-fit: contain;
+  height: 420px;
+  width: 1040px;
+  /* we define margin instead of padding, because we need space for text */
+  margin: 20px 0px;
+  padding: 0px;
+}
+
+.reveal section img.with-border {
+  border: 1px solid black;
+}
+
+.reveal figcaption {
+  text-align: center;
+}
+
+.reveal section.full-page-image img {
+  margin: 0
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+
+.reveal .controls .enabled {
+  color: #B11E3E;
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  height: 1%;
+}
+
+.reveal .progress span {
+  background: #B11E3E;
+}
+
+/* DESCRIPTION NUMBERS */
+.conum[data-value] {
+  background-color: rgb(141,191,68) !important;
+}
+
+/*********************************************
+ * LAST SLIDE
+ *********************************************/
+
+/* .questions */
+
+.reveal section.questions {
+  background: no-repeat center url('../question-mark.svg') !important;
+  background-size: 40% !important;
+  box-shadow: none !important;
+}
+
+/* .bubbles */
+
+.reveal section.bubbles {
+  background: no-repeat center url('../speak-bubbles.svg') !important;
+  background-size: 60% !important;
+  box-shadow: none !important;
+}
+
+/* .hands */ 
+
+.reveal section.hands {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* foreground in ::before (needs to go outside the div) */
+.reveal section.hands:before {
+  content: "";
+  display: inline-block;
+  width: 180%;
+  height: 180%;
+  background: no-repeat center url(../real-hands.png);
+  background-size: 50%;
+  position: inherit;
+  left: -45%;
+  bottom: -30%;
+  opacity: 1;
+}
+
+/* .red-hands (.layers) */
+
+.reveal section.red-hands {
+  background: none;
+  box-shadow: none;
+}
+
+/* foreground in ::before (needs to go outside the div) */
+.reveal section.red-hands:before {
+  content: "";
+  display: inline-block;
+  width: 180%;
+  height: 180%;
+  background: no-repeat center url(../red-hands.png);
+  background-size: 50%;
+  position: inherit;
+  left: -40%;
+  bottom: -75%;
+  opacity: 1;
+}
+
+/* background in ::after (needs to go outside the div) */
+.reveal section.red-hands.layers:after {
+  content: "";
+  display: inline-block;
+  width: 180%;
+  height: 200%;
+  background: no-repeat center url(../red-hands.png);
+  background-size: 55%;
+  position: relative;
+  left: -45%;
+  bottom: 25%;
+  opacity: 0.4;
+}
+
+
+/*********************************************
+ * C3.JS
+ *********************************************/
+
+.c3 svg g {
+  font-size: 18px;
+}
+g.c3-legend-item text, g.c3-chart-arc text {
+  font-size:20px;
+}
+table.c3-tooltip td {
+  font-size:25px;
+  color: black;
+}
+table.c3-tooltip th {
+  background-color: #aaa;
+  font-size: 25px;
+  padding: 2px 5px;
+  text-align: left;
+  color: #FFF;
+}
+text.c3-axis-y-label, text.c3-axis-y2-label {
+  font-size: 12px;
+}
+.c3-lines path {
+  stroke-width: 3px;
+}
+
+/*********************************************
+ * Timeline-as-code
+ *********************************************/
+
+.timeline ul {
+  position: relative;
+  overflow: auto;
+}
+ 
+/* vertical bar */
+.timeline ul:before {
+  content: '';
+  background: #B11E3E;
+  width: 5px;
+  position: absolute;
+  height: 98%;
+  left: 50%;
+}
+
+/* arrow */
+.timeline ul:after {
+  content: '';
+  border: solid #B11E3E;
+  border-width: 0 5px 5px 0;
+  padding: 10px;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 49.05%;
+  bottom: 2%;
+}
+  
+/* bubble list */
+.timeline  ul {
+  list-style: none;
+  padding: 0 0 0 1em;
+  z-index: 1;
+  padding-left: 0;
+  margin: 0;
+}
+  
+/* bubble */
+.timeline li {
+  border-radius: .4em;
+  padding: 0.5em;
+  margin-top: 0.8em;
+  margin-bottom: 1em;
+  position: relative;
+  width: 44%;
+}
+
+/* special shift for first right bubble */
+.timeline li:nth-of-type(2) {
+  margin-top: 2em;
+}
+
+.timeline li:nth-child(even) {
+  float: right;
+  clear: right;
+}
+
+.timeline li:nth-child(odd) {
+  float: left;
+  clear: left;
+}
+
+/* bubble arrow */
+.timeline ul li:before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  margin-top: -20px;
+  margin-right: -20px;
+}
+
+/* right bubble arrow */
+.timeline ul li:nth-child(even):before {
+  left: -18px;
+  border-left: 0;
+}
+
+/* left bubble arrow */
+.timeline ul li:nth-child(odd):before {
+	right: 1px;
+	border-right: 0;
+} 
+
+/* point on timeline */
+.timeline ul li:after {
+  content: '';
+  position: absolute;
+  transform: translateX(-50%);
+  border: 4px solid;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: inherit;
+  top: 16px;
+}
+
+/* right bubble point on timeline */
+.timeline ul li:nth-child(even):after {
+  left: -32px;
+}
+
+/* left bubble point on timeline */
+.timeline ul li:nth-child(odd):after {
+  left: 522px;
+}
+
+/*********************************************
+ * Footer
+ *********************************************/
+
+.reveal footer {
+  text-shadow: 0 0 10px black;
+	opacity: 1;
+  position: fixed;
+  top: 0;
+	height: 22px;
+	z-index: 0; /* "next slide down" button has to be in front */
+	width: 100%;
+	font-size: 3vh;
+	text-align: center;
+	letter-spacing: 0em;
+	padding-top: 0.5vh;
+  background: none !important;
+}
+
+/* footer text */
+.reveal footer > p > a {
+  margin-bottom: 2px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
+
+/* Make Title-Footer invisible if explicitly indicated, no-toc, overview mode */
+.no-title-footer #title-footer, .no-toc-progress #title-footer, .overview #title-footer {
+	opacity: 0;
+}
+
+/*********************************************
+ * Table of content
+ *********************************************/
+
+/* in our reveal.js setup, last slide has no title, so we hide the "!" title in TOC */
+.toc ol li:last-child {
+  display: none;
+}
+
+/*********************************************
+ * Pyramid-as-code
+ *********************************************/
+
+/* bubble arrow */
+.pyramid li {
+  display: block;
+  border-radius: .4em;
+  padding: 0.4em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.pyramid li:nth-child(1){ width: 50%; }
+.pyramid li:nth-child(2){ width: 55%; }
+.pyramid li:nth-child(3){ width: 60%; }
+.pyramid li:nth-child(4){ width: 65%; }
+.pyramid li:nth-child(5){ width: 70%; }
+.pyramid li:nth-child(6){ width: 75%; }
+.pyramid li:nth-child(7){ width: 80%; }
+.pyramid li:nth-child(8){ width: 85%; }
+.pyramid li:nth-child(9){ width: 90%; }
+.pyramid li:nth-child(10){ width: 95%; }

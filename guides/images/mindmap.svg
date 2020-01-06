@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="437px" preserveAspectRatio="none" style="width:775px;height:437px;" version="1.1" viewBox="0 0 775 437" width="775px" zoomAndPan="magnify"><defs/><g><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="91" x="10" y="202.8594"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="71" x="20" y="229.5674">Debian</text><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="97" x="151" y="111.4297"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="77" x="161" y="138.1377">Ubuntu</text><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="127" x="298" y="20"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="107" x="308" y="46.708">Linux Mint</text><path d="M248,131.9063 L258,131.9063 C273,131.9063 273,40.4766 288,40.4766 L298,40.4766 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="108" x="298" y="80.9531"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="88" x="308" y="107.6611">Kubuntu</text><path d="M248,131.9063 L258,131.9063 C273,131.9063 273,101.4297 288,101.4297 L298,101.4297 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="105" x="298" y="141.9063"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="85" x="308" y="168.6143">Lubuntu</text><path d="M248,131.9063 L258,131.9063 C273,131.9063 273,162.3828 288,162.3828 L298,162.3828 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="119" x="298" y="202.8594"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="99" x="308" y="229.5674">KDE Neon</text><path d="M248,131.9063 L258,131.9063 C273,131.9063 273,223.3359 288,223.3359 L298,223.3359 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M101,223.3359 L111,223.3359 C126,223.3359 126,131.9063 141,131.9063 L151,131.9063 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="76" x="151" y="172.3828"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="56" x="161" y="199.0908">LMDE</text><path d="M101,223.3359 L111,223.3359 C126,223.3359 126,192.8594 141,192.8594 L151,192.8594 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="104" x="151" y="233.3359"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="84" x="161" y="260.0439">SolydXK</text><path d="M101,223.3359 L111,223.3359 C126,223.3359 126,253.8125 141,253.8125 L151,253.8125 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="112" x="151" y="294.2891"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="92" x="161" y="320.9971">SteamOS</text><path d="M101,223.3359 L111,223.3359 C126,223.3359 126,314.7656 141,314.7656 L151,314.7656 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="344" x="151" y="355.2422"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="324" x="161" y="381.9502">Raspbian with a very long name</text><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="213" x="545" y="324.7656"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="line-through" textLength="92" x="555" y="351.4736">Raspmbc</text><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="95" x="653" y="351.4736">=&gt; OSMC</text><path d="M495,375.7188 L505,375.7188 C520,375.7188 520,345.2422 535,345.2422 L545,345.2422 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><rect fill="#8DBF44" height="40.9531" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.5;" width="219" x="545" y="385.7188"/><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" text-decoration="line-through" textLength="76" x="555" y="412.4268">Raspyfi</text><text fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="117" x="637" y="412.4268">=&gt; Volumio</text><path d="M495,375.7188 L505,375.7188 C520,375.7188 520,406.1953 535,406.1953 L545,406.1953 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M101,223.3359 L111,223.3359 C126,223.3359 126,375.7188 141,375.7188 L151,375.7188 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startmindmap
+
+
+
+
+skinparam backgroundColor transparent
+skinparam defaultFontColor #519BC8
+skinparam defaultFontSize 18
+skinparam defaultFontStyle bold
+skinparam arrowColor #519BC8
+skinparam arrowThickness 2
+skinparam shadowing false
+
+skinparam note {
+    backgroundColor #888888
+    fontColor white
+    borderColor white
+}
+skinparam actor {
+    borderColor #EF525B
+    backgroundColor #EF525B
+    fontColor #EF525B
+}
+skinparam agent {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam database {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+} 
+skinparam rectangle {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam cloud {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam folder {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam package {
+    borderColor #888888
+    backGroundcolor #EEEEEE
+    fontColor #888888
+}
+skinparam frame {
+    borderColor black
+    backGroundcolor white
+    fontColor 888888
+}
+skinparam component {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam artifact {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam node {
+    borderColor white
+    backGroundcolor #8DBF44
+    fontColor white
+}
+skinparam queue {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam file {
+    borderColor white
+    backGroundcolor #888888
+    fontColor white
+}
+skinparam storage {
+    borderColor white
+    backGroundcolor #519BC8
+    fontColor white
+}
+skinparam interface {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam boundary {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam entity {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam control {
+    borderColor #B30C37
+    backGroundcolor #EF525B
+}
+skinparam sequence {
+    ParticipantFontColor white
+    ParticipantBackgroundColor #8DBF44
+    ParticipantBorderColor white
+	LifeLineBorderColor #888888
+	LifeLineBorderThickness 2
+    DividerFontColor #555555
+    DividerBorderColor #888888
+    DividerBackGroundcolor #EEEEEE
+    GroupHeaderFontColor #555555
+    GroupBorderColor #888888
+    GroupBackGroundcolor #EEEEEE
+}
+skinparam usecase {
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+}
+skinparam activity {
+    startColor #B30C37
+    endColor #B30C37
+    borderColor white
+    fontColor white
+    backgroundColor #8DBF44
+    diamondBackgroundColor #EEEEEE
+    diamondBorderColor #888888
+    diamondFontColor #888888
+}
+skinparam class {
+    fontColor white
+    backgroundColor white
+    borderColor #8DBF44
+    headerBackgroundColor #8DBF44
+    headerFontColor #8DBF44
+    stereotypeBorderColor #B11E3E
+}
+skinparam stereotype {
+    cBackgroundColor physical
+    cBorderColor white
+    eBackgroundColor pink
+    eBorderColor white
+    iBackgroundColor moccasin
+    iBorderColor white
+    aBackgroundColor lavender
+    aBorderColor white
+}
+skinparam state {
+    attributeFontColor white
+    backgroundColor #8DBF44
+    fontColor white
+    borderColor white
+    startColor #B30C37
+    endColor #B30C37
+}
+* Debian
+** Ubuntu
+*** Linux Mint
+*** Kubuntu
+*** Lubuntu
+*** KDE Neon
+** LMDE
+** SolydXK
+** SteamOS
+** Raspbian with a very long name
+*** <s>Raspmbc</s> => OSMC
+*** <s>Raspyfi</s> => Volumio
+@endmindmap
+
+PlantUML version 1.2019.06(Fri May 24 17:10:25 GMT 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_222-b10
+Operating System: Linux
+OS Version: 4.4.0-96-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

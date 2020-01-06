@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="2020-01-06 - Benoit COUETIL">
+<link rel="icon" type="image/png" href="themes/favicon.png">
+<title>Reveal my Asciidoc : a deep dive into presentation-as-code</title>
+<link rel="stylesheet" href="themes/css/html-zenika.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <link rel="stylesheet" href="lib/c3.v0-6-11.min.css">
+      <script src="lib/d3.v5-7-0.min.js" charset="utf-8"></script>
+      <script src="lib/c3.v0-6-11.min.js"></script>
+    
+
+      <script src="lib/d3.v5-7-0.min.js" charset="utf-8"></script>
+      <script src="lib/d3.layout.cloud.js"></script>
+    
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>Reveal my Asciidoc : a deep dive into presentation-as-code</h1>
+<div class="details">
+<span id="author" class="author">2020-01-06 - Benoit COUETIL</span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#reveal-js-plugins">2. Reveal.js plugins</a></li>
+<li><a href="#chart-as-code">3. Chart-as-code</a>
+<ul class="sectlevel2">
+<li><a href="#pie-chart">3.1. Pie chart</a></li>
+<li><a href="#source">3.2. Source</a></li>
+<li><a href="#bar-chart">3.3. Bar chart</a></li>
+<li><a href="#source-2">3.4. Source</a></li>
+<li><a href="#horizontal-bar-chart">3.5. Horizontal bar chart</a></li>
+<li><a href="#source-3">3.6. Source</a></li>
+<li><a href="#combination">3.7. Combination</a></li>
+<li><a href="#source-4">3.8. Source</a></li>
+</ul>
+</li>
+<li><a href="#diagram-as-code">4. Diagram-as-code</a>
+<ul class="sectlevel2">
+<li><a href="#sequence-diagram">4.1. Sequence diagram</a></li>
+<li><a href="#source-5">4.2. Source</a></li>
+<li><a href="#use-case-diagram">4.3. Use case diagram</a></li>
+<li><a href="#source-6">4.4. Source</a></li>
+<li><a href="#class-diagram">4.5. Class diagram</a></li>
+<li><a href="#source-7">4.6. Source</a></li>
+<li><a href="#activity-diagram">4.7. Activity diagram</a></li>
+<li><a href="#source-8">4.8. Source</a></li>
+<li><a href="#component-diagram">4.9. Component diagram</a></li>
+<li><a href="#source-9">4.10. Source</a></li>
+<li><a href="#state-diagram">4.11. State diagram</a></li>
+<li><a href="#source-10">4.12. Source</a></li>
+<li><a href="#work-breakdown-structure">4.13. Work Breakdown Structure</a></li>
+<li><a href="#source-11">4.14. Source</a></li>
+<li><a href="#timing-diagram">4.15. Timing diagram</a></li>
+<li><a href="#source-12">4.16. Source</a></li>
+<li><a href="#mind-map">4.17. Mind Map</a></li>
+<li><a href="#source-13">4.18. Source</a></li>
+</ul>
+</li>
+<li><a href="#timeline-as-code">5. Timeline-as-code</a>
+<ul class="sectlevel2">
+<li><a href="#source-14">5.1. Source</a></li>
+<li><a href="#timeline-as-code-fragmented">5.2. Timeline-as-code fragmented</a></li>
+</ul>
+</li>
+<li><a href="#pyramid-as-code">6. Pyramid-as-code</a>
+<ul class="sectlevel2">
+<li><a href="#source-15">6.1. Source</a></li>
+<li><a href="#pyramid-as-code-fragmented">6.2. Pyramid-as-code fragmented</a></li>
+</ul>
+</li>
+<li><a href="#screenshot-as-code">7. Screenshot-as-code</a></li>
+<li><a href="#last-slide">8. Last slide</a></li>
+<li><a href="#word-cloud-as-code">9. Word-cloud-as-code</a>
+<ul class="sectlevel2">
+<li><a href="#source-16">9.1. Source</a></li>
+<li><a href="#word-cloud-fragmented">9.2. Word Cloud fragmented</a></li>
+<li><a href="#source-17">9.3. Source</a></li>
+</ul>
+</li>
+<li><a href="#positionning-and-sizing">10. Positionning and sizing</a>
+<ul class="sectlevel2">
+<li><a href="#text-wrapping-near-image">10.1. Text wrapping near image</a></li>
+<li><a href="#source-18">10.2. Source</a></li>
+<li><a href="#maxed-out-image">10.3. Maxed-out image</a></li>
+<li><a href="#source-19">10.4. Source</a></li>
+<li><a href="#big-image">10.5. Big image</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="reveal/reveal-my-asciidoc.html"><span class="icon"><i class="fa fa-video-camera"></i></span> Slides</a>  <a href="reveal-my-asciidoc.pdf"><span class="icon"><i class="fa fa-file-pdf-o"></i></span> PDF</a> <a href="reveal-my-asciidoc.adoc"><span class="icon"><i class="fa fa-file-text-o"></i></span> Source</a></p>
+</div>
+<!-- toc disabled -->
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="anchor" href="#introduction"></a><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Basic Asciidoctor capabilities are shown in <a href="asciidoc-syntax-quick-reference.html">this presentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>The current presentation shows advanced Asciidoctor / Reveal.js capabilities, mostly helping going deeper in the everything-as-code devOps principle.</p>
+</div>
+<div class="ulist">
+<div class="title">Guidelines for enriching the toolbox</div>
+<ul>
+<li>
+<p>Fewest non-generated images</p>
+</li>
+<li>
+<p>Simplest source code</p>
+</li>
+<li>
+<p>Fewest reveal.js or Asciidoctor fork (none so far)</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reveal-js-plugins"><a class="anchor" href="#reveal-js-plugins"></a><a class="link" href="#reveal-js-plugins">2. Reveal.js plugins</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The standard Asciidoctor / Reveal.js include the Zoom plugin with <code>Alt+Click</code>.</p>
+</div>
+<div class="paragraph">
+<p>Some plugins have been added in the toolbox, see menu for shortcuts :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/denehyg/reveal.js-menu">Menu plugin</a> with <span class="icon"><i class="fa fa-bars"></i></span> to navigate through the ToC, view keyboard shortcuts, change theme and transitions.</p>
+</li>
+<li>
+<p><a href="https://github.com/rajgoel/reveal.js-plugins/tree/master/chalkboard">Chalkboard plugin</a>, with <span class="icon"><i class="fa fa-pencil-square-o"></i></span> to display a chalkboard and <span class="icon"><i class="fa fa-pencil-alt"></i></span> to write directly on slides.</p>
+</li>
+<li>
+<p><a href="https://github.com/e-gor/Reveal.js-Title-Footer">Title Footer plugin</a> to display the title at the top.</p>
+</li>
+<li>
+<p><a href="https://github.com/dougalsutherland/reveal.js-notes-pointer">Notes Pointer plugin</a> to point both on speaker notes and presentation window.</p>
+</li>
+<li>
+<p><a href="https://github.com/denniskniep/reveal.js-plugin-spotlight">Spotlight plugin</a> to show a spotlight.</p>
+</li>
+<li>
+<p><a href="https://github.com/PiDayDev/reveal-skip-fragments">Skip Fragments plugin</a> to skip fragments (slide steps).</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chart-as-code"><a class="anchor" href="#chart-as-code"></a><a class="link" href="#chart-as-code">3. Chart-as-code</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We enable chart-as-code with a modified version of <a href="https://github.com/asciidoctor/asciidoctor-extensions-lab/tree/master/lib/chart-block-macro">chart-block-macro extension</a>.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s based on C3JS, a layer on D3JS to draw charts easily, with nice mouseover animations.</p>
+</div>
+<div class="paragraph">
+<p>Here are some examples.</p>
+</div>
+<div class="sect2">
+<h3 id="pie-chart"><a class="anchor" href="#pie-chart"></a><a class="link" href="#pie-chart">3.1. Pie chart</a></h3>
+<div class="paragraph title">
+<p>What do you believe is the number one thing a compagny can do to improve code quality ?</p>
+</div>
+      <div id="c3jsOEZVOVGK"></div>
+      <script type="text/javascript">
+      c3.generate({
+        bindto: '#c3jsOEZVOVGK',
+        size: { height: 500, width: 1000 },
+        data: {
+
+          columns: [["Code Review", "27"], ["Unit Testing", "19"], ["Functional Testing", "13"], ["Continuous Integration", "12"], ["Integration Testing", "9"], ["Detailed Requirements", "7"], ["Static Analysis", "3"], ["Training/On-boarding", "3"], ["User Stories", "2"], ["Other", "5"]],
+          type: 'pie',
+          labels: false,
+          order: 'null'
+        },
+        axis: {
+          rotated: false,
+          x: {
+            type: 'indexed',
+            tick: {
+              rotate: 0,
+              multiline: false
+            },
+            label: undefined
+          },
+          y: {
+            min: undefined,
+            max: undefined,
+            label: undefined
+          }
+        },
+        legend: { position: 'right' },
+        color: {
+              pattern: ['#8DBF44','#555555','#53A3DA','#D6D6B1','#B11E3E','#888888','#FFE119','#000075','#E8575C','#56A29A']
+          }
+        });
+        </script>
+</div>
+<div class="sect2">
+<h3 id="source"><a class="anchor" href="#source"></a><a class="link" href="#source">3.2. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[chart,pie,order=null,legend=right]
+....
+Code Review,27
+Unit Testing,19
+Functional Testing,13
+Continuous Integration,12
+Integration Testing,9
+Detailed Requirements,7
+Static Analysis,3
+Training/On-boarding,3
+User Stories,2
+Other,5
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bar-chart"><a class="anchor" href="#bar-chart"></a><a class="link" href="#bar-chart">3.3. Bar chart</a></h3>
+      <div id="c3jsUVYBYYFS"></div>
+      <script type="text/javascript">
+      c3.generate({
+        bindto: '#c3jsUVYBYYFS',
+        size: { height: 500, width: 1000 },
+        data: {
+
+          columns: [["data1", " 30", " 200", " 100", " 400", " 150", " 250"], ["data2", " 130", " 100", " 140", " 200", " 150", " 50"], ["data3", " 130", " -150", " 200", " 300", " -200", " 100"]],
+          type: 'bar',
+          labels: false,
+          order: 'desc'
+        },
+        axis: {
+          rotated: false,
+          x: {
+            type: 'indexed',
+            tick: {
+              rotate: 0,
+              multiline: false
+            },
+            label: undefined
+          },
+          y: {
+            min: undefined,
+            max: undefined,
+            label: undefined
+          }
+        },
+        legend: { position: 'bottom' },
+        color: {
+              pattern: ['#8DBF44','#555555','#53A3DA','#D6D6B1','#B11E3E','#888888','#FFE119','#000075','#E8575C','#56A29A']
+          }
+        });
+        </script>
+</div>
+<div class="sect2">
+<h3 id="source-2"><a class="anchor" href="#source-2"></a><a class="link" href="#source-2">3.4. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[chart,bar]
+....
+data1, 30, 200, 100, 400, 150, 250
+data2, 130, 100, 140, 200, 150, 50
+data3, 130, -150, 200, 300, -200, 100
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="horizontal-bar-chart"><a class="anchor" href="#horizontal-bar-chart"></a><a class="link" href="#horizontal-bar-chart">3.5. Horizontal bar chart</a></h3>
+<div class="paragraph title">
+<p>What are the main benefits of code review in 2018 ?</p>
+</div>
+      <div id="c3jsHXBGLZRP"></div>
+      <script type="text/javascript">
+      c3.generate({
+        bindto: '#c3jsHXBGLZRP',
+        size: { height: 500, width: 1000 },
+        data: {
+          x: 'x',
+          columns: [["x", " Improved software quality", " Sharing knowledge across the team", " Adherence to coding standards/conventions", " Ability to mentor less experienced developers", " Increased collaboration", " Reduced project time/costs", " Ability to comply with regulatory standards", " Internal audits", " Ability to set expectations", " Enhanced customer satisfaction/retention", " Enhanced mobility of code", " Strengthen competitive advantage", " ISO/Industry certifications"], ["Interviewed developers using it", "90", "73", "59", "57", "52", "37", "31", "28", "28", "26", "26", "20", "16"]],
+          type: 'bar',
+          labels: true,
+          order: 'desc'
+        },
+        axis: {
+          rotated: true,
+          x: {
+            type: 'category',
+            tick: {
+              rotate: 0,
+              multiline: false
+            },
+            label: undefined
+          },
+          y: {
+            min: undefined,
+            max: undefined,
+            label: '% answered'
+          }
+        },
+        legend: { position: 'bottom' },
+        color: {
+              pattern: ['#8DBF44','#555555','#53A3DA','#D6D6B1','#B11E3E','#888888','#FFE119','#000075','#E8575C','#56A29A']
+          }
+        });
+        </script>
+</div>
+<div class="sect2">
+<h3 id="source-3"><a class="anchor" href="#source-3"></a><a class="link" href="#source-3">3.6. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
+....
+x, Improved software quality, Sharing knowledge across the team, Adherence to coding standards/conventions, Ability to mentor less experienced developers, Increased collaboration, Reduced project time/costs, Ability to comply with regulatory standards, Internal audits, Ability to set expectations, Enhanced customer satisfaction/retention, Enhanced mobility of code, Strengthen competitive advantage, ISO/Industry certifications
+Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="combination"><a class="anchor" href="#combination"></a><a class="link" href="#combination">3.7. Combination</a></h3>
+<div class="paragraph">
+<p>Multiple data types at once (using inline JS)</p>
+</div>
+  <div id="combi"></div>
+  <script type="text/javascript">
+c3.generate({
+  bindto: '#combi',
+  size: { height: 500, width: 1000 },
+  data: {
+      columns: [
+        ['data1', 30, 20, 50, 40, 60, 50],
+        ['data2', 200, 130, 90, 240, 130, 220],
+        ['data3', 300, 200, 160, 400, 250, 250],
+        ['data4', 200, 130, 90, 240, 130, 220],
+        ['data5', 130, 120, 150, 140, 160, 150],
+        ['data6', 90, 70, 20, 50, 60, 120],
+      ],
+      type: 'bar',
+      types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+      },
+      groups: [
+          ['data1','data2']
+      ]
+  },
+  color: {
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
+  }
+});
+</script>
+</div>
+<div class="sect2">
+<h3 id="source-4"><a class="anchor" href="#source-4"></a><a class="link" href="#source-4">3.8. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="javascript" class="language-javascript hljs">++++
+&lt;div id="combi"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+c3.generate({
+  bindto: '#combi',
+  size: { height: 500, width: 1000 },
+  data: {
+      columns: [
+        ['data1', 30, 20, 50, 40, 60, 50],
+        ['data2', 200, 130, 90, 240, 130, 220],
+        ['data3', 300, 200, 160, 400, 250, 250],
+        ['data4', 200, 130, 90, 240, 130, 220],
+        ['data5', 130, 120, 150, 140, 160, 150],
+        ['data6', 90, 70, 20, 50, 60, 120],
+      ],
+      type: 'bar',
+      types: {
+          data3: 'spline',
+          data4: 'line',
+          data6: 'area',
+      },
+      groups: [
+          ['data1','data2']
+      ]
+  },
+  color: {
+    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
+  }
+});
+&lt;/script&gt;
+++++</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="diagram-as-code"><a class="anchor" href="#diagram-as-code"></a><a class="link" href="#diagram-as-code">4. Diagram-as-code</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All these architecture diagrams use PlantUML, with a custom skin to fit the theme.</p>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="sequence-diagram"><a class="anchor" href="#sequence-diagram"></a><a class="link" href="#sequence-diagram">4.1. Sequence diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/rma-sequence-diagram.svg" alt="rma sequence diagram" width="556" height="313">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-5"><a class="anchor" href="#source-5"></a><a class="link" href="#source-5">4.2. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, rma-sequence-diagram, svg]
+....
+participant User
+User -&gt; A: DoWork
+activate A
+A -&gt; B: &lt;&lt; createRequest &gt;&gt;
+activate B
+B -&gt; C: DoWork
+activate C
+C --&gt; B: WorkDone
+destroy C
+B --&gt; A: RequestCreated
+deactivate B
+A -&gt; User: Done
+deactivate A
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="use-case-diagram"><a class="anchor" href="#use-case-diagram"></a><a class="link" href="#use-case-diagram">4.3. Use case diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/rma-use-case-diagram.svg" alt="rma use case diagram" width="723" height="240">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-6"><a class="anchor" href="#source-6"></a><a class="link" href="#source-6">4.4. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, rma-use-case-diagram, svg]
+....
+left to right direction
+
+actor developer
+database repo as "central\nrepo"
+agent jenkins as "Jenkins"
+
+rectangle admin as "Gerrit / Gitlab" {
+    agent ui as "front"
+    database repo_local as "local\nrepo"
+}
+
+developer --&gt; ui : push
+ui --&gt; repo_local : push
+ui -left-&gt; jenkins: "\npush "
+ui ..&gt; repo : replication
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="class-diagram"><a class="anchor" href="#class-diagram"></a><a class="link" href="#class-diagram">4.5. Class diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/rma-class-diagram.svg" alt="rma class diagram" width="748" height="259">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-7"><a class="anchor" href="#source-7"></a><a class="link" href="#source-7">4.6. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, rma-class-diagram, svg]
+....
+abstract class ArrayList {
+  Object[] elementData
+  size()
+}
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+Interface BaseClass
+
+namespace net.dummy {
+    .BaseClass &lt;|-- Person
+    Meeting o-- Person
+
+    .BaseClass &lt;|- Meeting
+}
+namespace net.foo {
+  net.dummy.Person  &lt;|- Person
+  .BaseClass &lt;|-- Person
+
+  net.dummy.Meeting o-- Person
+}
+BaseClass &lt;|-- net.unused.Person
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="activity-diagram"><a class="anchor" href="#activity-diagram"></a><a class="link" href="#activity-diagram">4.7. Activity diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/activity-diagram.svg" alt="activity diagram" width="389" height="389">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-8"><a class="anchor" href="#source-8"></a><a class="link" href="#source-8">4.8. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, activity-diagram, svg]
+....
+(*) --&gt; "Initialization"
+
+if "Some Test" then
+  --&gt;[true] "Some Activity"
+  --&gt; "Another activity"
+  -right-&gt; (*)
+else
+  -&gt;[false] "Something else"
+  --&gt;[Ending process] (*)
+endif
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="component-diagram"><a class="anchor" href="#component-diagram"></a><a class="link" href="#component-diagram">4.9. Component diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/rma-component-diagram.svg" alt="rma component diagram" width="734" height="351">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-9"><a class="anchor" href="#source-9"></a><a class="link" href="#source-9">4.10. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, rma-component-diagram, svg]
+....
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+rectangle "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --&gt; FTP
+}
+cloud {
+  [Example 1]
+}
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+[Another Component] --&gt; [Example 1]
+[Example 1] -right-&gt; [Folder 3]
+[Folder 3] --&gt; [Frame 4]
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="state-diagram"><a class="anchor" href="#state-diagram"></a><a class="link" href="#state-diagram">4.11. State diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/rma-state-diagram.svg" alt="rma state diagram" width="861" height="560">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-10"><a class="anchor" href="#source-10"></a><a class="link" href="#source-10">4.12. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, rma-state-diagram, svg]
+....
+[*] -left-&gt; State1
+State1 -left-&gt; State2 : Succeeded
+State1 --&gt; [*] : Aborted
+State2 --&gt; State3 : Succeeded
+State2 --&gt; [*] : Aborted
+state State3 {
+  state "Accumulate Enough Data\nLong State Name" as long1
+  long1 : Just a test
+  [*] --&gt; long1
+  long1 --&gt; long1 : New Data
+  long1 --&gt; ProcessData : Enough Data
+}
+State3 --&gt; State3 : Failed
+State3 --&gt; [*] : Succeeded
+State3 --&gt; [*] : Aborted
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="work-breakdown-structure"><a class="anchor" href="#work-breakdown-structure"></a><a class="link" href="#work-breakdown-structure">4.13. Work Breakdown Structure</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/wbs.svg" alt="wbs" width="1315" height="254">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-11"><a class="anchor" href="#source-11"></a><a class="link" href="#source-11">4.14. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, wbs, svg]
+....
+@startwbs
+* Business Process Modelling WBS
+** Launch the project
+*** Stakeholder Research
+*** Implementation Plan
+** Design phase
+*** AsIs Processes Completed
+****&lt; AsIs Processes Completed1
+****&gt; AsIs Processes Completed2
+***&lt; AsIs performance metrics
+***&lt; Identify Quick Wins
+@endwbs
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="timing-diagram"><a class="anchor" href="#timing-diagram"></a><a class="link" href="#timing-diagram">4.15. Timing diagram</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/timing.svg" alt="timing" width="488" height="286">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-12"><a class="anchor" href="#source-12"></a><a class="link" href="#source-12">4.16. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, timing, svg]
+....
+'skinparam backgroundColor white # does not work
+robust "Web Browser" as WB
+concise "Web User" as WU
+WB is Initializing
+WU is Absent
+@WB
+0 is idle
++200 is Processing
++100 is Waiting
+WB@0 &lt;-&gt; @50 : {50 ms lag}
+@WU
+WU -&gt; WB : URL
+0 is Waiting #white
++500 is ok #white
+@200 &lt;-&gt; @+150 : {150 ms}
+....</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 maxed-image">
+<h3 id="mind-map"><a class="anchor" href="#mind-map"></a><a class="link" href="#mind-map">4.17. Mind Map</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/mindmap.svg" alt="mindmap" width="775" height="437">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-13"><a class="anchor" href="#source-13"></a><a class="link" href="#source-13">4.18. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[plantuml, mindmap, svg]
+....
+@startmindmap
+* Debian
+** Ubuntu
+*** Linux Mint
+*** Kubuntu
+*** Lubuntu
+*** KDE Neon
+** LMDE
+** SolydXK
+** SteamOS
+** Raspbian with a very long name
+*** &lt;s&gt;Raspmbc&lt;/s&gt; =&gt; OSMC
+*** &lt;s&gt;Raspyfi&lt;/s&gt; =&gt; Volumio
+@endmindmap
+....</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="timeline-as-code"><a class="anchor" href="#timeline-as-code"></a><a class="link" href="#timeline-as-code">5. Timeline-as-code</a></h2>
+<div class="sectionbody">
+<div class="ulist timeline">
+<ul>
+<li>
+<p><strong>1997</strong> - Mondrian (Google)</p>
+</li>
+<li>
+<p><strong>2002</strong> - Codestriker (IBM)</p>
+</li>
+<li>
+<p><strong>2003</strong> - Rietveld (Google)</p>
+</li>
+<li>
+<p><strong>2004</strong> - Gerrit (Google, Android, Eclipse, OpenStack, GWT, IBM&#8230;&#8203;)</p>
+</li>
+<li>
+<p><strong>2007</strong> - Crucible (Atlassian)</p>
+</li>
+<li>
+<p><strong>2007</strong> - Phabricator (Facebook, AngularJS, Quora, Uber)</p>
+</li>
+<li>
+<p><strong>2008</strong> - Github</p>
+</li>
+<li>
+<p><strong>2011</strong> - Gitlab</p>
+</li>
+<li>
+<p><strong>2012</strong> - CodeFlow (Microsoft)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="source-14"><a class="anchor" href="#source-14"></a><a class="link" href="#source-14">5.1. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">[.timeline]
+* *1997* - Mondrian (Google)
+* *2002* - Codestriker (IBM)
+* *2003* - Rietveld (Google)
+* *2004* - Gerrit (Google, Android, Eclipse, OpenStack, GWT, IBM...)
+* *2007* - Crucible (Atlassian)
+* *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
+* *2008* - Github
+* *2011* - Gitlab
+* *2012* - CodeFlow (Microsoft)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reveal lines as fragments, use <code>[%step]</code> and put the <code>[.timeline]</code> before the title. See the result on next slide.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Skip fragments with <code>PageDown</code> / <code>PageUp</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2 timeline">
+<h3 id="timeline-as-code-fragmented"><a class="anchor" href="#timeline-as-code-fragmented"></a><a class="link" href="#timeline-as-code-fragmented">5.2. Timeline-as-code fragmented</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>1997</strong> - Mondrian (Google)</p>
+</li>
+<li>
+<p><strong>2002</strong> - Codestriker (IBM)</p>
+</li>
+<li>
+<p><strong>2003</strong> - Rietveld (Google)</p>
+</li>
+<li>
+<p><strong>2004</strong> - Gerrit (Google, Android, Eclipse, OpenStack, GWT, IBM&#8230;&#8203;)</p>
+</li>
+<li>
+<p><strong>2007</strong> - Crucible (Atlassian)</p>
+</li>
+<li>
+<p><strong>2007</strong> - Phabricator (Facebook, AngularJS, Quora, Uber)</p>
+</li>
+<li>
+<p><strong>2008</strong> - Github</p>
+</li>
+<li>
+<p><strong>2011</strong> - Gitlab</p>
+</li>
+<li>
+<p><strong>2012</strong> - CodeFlow (Microsoft)</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pyramid-as-code"><a class="anchor" href="#pyramid-as-code"></a><a class="link" href="#pyramid-as-code">6. Pyramid-as-code</a></h2>
+<div class="sectionbody">
+<div class="ulist pyramid">
+<ul>
+<li>
+<p>Continuous deployment</p>
+</li>
+<li>
+<p>Continuous reporting</p>
+</li>
+<li>
+<p>Pre-commit pipeline</p>
+</li>
+<li>
+<p>Continuous integration/testing</p>
+</li>
+<li>
+<p>Design &amp; architecture</p>
+</li>
+<li>
+<p>Continuous improvement</p>
+</li>
+<li>
+<p>Quality of work life</p>
+</li>
+<li>
+<p>Organization and culture</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="source-15"><a class="anchor" href="#source-15"></a><a class="link" href="#source-15">6.1. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">[.pyramid]
+* Continuous deployment
+* Continuous reporting
+* Pre-commit pipeline
+* Continuous integration/testing
+* Design &amp; architecture
+* Continuous improvement
+* Quality of work life
+* Organization and culture</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reveal lines as fragments, use <code>[%step]</code> and put the <code>[.pyramid]</code> before the title. See the result on next slide.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can skip fragments with <code>PageDown</code> / <code>PageUp</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2 pyramid">
+<h3 id="pyramid-as-code-fragmented"><a class="anchor" href="#pyramid-as-code-fragmented"></a><a class="link" href="#pyramid-as-code-fragmented">6.2. Pyramid-as-code fragmented</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Continuous deployment</p>
+</li>
+<li>
+<p>Continuous reporting</p>
+</li>
+<li>
+<p>Pre-commit pipeline</p>
+</li>
+<li>
+<p>Continuous integration/testing</p>
+</li>
+<li>
+<p>Design &amp; architecture</p>
+</li>
+<li>
+<p>Continuous improvement</p>
+</li>
+<li>
+<p>Quality of work life</p>
+</li>
+<li>
+<p>Organization and culture</p>
+</li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1 big-image">
+<h2 id="screenshot-as-code"><a class="anchor" href="#screenshot-as-code"></a><a class="link" href="#screenshot-as-code">7. Screenshot-as-code</a></h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="./guides/images/asciidoctorj-screenshot.png" alt="asciidoctorj screenshot">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">screenshot::http://www.gebish.org[asciidoctorj-screenshot,dimension=1600x800,width=600]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This uses the <a href="https://github.com/asciidoctor/asciidoctorj-screenshot">screenshot asciidoc plugin</a> based on <a href="http://www.gebish.org">Geb</a>.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="last-slide"><a class="anchor" href="#last-slide"></a><a class="link" href="#last-slide">8. Last slide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The last slide is there to open for questions.</p>
+</div>
+<div class="paragraph">
+<p>We chose to have a slide with transparent background to reveal the background image.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">[.questions]
+=== !
+
+[.bubbles]
+=== !
+
+[.hands]
+=== !</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+They are appearing top to bottom here, this will be left to right on a standard presentation.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You don&#8217;t have to use one, but you will then loose the last section in the ToC, because it is always hidden for this purpose.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="word-cloud-as-code"><a class="anchor" href="#word-cloud-as-code"></a><a class="link" href="#word-cloud-as-code">9. Word-cloud-as-code</a></h2>
+<div class="sectionbody">
+<div id="cloudSVPGQWYL"></div>
+<script type="text/javascript">
+  wordCloud("#cloudSVPGQWYL","cloud", ["Continuous-Everything", " Keep It Simple Stupid", " Everything-As-Code", " Don't Repeat Yourself", " You build it You run it", " Separation of concerns", " Shift left", " 80% of effects from 20% of causes", " You Ain't Gonna Need It", " Fail fast", " What is measured improves", " Culture Automation Lean Measurement Sharing", " Value over cost"]);
+</script>
+<div class="sect2">
+<h3 id="source-16"><a class="anchor" href="#source-16"></a><a class="link" href="#source-16">9.1. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[cloud]
+....
+Continuous-Everything, Keep It Simple Stupid, Everything-As-Code, Don't Repeat Yourself, You build it You run it, Separation of concerns, Shift left, 80% of effects from 20% of causes, You Ain't Gonna Need It, Fail fast, What is measured improves, Culture Automation Lean Measurement Sharing, Value over cost
+....</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Words are on a single line</p>
+</li>
+<li>
+<p>Words get smaller and smaller from 80% for the first to 20% for the last</p>
+</li>
+<li>
+<p>Colors are picked in circle from a list</p>
+</li>
+<li>
+<p>One word out of three is vertical</p>
+</li>
+<li>
+<p>Outside of these rules, the layout is random</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="word-cloud-fragmented"><a class="anchor" href="#word-cloud-fragmented"></a><a class="link" href="#word-cloud-fragmented">9.2. Word Cloud fragmented</a></h3>
+<div id="cloudFZRYBYVV"></div>
+<script type="text/javascript">
+  wordCloud("#cloudFZRYBYVV","fragment", ["Continuous-Everything", " Keep It Simple Stupid", " Everything-As-Code", " Don't Repeat Yourself", " You build it You run it", " Separation of concerns", " Shift left", " 80% of effects from 20% of causes", " You Ain't Gonna Need It", " Fail fast", " What is measured improves", " Culture Automation Lean Measurement Sharing", " Value over cost"]);
+</script>
+</div>
+<div class="sect2">
+<h3 id="source-17"><a class="anchor" href="#source-17"></a><a class="link" href="#source-17">9.3. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">[cloud,fragment]
+....
+Continuous-Everything, Keep It Simple Stupid, Everything-As-Code, Don't Repeat Yourself, You build it You run it, Separation of concerns, Shift left, 80% of effects from 20% of causes, You Ain't Gonna Need It, Fail fast, What is measured improves, Culture Automation Lean Measurement Sharing, Value over cost
+....</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Skip fragments with <code>PageDown</code> / <code>PageUp</code>.
+</td>
+</tr>
+</table>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="positionning-and-sizing"><a class="anchor" href="#positionning-and-sizing"></a><a class="link" href="#positionning-and-sizing">10. Positionning and sizing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here are some positionning and sizing introduced specifically for Reveal.js slides.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">[.halign-center]
+You can center anything horizontally.
+
+[.bottom]
+You can put anything at the bottom.</code></pre>
+</div>
+</div>
+<div class="paragraph halign-center">
+<p>You can center anything horizontally.</p>
+</div>
+<div class="paragraph bottom">
+<p>You can put anything at the bottom.</p>
+</div>
+<div class="sect2">
+<h3 id="text-wrapping-near-image"><a class="anchor" href="#text-wrapping-near-image"></a><a class="link" href="#text-wrapping-near-image">10.1. Text wrapping near image</a></h3>
+<div class="imageblock left">
+<div class="content">
+<img src="./guides/images/one-ring.jpg" alt="one ring" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>Three Rings for the Elven-kings under the sky,</p>
+</div>
+<div class="paragraph">
+<p>Seven for the Dwarf-lords in their halls of stone,</p>
+</div>
+<div class="paragraph">
+<p>Nine for Mortal Men doomed to die,</p>
+</div>
+<div class="paragraph">
+<p>One for the Dark Lord on his dark throne</p>
+</div>
+<div class="imageblock right">
+<div class="content">
+<img src="./guides/images/one-ring.jpg" alt="one ring" width="450">
+</div>
+</div>
+<div class="paragraph">
+<p>In the Land of Mordor where the Shadows lie.</p>
+</div>
+<div class="paragraph green">
+<p><strong>One Ring <span class="image"><img src="./guides/images/one-ring.jpg" alt="one ring" width="40"></span> to rule them all, One Ring <span class="image"><img src="./guides/images/one-ring.jpg" alt="one ring" width="40"></span> to find them,</strong></p>
+</div>
+<div class="paragraph green">
+<p><strong>One Ring <span class="image"><img src="./guides/images/one-ring.jpg" alt="one ring" width="40"></span> to bring them all and in the darkness bind them</strong></p>
+</div>
+<div class="paragraph">
+<p>In the Land of Mordor where the Shadows lie.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-18"><a class="anchor" href="#source-18"></a><a class="link" href="#source-18">10.2. Source</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">image::one-ring.jpg[width=300,float=left] <i class="conum" data-value="1"></i><b>(1)</b>
+
+Three Rings for the Elven-kings under the sky,
+
+Seven for the Dwarf-lords in their halls of stone,
+
+Nine for Mortal Men doomed to die,
+
+One for the Dark Lord on his dark throne
+
+image::one-ring.jpg[width=450,float=right] <i class="conum" data-value="2"></i><b>(2)</b>
+
+In the Land of Mordor where the Shadows lie.
+
+[.green] <i class="conum" data-value="3"></i><b>(3)</b>
+*One Ring image:one-ring.jpg[width=40] to rule them all, One Ring image:one-ring.jpg[width=40] to find them,*
+
+[.green] <i class="conum" data-value="3"></i><b>(3)</b>
+*One Ring image:one-ring.jpg[width=40] to bring them all and in the darkness bind them*
+
+In the Land of Mordor where the Shadows lie.</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>::</code> block image float left</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>::</code> block image float right</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>:</code> inline images</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="maxed-out-image"><a class="anchor" href="#maxed-out-image"></a><a class="link" href="#maxed-out-image">10.3. Maxed-out image</a></h3>
+<div class="imageblock maxed-image">
+<div class="content">
+<img src="./guides/images/sunset.jpg" alt="sunset">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-19"><a class="anchor" href="#source-19"></a><a class="link" href="#source-19">10.4. Source</a></h3>
+<div class="paragraph">
+<p>Whatever the image size is, it will cover space without changing the ratio.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">[.maxed-image]
+image::sunset.jpg[]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="big-image"><a class="anchor" href="#big-image"></a><a class="link" href="#big-image">10.5. Big image</a></h3>
+<div class="imageblock big-image">
+<div class="content">
+<img src="./guides/images/sunset.jpg" alt="sunset">
+</div>
+</div>
+<div class="paragraph">
+<p><code>[.big-image]</code> is the same as <code>[.maxed-image]</code> but gives some space for text.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="asciidoc" class="language-asciidoc hljs">[.big-image]
+image::sunset.jpg[]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-01-06 18:27:28 UTC
+</div>
+</div>
+<link rel="stylesheet" href="lib/highlight/styles/gruvbox-dark.min.css">
+<script src="lib/highlight/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+</body>
+</html>

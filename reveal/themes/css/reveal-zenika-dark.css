@@ -1,0 +1,100 @@
+@import "reveal-zenika.css";
+
+/**
+ZENIKA :
+rouge : 179/30/62
+vert : 143/189/163
+noir : 70/70/70
+bleu : 81/155/200
+rose : 239/82/91
+**/
+
+.reveal {
+  color: white;
+}
+
+.reveal .slides section.title {
+  background: #222A;
+  height: initial;
+  text-align: center;
+}
+
+.reveal .slides section:not(.title):not(.stack),
+.reveal .slides section > section,  
+.reveal .slides section.stack > section.stack {
+  background: #222;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+::selection {
+  color: black;
+  background-color: white;
+}
+
+/** FONT AWESOME **/
+
+/*
+.reveal div.admonitionblock.tip {
+  color: yellow
+}
+*/
+
+/* keywords */
+.reveal *:not(pre)>code {
+  background-color: #444;
+  color: white;
+}
+
+.reveal pre {
+  background: #444;
+}
+
+/****************
+* C3JS
+*****************/
+
+.c3 svg {
+  fill: white;
+}
+
+.c3 .c3-axis path, .c3 .c3-axis line {
+  stroke: white;
+}
+
+/*******************
+* Timeline dark
+********************/
+
+.timeline ul, .pyramid ul {
+  color: #777777;
+}
+
+/* bubble */
+.timeline li, .pyramid li {
+    background: white;
+}
+
+/* right bubble arrow */
+.timeline ul li:nth-child(even):before {
+  border-right-color: white;
+}
+
+/* left bubble arrow */
+.timeline ul li:nth-child(odd):before {
+	border-left-color: white;
+} 
+
+/* point on timeline */
+.timeline ul li:after {
+  border-color: #222;
+}
+
+/***********************
+* last slide 
+************************/
+
+/* .bubbles */
+
+.reveal section.bubbles {
+  background-position: 45% -200% !important;
+}
