@@ -18,7 +18,7 @@ toc::[]
 <<<
 == Introduction
 
-Basic Asciidoctor capabilities are shown in link:asciidoc-syntax-quick-reference.html[this presentation].
+Standard Asciidoctor capabilities are shown in link:syntax-quick-reference.html[this presentation].
 
 The current presentation shows advanced Asciidoctor / Reveal.js capabilities, mostly helping going deeper in the everything-as-code devOps principle.
 
