@@ -1,0 +1,327 @@
+= Evaluer l'efficience du delivery
+{localdate} - Benoit COUETIL
+:revealjs_customtheme: ../../framework/themes/css/reveal-zenika-light.css
+:toc-title: Sommaire
+
+:imagesdir: images
+
+//This can't land on reveaj-js first slide...
+ifdef::backend-html5[]
+link:{docname}.htm[icon:video-camera[] Slides]  link:{docname}.pdf[icon:file-pdf-o[] PDF] link:{docname}.adoc[icon:file-text-o[] Source]
+endif::backend-html5[]
+
+//TODO
+//Pet vs Cattle
+// Shift left : https://www.stickyminds.com/article/shift-left-approach-software-testing
+
+ifdef::backend-revealjs[]
+[%notitle]
+== Sommaire
+toc::[]
+
+endif::backend-revealjs[]
+
+<<<
+== Définition
+
+[quote, Wikipedia]
+L'efficience, c'est l'optimisation de la consommation des ressources utilisées dans la production d'un résultat.
+
+(software) Delivery : ensemble des opérations du cycle de réalisation de logiciels.
+
+//...So we put this at the end of second slide
+ifdef::backend-revealjs[]
+[.bottom]
+link:{docname}.pdf[icon:file-pdf-o[] PDF]  link:{docname}.html[icon:globe[] HTML]  link:{docname}.adoc[icon:file-alt[] Source]
+endif::backend-revealjs[]
+
+=== Introduction
+
+[cloud]
+....
+Efficience du Delivery,Management 3.0,DevOps,Audit,Connaissance,Agilité,Maturité,Géants du Web,Open Source,Time To Market,Q.V.T.,Culture,Bonnes pratiques,Outils,Investissement,Gagnant/gagnant,Incertitude,Complexité
+....
+
+[.pyramid]
+=== Les fondations du déploiement continu
+
+[%step]
+* Déploiement continu
+* Monitoring continu
+* Pipeline pré-merge
+* Intégration continue
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+== Culture agile
+
+[%step]
+* Bienveillance, confiance
+* Culture du service : proposer sans imposer
+* Engagement et passion
+* Culture de la transparence
+* Culture de l'excellence
+* Culture de la simplicité
+* Principes > pratiques
+* Culture de l'échec
+* Culture de l'expérimentation
+
+== Organisation agile
+
+[.pyramid]
+* Organisation agile
+* Culture agile
+
+=== Organisation agile
+
+[%step]
+* Une structure hiérarchique plate
+* Managers 3.0 : des leaders serviteurs
+* Roles assumés responsabilisants
+* Equipes autonomes build/run
+* Equipes auto-organisées et fortement alignées
+* Les Equipes spécialisées sont des fournisseurs
+* Principe de subsidiarité
+
+== Qualité de vie au travail
+
+[.pyramid]
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Qualité de vie au travail
+
+[%step]
+* Un environnement de travail adapté
+* Du matériel performant
+* De l'espace loisir / vivre ensemble
+* Faces à faces réguliers collectant les remarques
+* Mesure régulière interne et externe de la QVT
+* Les mesures montrent une équipe en majorité satisfaite
+* Process de recrutement adapté
+* Turnover bas
+
+== Amélioration continue
+
+[.pyramid]
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Amélioration continue
+
+[%step]
+* Chasse au gaspillage (Lean)
+* Amélioration continue des projets (rétro)
+* Amélioration continue des compétences (réunions chapitre)
+* Amélioration continue de l’outillage
+* Amélioration continue de la qualité technique (dette)
+* Innovation individuelle
+* Feedback 360°
+
+== Design & architecture
+
+[.pyramid]
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Design & architecture
+
+[%step]
+* Documentation fonctionnelle
+* Dossier d’architecture
+* Documentation-as-code
+* Architecture adaptée
+* Branching : Trunk-based development
+* Feature flipping / branch by abstraction
+
+== Technos & outils
+
+[.pyramid]
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Technos & outils
+
+[%step]
+* Pas de techno/outil imposé
+* Reuse before Buy before Build
+* Des techno/outils adaptés
+* Des techno/outils attractifs
+* Des versions à jour
+* Une expertise hautement disponible
+
+== Intégration continue
+
+[.pyramid]
+* Intégration continue
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Intégration continue
+
+[%step]
+* Build automatisé ordonnancé sur serveur séparé
+* Pyramide des tests respectée
+* Tests unitaires automatisés bloquants isolés courts
+* Tests inter-modules automatisés bloquants isolés courts
+* Analyse statique
+* Couverture de test
+* Binaires génériques versionnés en repo
+* Tests de performance en continu
+* Tests de sécurité en continu
+
+== Pipeline pré-merge
+
+[.pyramid]
+* Pipeline pré-merge
+* Intégration continue
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Pipeline pré-merge
+
+[%step]
+* Un pipeline pré-merge compilant les sources
+* Relecture de code systématique et décentralisée
+* Merge par un propriétaire de repo responsabilisé
+* Tests automatisés bloquants isolés courts
+* Dette technique et couverture de test maitrisées
+* Gateway qualité bloquante garantissant la progression
+
+== Monitoring continu
+
+[.pyramid]
+* Monitoring continu
+* Pipeline pré-merge
+* Intégration continue
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Monitoring continu
+
+[%step]
+* Centralisation des logs
+* Centralisation des métriques techniques
+* Mesure et affichage de la valeur produit/client
+* Traçage unitaire des requêtes
+* Board de qualité de code affiché à tous
+* Boards BUILD affichés à tous
+* Boards RUN affichés à tous
+* Test du Monitoring en continu
+
+== Déploiement continu
+
+[.pyramid]
+* Déploiement continu
+* Monitoring continu
+* Pipeline pré-merge
+* Intégration continue
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+=== Déploiement continu
+
+[%step]
+* Pré-prod iso-prod déployée avant la prod
+* Déploiement automatisé
+* Infrastructure-as-code
+* Déploiement fréquents
+* Cloud / IaaS
+* Déploiement sans interruption de service
+* Déploiement graduel aux clients
+* Déploiement continu sans intervention
+* Remise en service automatique
+* Scalabilité automatique
+
+== Catégories
+
+[.pyramid]
+* Déploiement continu
+* Monitoring continu
+* Pipeline pré-merge
+* Intégration continue
+* Technos & outils
+* Design & architecture
+* Amélioration continue
+* Qualité de vie au travail
+* Organisation agile
+* Culture agile
+
+<<<
+== Grille de notation
+
+.Design & architecture
+[cols="<,^,^", options="header,autowidth", caption=""] 
+|===
+|Critère | Poids | note
+|Documentation fonctionnelle|★★|0,5
+|Dossier d’architecture|★★|0
+|Documentation-as-code|★|0
+|Architecture adaptée|★★★|1
+|Trunk-based development|★|0,5
+|Feature flipping / branch by abstraction|★|0
+|===
+
+<<<
+== Exemples
+
+=== Entreprise A
+
+[chart,bar,x-type=category,horizontal=true,y-range=1_9]
+....
+x,Déploiement continu,Monitoring continu,Pipeline pré-merge,Intégration continue,Technos & outils,Design & architecture,Amélioration continue,Q.V.T.,Organisation agile
+Initial,5,3,0,2.5,2,2,2,1,1
+6 mois,5,6,8,4.5,3,4.5,2,1,1
+....
+
+=== Entreprise B
+
+[chart,bar,x-type=category,horizontal=true,y-range=1_9]
+....
+x,Déploiement continu,Monitoring continu,Pipeline pré-merge,Intégration continue,Technos & outils,Design & architecture,Amélioration continue,Q.V.T.,Organisation agile
+Initial,3,3,3,3,3,3,5,7,10
+Evolution,5,5,5,5,5,5,7,8,10
+....
+
+=== Entreprise C
+
+[chart,bar,x-type=category,horizontal=true,y-range=1_9]
+....
+x,Déploiement continu,Monitoring continu,Pipeline pré-merge,Intégration continue,Technos & outils,Design & architecture,Amélioration continue,Q.V.T.,Organisation agile
+Actuel,5,5,0,8,1,8,3,4,2
+....
+
+ifdef::backend-revealjs[]
+[.bubbles]
+== !
+endif::backend-revealjs[]

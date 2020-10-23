@@ -1,0 +1,178 @@
+@import "reveal-zenika.css";
+/* titles and text */
+@font-face {
+  font-family: "Candara";
+  src: url("../fonts/Candara-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+GR COLORS
+# names : http://chir.ag/projects/name-that-color/#BAB1A2
+marron foncé (oil) : #2d2319
+marron foncé corrigé (smoky black) : #1a140e
+orange (flush orange) : #ff8201
+marron clair (sandal) : #a88371
+gris (nomad) : #b5a99d
+https://coolors.co/2d2319-ff8201-a88371-b5a99d-b5a99d
+
+
+vert / android green : 141/191/68 #8DBF44
+bleu / carolina blue : #53A3DA
+gris clair / davy's grey : #888
+gris foncé / arsenic : #444444
+rose / sunset orange : 239/82/91 #EF525B => 
+vermillon : #E43238
+violet : #9D145F
+
+rose 2 / indian red : #E8575C
+blue ciel / colombia blue : BFDCD0
+beige pastel gray : #D6D6B1
+black olive : #3F3F37
+orange : #F58231
+jaune / vivid yellow : #FFE119
+menthe / polished pine : #56A29A
+bleu nuit / navy : #000075
+
+rouge - gris foncé - beige - bleu - vert
+https://coolors.co/B11E3E-444444-D6D6B1-53A3DA-8DBF44
+
+violet - jaune - bleu nuit - rose - menthe
+https://coolors.co/9D145F-FFE119-000075-E8575C-56A29A
+
+**/
+
+/* When using the shorthand property the order of the property values is: background-color, background-image, background-repeat, background-attachment, background-position */
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    black url("../logo-rocher.png") no-repeat center;
+  background-size: cover, 30%;
+}
+
+.reveal {
+  font-family: "Candara";
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6,
+.reveal h[level="3"],
+#toctitle {
+  color: #ff8201;
+  font-family: "Candara";
+  font-weight: bold;
+}
+
+.reveal p.author {
+  color: #b5a99d;
+}
+
+.reveal .orange {
+  color: #ff8201;
+}
+
+/* author */
+.quoteblock .attribution,
+.verseblock .attribution {
+  color: #b5a99d;
+}
+
+/** FONT AWESOME **/
+
+/* Font awesome images are blue by default */
+.reveal a.image i.fa,
+.reveal span.icon i.fa:not(.fa-check-circle):not(.fa-times-circle) {
+  color: #8dbf44;
+}
+
+/* OK symbol is green */
+.reveal i.fa-check-circle {
+  color: #8dbf44;
+}
+
+/* KO symbol is red */
+.reveal i.fa-times-circle {
+  color: #ff8201;
+}
+
+/* title of code/image block */
+.reveal div.title,
+.reveal table > caption.title {
+  color: #ff8201;
+}
+
+.exampleblock > .content {
+  border-color: #b5a99d;
+}
+
+/* text in admonition blocks */
+.reveal .admonitionblock td.content {
+  color: #b5a99d;
+  border-left: 1px solid #b5a99d;
+}
+
+/* NOTE icon */
+.reveal .admonitionblock.note td.icon {
+  color: #8dbf44;
+}
+
+/* WARNING icon */
+.reveal .admonitionblock.warning td.icon {
+  color: #ff8201;
+}
+
+/* IMPORTANT icon */
+.reveal .admonitionblock.important td.icon {
+  color: #e43238;
+}
+
+/* CAUTION icon */
+.reveal .admonitionblock.caution td.icon {
+  color: #a88371;
+}
+
+/* links */
+.reveal .slides a:not(.image),
+.chalkboard-button a,
+.slide-menu-button a {
+  color: #8dbf44;
+}
+
+.reveal a:not(.image):hover {
+  color: #ff8201;
+}
+
+/* Slide number color */
+.reveal .slide-number a {
+  color: #ff8201;
+}
+
+.reveal .controls .enabled {
+  color: #ff8201;
+}
+
+.reveal .progress span {
+  background: #ff8201;
+}
+
+.reveal section.questions {
+  background: no-repeat center url("../question-mark-orange.svg") !important;
+  background-size: 40% !important;
+  box-shadow: none !important;
+}
+
+/* vertical bar */
+.timeline ul:before {
+  background: #ff8201;
+}
+
+/* arrow */
+.timeline ul:after {
+  border: solid #ff8201;
+}

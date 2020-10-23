@@ -1,0 +1,357 @@
+@import "html-asciidoctor-default.css";
+
+@font-face {
+  font-family: "MontSerrat Bold";
+  src: url("../fonts/MontSerrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SourceSansPro Regular";
+  src: url("../fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+
+html,
+body,
+.admonitionblock > table td.icon .title,
+.verseblock pre,
+.conum,
+h1,
+h2,
+h3,
+#toctitle,
+.sidebarblock > .content > .title,
+h4,
+h5,
+h6,
+#toc ul {
+  font-family: "SourceSansPro Regular";
+}
+
+h1,
+h2,
+h3,
+#toctitle,
+.sidebarblock > .content > .title,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat Bold";
+  color: #b11e3e; /* red */
+}
+
+.subheader,
+.admonitionblock td.content > .title,
+.audioblock > .title,
+.exampleblock > .title,
+.imageblock > .title,
+.listingblock > .title,
+.literalblock > .title,
+.stemblock > .title,
+.openblock > .title,
+.paragraph > .title,
+.quoteblock > .title,
+table.tableblock > .title,
+.verseblock > .title,
+.videoblock > .title,
+.dlist > .title,
+.olist > .title,
+.ulist > .title,
+.qlist > .title,
+.hdlist > .title {
+  color: #b11e3e; /* red */
+}
+
+/* color of TOC */
+#toc.toc2 {
+  background-color: #333;
+  font-weight: bold;
+}
+
+#toc.toc2:before {
+  background: url("../logo-zenika-white.png") no-repeat center;
+  background-size: 100%;
+  display: block;
+  margin: 0px auto 20px 30px;
+  width: 200px;
+  height: 60px;
+  content: "";
+  /* background-attachment: fixed; would ignore the scroll */
+}
+
+/* OK symbol is green */
+i.fa-check-circle {
+  color: rgb(141, 191, 68); /* green */
+  font-size: 28px;
+}
+
+/* KO symbol is red */
+i.fa-times-circle {
+  color: #b11e3e; /* red */
+  font-size: 28px;
+}
+
+a,
+a:hover,
+a:focus {
+  color: rgb(81, 155, 200); /* blue */
+}
+
+#content h1 > a.link:hover,
+h2 > a.link:hover,
+h3 > a.link:hover,
+#toctitle > a.link:hover,
+.sidebarblock > .content > .title > a.link:hover,
+h4 > a.link:hover,
+h5 > a.link:hover,
+h6 > a.link:hover {
+  color: #b11e3e; /* red */
+}
+
+.sidebarblock > .content > .title {
+  color: #b11e3e; /* red */
+}
+
+.quoteblock blockquote::before {
+  color: rgb(141, 191, 68); /* green */
+}
+
+.admonitionblock td.icon .icon-note::before {
+  color: rgb(81, 155, 200); /* blue */
+}
+
+.admonitionblock td.icon .icon-important::before {
+  color: #b11e3e; /* red */
+}
+
+.admonitionblock td.icon .icon-caution::before {
+  color: rgb(239, 82, 91); /* pink */
+}
+
+a:not(.image):hover {
+  color: #b11e3e;
+  text-shadow: none;
+  border: none;
+}
+
+/* references in code */
+.conum[data-value] {
+  background-color: #b11e3e; /* red */
+}
+
+/** buttons **/
+
+b.button {
+  font-size: 0.9em;
+  font-weight: normal;
+  font-family: monospace, serif;
+  white-space: nowrap;
+  background-color: rgb(245, 245, 245);
+  text-shadow: none;
+  padding: 2px 3px 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #888;
+  border-image: initial;
+  border-radius: 4px;
+}
+
+b.button::before,
+b.button::after {
+  content: initial;
+  padding: unset;
+  position: unset;
+  top: unset;
+  font-weight: unset;
+}
+
+.literalblock pre,
+.literalblock pre[class],
+.listingblock pre,
+.listingblock pre[class] {
+  font-size: small;
+}
+
+/* don't display speaker notes in HTML backend */
+.sidebarblock.notes {
+  display: none;
+}
+
+/****************
+C3JS
+*****************/
+
+.c3 svg {
+  font: 15px;
+}
+
+/****************
+* C3.JS
+*****************/
+
+.c3 svg g {
+  font-size: 18px;
+  fill: black;
+}
+g.c3-legend-item text,
+g.c3-chart-arc text {
+  font-size: 20px;
+}
+table.c3-tooltip td {
+  font-size: 25px;
+  color: black;
+}
+table.c3-tooltip th {
+  background-color: #aaa;
+  font-size: 25px;
+  padding: 2px 5px;
+  text-align: left;
+  color: #fff;
+}
+text.c3-axis-y-label,
+text.c3-axis-y2-label {
+  font-size: 12px;
+}
+
+/*******************
+* Timeline
+********************/
+
+.timeline ul {
+  position: relative;
+  overflow: auto;
+}
+
+/* vertical bar */
+.timeline ul:before {
+  content: "";
+  background: #b11e3e;
+  width: 5px;
+  position: absolute;
+  height: 98%;
+  left: 50%;
+}
+
+/* arrow */
+.timeline ul:after {
+  content: "";
+  border: solid #b11e3e;
+  border-width: 0 5px 5px 0;
+  padding: 10px;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 48.6%;
+  bottom: 2%;
+}
+
+/* bubble list */
+.timeline ul {
+  list-style: none;
+  padding: 0 0 0 1em;
+  z-index: 1;
+  padding-left: 0;
+  margin: 0;
+  color: white;
+}
+
+/* bubble */
+.timeline li {
+  border-radius: 0.4em;
+  padding: 0.5em;
+  margin-top: 0.8em;
+  margin-bottom: 1em;
+  position: relative;
+  width: 44%;
+  background: #999999;
+}
+
+/* special shift for first right bubble */
+.timeline li:nth-of-type(2) {
+  margin-top: 2em;
+}
+
+.timeline li:nth-child(even) {
+  float: right;
+  clear: right;
+}
+
+.timeline li:nth-child(odd) {
+  float: left;
+  clear: left;
+}
+
+/* bubble arrow */
+.timeline ul li:before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  margin-top: -20px;
+  margin-right: -20px;
+}
+
+/* right bubble arrow */
+.timeline ul li:nth-child(even):before {
+  left: -18px;
+  border-left: 0;
+  border-right-color: #999999;
+}
+
+/* left bubble arrow */
+.timeline ul li:nth-child(odd):before {
+  right: 1px;
+  border-right: 0;
+  border-left-color: #999999;
+}
+
+/*****************
+* Pyramid-as-code 
+*****************/
+
+.pyramid ul {
+  color: white;
+}
+
+.pyramid li {
+  background: #999999;
+}
+
+/* bubble arrow */
+.pyramid li {
+  display: block;
+  border-radius: 0.4em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.pyramid li:nth-child(1) {
+  width: 50%;
+}
+.pyramid li:nth-child(2) {
+  width: 55%;
+}
+.pyramid li:nth-child(3) {
+  width: 60%;
+}
+.pyramid li:nth-child(4) {
+  width: 65%;
+}
+.pyramid li:nth-child(5) {
+  width: 70%;
+}
+.pyramid li:nth-child(6) {
+  width: 75%;
+}
+.pyramid li:nth-child(7) {
+  width: 80%;
+}
+.pyramid li:nth-child(8) {
+  width: 85%;
+}
+.pyramid li:nth-child(9) {
+  width: 90%;
+}
+.pyramid li:nth-child(10) {
+  width: 95%;
+}

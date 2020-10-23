@@ -1,0 +1,17 @@
+
+
+pages:
+  image: docker:18.09.7
+  services:
+    - docker:18.09.7-dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375 # on gitlab.com shared runners
+  script:
+    - ./generate.sh
+    - ls build-docs/*/*
+    - mv --verbose build-docs public
+  interruptible: true # this way jobs are interrupted when a newer pipeline is triggered
+  artifacts:
+    paths:
+      # nothing else than public folder will work :( 
+      - public

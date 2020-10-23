@@ -1,0 +1,22 @@
+[plantuml, comp-one-team-prod, svg]
+....
+node entreprise
+rectangle "produit A" as a {
+    actor "équipe 1" as a1
+}
+rectangle "produit B" as b {
+    actor "équipe 2" as b2
+}
+entreprise -- a
+entreprise -- b
+
+storage "module A1x" as a1x
+storage "module A1y" as a1y
+a1 -- a1x
+a1 -- a1y
+
+storage "module B2x" as b2x
+storage "module B2y" as b2y
+b2 -- b2x
+b2 -- b2y
+....

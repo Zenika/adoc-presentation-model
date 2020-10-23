@@ -1,0 +1,8 @@
+@import "reveal-rocher-light.css";
+
+body {
+  background: no-repeat 98% 5% url("../favicon-rocher.png"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    center url("../backgrounds/rocher-grass-light.jpg");
+  background-size: 3%, cover, cover;
+}

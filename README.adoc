@@ -1,0 +1,183 @@
+
+NOTE: Reveal.js presentations hosted on link:https://bcouetil.gitlab.io/asciidoc-stack/[Gitlab Pages]. In presentation, other versions linked in ToC (HTML, PDF, source).
+
+Presentation material based on Asciidoc and/or Markdown (see comparison link:https://asciidoctor.org/docs/user-manual/#compared-to-markdown[here]). It is a mono-repository including both framework and actual presentation subjects.
+
+0% knownledge in HTML/CSS/JS is required to produce/update a presentation, and still being able to include advanced documentation capabilities. Guides are provided, hosted on Gitlab pages.
+
+:toc:
+
+== Development environment setup
+
+This section explains how to configure your computer to develop and contribute to training materials.
+
+=== Install an Asciidoctor editor
+
+* Install for instance https://code.visualstudio.com/[MS Visual Studio]
+* Open the menu *View*|*Extensions* and install an ASCII support extension
+* Install a *git* extension as well
+
+=== Install git 
+
+==== MS Windows
+
+* Install https://gitforwindows.org/
+* Make sure you have selected the installation option *Checkout as-is, commit Unix-style*
+* Otherwise you can set this configutation by executing the command line in Git bash :
+
+ git config --global core.autocrlf input
+
+==== Mac iOS
+
+* Install first *brew* https://brew.sh
+* To install *brew* open a terminal then run the command
+
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+* one installed run the following command to install git
+
+ brew install git
+
+=== Install GitHub desktop application (optional)
+
+This application could help to manage interactions between local repository on your computer and the remote repository in GitHub.
+
+* Go to https://desktop.github.com/ and install desktop github on your computer
+
+=== Clone the git repo
+
+You should be able to clone this repo in a specific folder of your computer. You can do that different way :
+
+* Using GitHub for Windows application (recommended for dummies)
+ Using the `git clone` command line
+
+=== Install Docker
+
+==== MS Windows
+
+===== Option #1 : Use Docker Desktop for Windows
+
+* Install https://hub.docker.com/editions/community/docker-ce-desktop-windows/[Docker Desktop]
+* Reboot one time
+* Under the menu Resources > File Sharing of the dashboard, add the folder of your local git repository
+* Apply your modifications
+
+===== Option #2 : Use VirtualBox
+
+* Install https://www.virtualbox.org/[VirtualBox]
+* Make sure you have installed the guest additions by openning the menu *Devices*|*Guest Additions*
+* Download an https://www.linuxlookup.com/linux_iso[linux image]
+* Create a new virtual machine based on this linux image
+* Configure a shared folder on this VM
+
+WARNING: make sure this folder contains your Asciidoc git repo
+
+* Start this VM
+* Install both packages *virtualbox-guest-additions-iso* and *virtualbox-guest-utils* by running these commands
+ 
+  sudo apt get update
+  sudo apt get install virtualbox-guest-additions-iso
+  sudo apt get install virtualbox-guest-utils
+
+* Add your username in the *vboxsf* group running this command
+
+ sudo adduser <username> vboxsf 
+
+* Restart the VM and you should be able to have a new shared folder available in */media/sf_xxxxx* where xxxxx corresponds to the folder name defined in configuration
+
+==== Mac iOS
+
+* Run the command line
+
+ brew cask install docker
+
+==== Validate training material generation
+
+* Start the VM
+* Go to the *Asciidoc git repo* in the shared folder
+* Run the command `./generate.sh kubernetes-user reveal`
+* You should see new files generated into `build-docs` folder
+* Open `kubernetes-user.htm`in your brower, you should see the training slides
+
+== Generation
+
+Generation is based on link:https://hub.docker.com/r/asciidoctor/docker-asciidoctor/dockerfile[Asciidoctor Docker Image].
+
+NOTE: You don't have to pull the asciidoctor docker image because the generation script takes care of this.
+
+Slides, HTML and PDF are generated in `build-docs`.
+
+WARNING: Target folder is cleaned each time to ensure update of generated content
+
+First parameter is `<category/subject>` or `all`, second parameter can be `reveal`, `html`, `pdf`, `zip` or `all`
+
+Run this command on a given training :
+
+  ./generate.sh devops/kubernetes-user reveal
+
+or for windows
+
+  ./generate.bat devops/kubernetes-user reveal
+
+By default it generates everything for all trainings (except zips) :
+
+  ./generate.sh
+
+or for windows
+
+  ./generate.bat
+
+NOTE: This script is also used by CICD
+
+=== Live reload
+
+==== MS Windows
+
+You can simulate a basic continuous regeneration every 5 seconds with this code running under any windows console (Windows or Windows+R and then type “cmd” and validate)
+
+  for /l %g in () do @(<ANY COMMAND> & timeout /t 5)
+
+In our example it could be : 
+
+  for /l %g in () do @(generate agile\kanban-1j reveal & timeout /t 5)
+
+==== Mac OS & Unix
+
+`generate.sh` provides a live reload solution based on `inotifywait` on Unix environment:
+
+* install `inotify-tools`
+
+  sudo apt-get install inotify-tools
+
+* generate at least once
+
+  ./generate.sh devops/kubernetes-user reveal
+
+* start a http server
+
+  cd build-docs
+  python3 -m http.server
+
+* in another terminal, launch live reload mode
+
+  ./generate.sh devops/kubernetes-user reveal live
+
+You can now browse files from local server, for example http://localhost:8000/kubernetes-user.htm. Files are automatically refreshed in your browser, thanks to a JS script included in generated HTML.
+
+NOTE: No Asciidoc built-in live reload for now, link:https://asciidoctor.org/docs/editing-asciidoc-with-live-preview/[documentation present some alternatives] but not for Reveal.js.  Some other solutions involve VS Code extensions or Ruby in an link:https://github.com/asciidoctor/asciidoctor-reveal.js/issues/248[open issue].
+
+== I don't like the result, I would prefer something more like...
+
+You don't like the result ? It's perfectly fine. You can change basic things like slide transition and background in-presentation. But, most important, you can contribute with any Reveal.js CSS you find/produce that fits your presentation style, just add it in the appropriate folder and import it at the beginning of your presentation.
+
+Here is a list of nice Asciidoc-based RevealJS slide decks, for inspiration :
+
+* https://slides.codefx.org (monorepo : https://github.com/CodeFX-org/slides)
+
+== Contribution
+
+We try to keep themes count low by using these guidelines :
+
+* 2 themes max by brightness (light/dark) by category
+* Categories are  : code, containers, security, zenika, Groupe Rocher, falling snow, undersea bubbles. Categories may be extended but it is subject to discussion
+* Any new background can replace one in the same category (if better)

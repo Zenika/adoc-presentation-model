@@ -1,0 +1,17 @@
+= image:framework/themes/favicon.png[width=50] Asciidoc/Reveal-js presentations
+:toc-placement!:
+
+// not needed in PDF (and raise warnings during build)
+ifndef::backend-pdf[]
+
+* link:zenika/zenika/zenika-efficience-delivery.htm[icon:video-camera[] Evaluer l'efficience du delivery]
+* link:rocher/kiss-yagni/kiss-yagni.htm[icon:video-camera[] KISS YAGNI & co : 40 principes pour un développement serein]
+* link:rocher/monorepo/monorepo.htm[icon:video-camera[] Le mono-repo produit... c'est la vie !]
+
+== Asciidoc Guides
+
+// also hosted elsewhere, but helps for non-regression
+* link:guides/guides/syntax-quick-reference.htm[icon:video-camera[] Syntax Quick Reference]
+* link:guides/guides/reveal-my-asciidoc.htm[icon:video-camera[] Additional capabilities]
+
+endif::backend-pdf[]

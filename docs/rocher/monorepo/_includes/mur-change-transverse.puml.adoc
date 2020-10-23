@@ -1,0 +1,27 @@
+[plantuml, mur-change-transverse, svg]
+....
+(*) -down-> "création de MR\nsur module commun" as mrcom
+-down-> "- bump de version\n- modification de code\n- test unitaire\n- push & review\n- merge sur develop"
+-down-> [pour chaque service] ===forEachProject===
+-down-> [svc 1] "création d'une MR" as mr1
+-down-> "- utilisation de la nouvelle\nversion du module\n- test unitaire\n- push & review\n- merge sur develop" as us1
+-down-> ===endEachProject===
+-down-> test d'intégration
+-down-> if "test ko" then
+  -right-> [oui] if "impacte le module commun" then
+        -up-> [oui] mrcom
+        else
+            --> [non] mr1
+        endif
+    else
+        --> [non] (*)
+endif
+
+===forEachProject=== -down-> [svc 2] "création d'une MR" as mr2
+-down-> "- utilisation de la nouvelle\nversion du module\n- test unitaire\n- push & review\n- merge sur develop" as us2
+-down-> ===endEachProject===
+
+===forEachProject=== -down-> [svc 3] "création d'une MR" as mr3
+-down-> "- utilisation de la nouvelle\nversion du module\n- test unitaire\n- push & review\n- merge sur develop" as us3
+-down-> ===endEachProject===
+....

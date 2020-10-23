@@ -1,0 +1,7 @@
+.vscode/
+.settings/
+tmp/
+
+# asciidoc
+build-docs/
+*.double
