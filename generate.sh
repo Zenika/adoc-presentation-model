@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # https://github.com/asciidoctor/docker-asciidoctor/releases
-ADOC_IMG_TAG="1.1.0" # latest as of 01/03/2020
+ADOC_DOCKER_REPO=bcouetil # instead of asciidoctor, while asciidoctor-revealjs is not 5.O.0 on official repo
+ADOC_IMG_TAG=1.17.0-edge  #"1.17.0" is latest as of 01/03/2022
 
 set -e # stop on error
 
@@ -38,16 +39,10 @@ if [ "$1" = "" ] || [ "$1" = "all" ]; then
 
   export ALL=true
 
-  cd docs
-  FOLDER_LIST=$(echo */*)
-  cd ..
-  for FOLDER in $FOLDER_LIST; do
-    echo "===> Generating for $FOLDER <==="
-    ./$0 $FOLDER $2
-  done
-
-  echo -n "===> Generating index.html... "
-  docker run --rm -v $PWD/build-docs:/documents asciidoctor/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor \
+  echo "===> Generating root index.html <==="
+  rsync -rtv --delete --quiet "framework" "build-docs/"
+  cp docs/index.adoc build-docs/
+  docker run --rm -v $PWD/build-docs:/documents $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor \
     -a icons=font \
     -a experimental=true \
     -a sectlinks=true \
@@ -56,7 +51,15 @@ if [ "$1" = "" ] || [ "$1" = "all" ]; then
     -a stylesheet=html-zenika.css \
     -a stylesdir=framework/themes/css \
     index.adoc
-  echo "OK <===\n"
+  echo "OK\n"
+
+  cd docs
+  FOLDER_LIST=$(echo */*)
+  cd ..
+  for FOLDER in $FOLDER_LIST; do
+    echo "===> Generating for $FOLDER <==="
+    ./$0 $FOLDER $2
+  done
 
   exit
 
@@ -70,27 +73,43 @@ if [ ! -d "docs/$1" ]; then
   exit 1
 fi
 
-# checking local docker image without requiring internet access, then pulling if not present
-LOCAL_IMAGE_REF=$(docker images -q asciidoctor/docker-asciidoctor:$ADOC_IMG_TAG 2>/dev/null)
-if [ "$LOCAL_IMAGE_REF" = "" ]; then
-  echo "\nAsciidoctor Docker image not present locally, pulling..."
-  docker image pull asciidoctor/docker-asciidoctor:$ADOC_IMG_TAG
+if [ "$ALL" = "true" ] && [ -f "docs/$1/no-auto-generation" ]; then
+  echo "Found no-auto-generation file, skipping\n"
+  exit 0
 fi
 
+# checking local docker image without requiring internet access, then pulling if not present
+LOCAL_IMAGE_REF=$(docker images -q $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG)
+if [ "$LOCAL_IMAGE_REF" = "" ]; then
+  echo "\nDocker image $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG not present locally, pulling..."
+  docker image pull $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG
+fi
+
+FOLDER=${1%/*}
 SUBFOLDER=${1##*/}
 
-echo -n "\nReinitializing 'build-docs' output folder... "
-mkdir -p build-docs
-rm -rf build-docs/$1/images/* # else plantuml diagrams won't be rebuilt
-cp -r docs/* build-docs/
-cp -r framework build-docs/
-cp framework/docinfo-header.html build-docs/$1/ # it also removes traces of an eventual LIVE_RELOAD insert
-cp -r framework/revealjs-plugins build-docs/$1/ # to have chalkboard pngs at runtime
+if [ "$2" != "zip" ]; then
+  echo -n "\nSynchronizing docs/$1 to build-docs/$1 ... "
+  mkdir -p build-docs/$1
+
+  if [ "$LIVE_RELOAD" = "true" ]; then
+    rm -rf build-docs/$1/images/* # else plantuml diagrams won't be rebuilt
+    cp -r docs/$1 build-docs/$FOLDER/
+    html_docinfo="shared"
+  else
+    # not each time, else live reload will give mostly 404 errors in browsers
+    rsync -rtv --delete --quiet "docs/$1" "build-docs/$FOLDER" #for debug : --info=DEL,STATS2
+    html_docinfo="private"                                     # for now html and reveal.js share the same docinfo-*.html name T_T
+  fi
+
+  rsync -rtv --delete --quiet "framework" "build-docs/"
+  cp framework/docinfo-*.html build-docs/$1/      # it also removes traces of an eventual LIVE_RELOAD insert
+  cp -r framework/revealjs-plugins build-docs/$1/ # to have chalkboard pngs at runtime
+fi
 
 if [ "$LIVE_RELOAD" = "true" ]; then
-  echo
   # live.js is not added by defaut : it generates internet traffic and may geopardise a training when connexion is bad (?)
-  echo "<script type=\"text/javascript\" src=\"http://livejs.com/live.js\"></script>" >>build-docs/$1/docinfo-header.html
+  echo "<script type=\"text/javascript\" src=\"http://livejs.com/live.js\"></script>" >>build-docs/$1/docinfo-footer.html
 fi
 rm -f build-docs/*/*/_*.adoc # remove _README.adoc from training folders
 
@@ -105,7 +124,7 @@ if [ "$2" = "html" ] || [ "$2" = "all" ] || [ -z "$2" ]; then
 
   echo -n "\nGenerating HTML... "
   # /!\ docinfo=shared is not useful for HTML, it was only added for live reloading. But it does not alter the experience. We could just have a docinfo-header.html with the live line.
-  docker run --rm -v $PWD/build-docs:/documents asciidoctor/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor \
+  docker run --rm -v $PWD/build-docs:/documents $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor \
     -r asciidoctor-diagram \
     -r /documents/framework/lib/c3js-block-macro.rb \
     -r /documents/framework/lib/cloud-block-macro.rb \
@@ -118,7 +137,7 @@ if [ "$2" = "html" ] || [ "$2" = "all" ] || [ -z "$2" ]; then
     -a source-highlighter=highlight.js \
     -a highlightjsdir=../../framework/lib/highlight \
     -a highlightjs-theme=gruvbox-dark \
-    -a docinfo=shared \
+    -a docinfo=$html_docinfo \
     -a toc=left \
     -a toclevels=2 \
     -a sectanchors=true \
@@ -135,9 +154,17 @@ fi
 
 if [ "$2" = "reveal" ] || [ "$2" = "all" ] || [ -z "$2" ]; then
 
+  if [ ! -d build-docs/reveal.js ]; then
+    echo -n "\nDownloading core RevealJS files... "
+    git clone -c advice.detachedHead=false --quiet --branch 4.1.2 --depth 1 https://github.com/hakimel/reveal.js.git build-docs/reveal.js
+    echo "OK"
+  fi
+
+  # default highlight.js languages : https://highlightjs.org/download/
+
   echo -n "\nGenerating Reveal.js... "
-  docker run --rm -v $PWD/build-docs:/documents asciidoctor/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor-revealjs \
-    --verbose \
+  # --verbose \
+  docker run --rm -v $PWD/build-docs:/documents $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor-revealjs \
     -r asciidoctor-diagram \
     -r /documents/framework/lib/c3js-block-macro.rb \
     -r /documents/framework/lib/cloud-block-macro.rb \
@@ -149,7 +176,8 @@ if [ "$2" = "reveal" ] || [ "$2" = "all" ] || [ -z "$2" ]; then
     -a screenshot-dir-name=screenshots \
     -a source-highlighter=highlightjs \
     -a highlightjs-theme=../../framework/lib/highlight/styles/gruvbox-dark.min.css \
-    -a revealjsdir=https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0 \
+    -a highlightjs-languages=asciidoc \
+    -a revealjsdir=../../reveal.js \
     -a revealjs_transition=slide \
     -a revealjs_slideNumber=true \
     -a revealjs_width=1100 \
@@ -157,7 +185,8 @@ if [ "$2" = "reveal" ] || [ "$2" = "all" ] || [ -z "$2" ]; then
     -a revealjs_plugins=framework/revealjs-plugins/revealjs-plugins.js \
     -a revealjs_plugins_configuration=framework/revealjs-plugins/revealjs-plugins-conf.js \
     -a revealjs_plugin_pdf \
-    -a revealjs_history=true \
+    -a revealjs_hash=true \
+    -a revealjs_history=false \
     -a docinfo=shared \
     -a toc=macro \
     -a toclevels=1 \
@@ -170,7 +199,7 @@ fi
 if [ "$2" = "pdf" ] || [ "$2" = "all" ] || [ -z "$2" ]; then
 
   echo -n "\nGenerating PDF... "
-  docker run --rm -v $PWD/build-docs:/documents asciidoctor/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor-pdf \
+  docker run --rm -v $PWD/build-docs:/documents $ADOC_DOCKER_REPO/docker-asciidoctor:$ADOC_IMG_TAG asciidoctor-pdf \
     -r asciidoctor-diagram \
     -a icons=font \
     -a experimental=true \
@@ -192,16 +221,19 @@ fi
 
 if [ "$ALL" != "true" ] && ([ "$2" = "zip" ] || [ "$2" = "all" ] || [ -z "$2" ]); then
 
-  if [ ! -f "build-docs/$1/$SUBFOLDER.pdf" ]; then
+  echo -n "\nGenerating build-docs/zenika-training-$SUBFOLDER.zip... "
+
+  if ! ls build-docs/$1/*.pdf >/dev/null 2>&1; then
     RED='\033[0;31m'
-    echo "${RED}File build-docs/$1/$SUBFOLDER.pdf does not exist, please generate PDFs first"
+    echo "\n${RED}No PDF in build-docs/$1/, please generate PDFs first"
     exit 1
   fi
 
-  echo -n "\nGenerating build-docs/zenika-training-$SUBFOLDER.zip... "
-  if [ -d "build-docs/$1/$SUBFOLDER-zip" ]; then rm -Rf build-docs/$1/$SUBFOLDER-zip; fi
+  rm -Rf build-docs/$1/$SUBFOLDER-zip build-docs/$1/*.zip build-docs/$1/index.pdf
   mkdir -p build-docs/$1/$SUBFOLDER-zip
-  cp -r build-docs/$1/student/* build-docs/$1/$SUBFOLDER-zip/
+  if [ -d "build-docs/$1/student" ]; then
+    cp -r build-docs/$1/student/* build-docs/$1/$SUBFOLDER-zip/
+  fi
   cp build-docs/$1/*.pdf build-docs/$1/$SUBFOLDER-zip/
   # you can put some contextual info in info.txt
   if [ -f "info.txt" ]; then cp info.txt build-docs/$1/$SUBFOLDER-zip/; fi

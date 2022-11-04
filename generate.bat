@@ -2,8 +2,8 @@
 setlocal enabledelayedexpansion
 
 : https://github.com/asciidoctor/docker-asciidoctor/releases
-: latest as of 01/03/2020
-set ADOC_IMG_TAG="1.1.0"
+: latest as of 01/03/2022
+set ADOC_IMG_TAG="1.17.0"
 set CURRENT_PATH=%~dp0
 set CURRENT_SCRIPT=%~n0%~x0
 

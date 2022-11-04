@@ -8,7 +8,8 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #282828;
+  /* background: #282828; */
+  background: #151515; /* better contrast in dark mode */
 }
 
 .hljs,
@@ -37,7 +38,8 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 }
 
 /* Gruvbox Yellow */
-.hljs-attr,
+/* step by step highlight adds linum numbers, and line numbers mess with spans... */
+span:not(.hljs-string):not(.hljs-number) .hljs-attr,
 .hljs-params,
 .hljs-template-tag,
 .hljs-type {
@@ -58,7 +60,7 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 .hljs-regexp,
 .hljs-selector-id,
 .hljs-template-variable {
-  color: #fe8019;
+  color: #c8834d;
 }
 
 /* Gruvbox Green */

@@ -1,0 +1,8 @@
+@import "reveal-zenika-light.css";
+
+body {
+  background: no-repeat 98% 5% url('../favicon.png'), 
+              linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              center url('../backgrounds/matrix-numbers.jpg');
+  background-size: 3%, cover, cover;
+}

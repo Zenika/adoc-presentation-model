@@ -4,10 +4,6 @@
 // not needed in PDF (and raise warnings during build)
 ifndef::backend-pdf[]
 
-* link:zenika/zenika/zenika-efficience-delivery.htm[icon:video-camera[] Evaluer l'efficience du delivery]
-* link:rocher/kiss-yagni/kiss-yagni.htm[icon:video-camera[] KISS YAGNI & co : 40 principes pour un développement serein]
-* link:rocher/monorepo/monorepo.htm[icon:video-camera[] Le mono-repo produit... c'est la vie !]
-
 == Asciidoc Guides
 
 // also hosted elsewhere, but helps for non-regression

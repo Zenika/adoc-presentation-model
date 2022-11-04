@@ -1,0 +1,18 @@
+@import "reveal-zenika-light.css";
+
+body {
+  background: no-repeat 98% 5% url("../favicon.png"),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    center url("../backgrounds/gitlab.jpg");
+  background-size: 3%, cover, cover;
+}
+
+/***********************
+* last slide 
+************************/
+
+/* .bubbles */
+
+.reveal section.bubbles {
+  background-position: -20% -400% !important;
+}

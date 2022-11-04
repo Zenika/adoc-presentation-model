@@ -95,7 +95,7 @@ Other,5
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [chart,pie,order=null,legend=right]
 ....
@@ -123,7 +123,7 @@ data3, 130, -150, 200, 300, -200, 100
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [chart,bar]
 ....
@@ -146,7 +146,7 @@ Interviewed developers using it,90,73,59,57,52,37,31,28,28,26,26,20,16
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [chart,bar,horizontal=true,x-type=category,data-labels=true,y-label="% answered"]
 ....
@@ -260,7 +260,7 @@ deactivate A
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, rma-sequence-diagram, svg]
 ....
@@ -291,7 +291,7 @@ actor developer
 database repo as "central\nrepo"
 agent jenkins as "Jenkins"
 
-rectangle admin as "Gerrit / Gitlab" {
+rectangle admin as "Gerrit / GitLab" {
     agent ui as "front"
     database repo_local as "local\nrepo"
 }
@@ -304,7 +304,7 @@ ui ..> repo : replication
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, rma-use-case-diagram, svg]
 ....
@@ -314,7 +314,7 @@ actor developer
 database repo as "central\nrepo"
 agent jenkins as "Jenkins"
 
-rectangle admin as "Gerrit / Gitlab" {
+rectangle admin as "Gerrit / GitLab" {
     agent ui as "front"
     database repo_local as "local\nrepo"
 }
@@ -359,7 +359,7 @@ BaseClass <|-- net.unused.Person
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, rma-class-diagram, svg]     
 ....
@@ -409,7 +409,7 @@ endif
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, activity-diagram, svg]
 ....
@@ -457,7 +457,7 @@ database "MySql" {
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, rma-component-diagram, svg]     
 ....
@@ -510,7 +510,7 @@ State3 --> [*] : Aborted
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, rma-state-diagram, svg]     
 ....
@@ -553,7 +553,7 @@ State3 --> [*] : Aborted
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, wbs, svg]     
 ....
@@ -596,7 +596,7 @@ WU -> WB : URL
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, timing, svg]     
 ....
@@ -641,7 +641,7 @@ WU -> WB : URL
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [plantuml, mindmap, svg]     
 ....
@@ -688,7 +688,7 @@ WU -> WB : URL
 * *2007* - Crucible (Atlassian)
 * *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
 * *2008* - Github
-* *2011* - Gitlab
+* *2011* - GitLab
 * *2012* - CodeFlow (Microsoft)
 
 === Source
@@ -703,7 +703,7 @@ WU -> WB : URL
 * *2007* - Crucible (Atlassian)
 * *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
 * *2008* - Github
-* *2011* - Gitlab
+* *2011* - GitLab
 * *2012* - CodeFlow (Microsoft)
 ----
 
@@ -722,7 +722,7 @@ TIP: Skip fragments with `PageDown` / `PageUp`.
 * *2007* - Crucible (Atlassian)
 * *2007* - Phabricator (Facebook, AngularJS, Quora, Uber)
 * *2008* - Github
-* *2011* - Gitlab
+* *2011* - GitLab
 * *2012* - CodeFlow (Microsoft)
 
 <<<
@@ -853,7 +853,7 @@ Continuous-Everything, Keep It Simple Stupid, Everything-As-Code, Don't Repeat Y
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [cloud]
 ....
@@ -876,7 +876,7 @@ Continuous-Everything, Keep It Simple Stupid, Everything-As-Code, Don't Repeat Y
 
 === Source
 
-[source]
+[source,asciidoc]
 ----
 [cloud,fragment]
 ....
@@ -889,9 +889,9 @@ TIP: Skip fragments with `PageDown` / `PageUp`.
 endif::backend-pdf[]
 
 <<<
-== Positionning and sizing
+== Positioning and sizing
 
-Here are some positionning and sizing introduced specifically for Reveal.js slides.
+Here are some positioning and sizing introduced specifically for Reveal.js slides.
 
 [source,asciidoc]
 ----
@@ -988,6 +988,218 @@ image::sunset.jpg[]
 ----
 [.big-image]
 image::sunset.jpg[]
+----
+
+== Code highlight
+
+Code is highlighted with different colors depending on the language.
+
+On top of that, this section aims to show that :
+
+* Code will not overflow out of the slide
+* Vertical space taken by code is configurable (3 sizes)
+* RevealJS let you do auto step-by-step code highlight
+
+=== Full page code (by default)
+
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  serviceName: zookeeper
+  selector:
+    matchLabels:
+      app: zookeeper
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: confluentinc/cp-zookeeper:5.0.1
+----
+
+By default, code will take all needed place in the slide (depending on the number of lines), without overflowing.
+
+=== [.big-code] on top of source block
+
+with [.big-code], you force a small room for explanation (before or after the code)
+
+[source,asciidoc]
+----
+[.big-code]
+[source,yaml]
+----
+
+[.big-code]
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  serviceName: zookeeper
+  selector:
+    matchLabels:
+      app: zookeeper
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: confluentinc/cp-zookeeper:5.0.1
+        ports:
+        - containerPort: 2181
+          name: client
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/lib/zookeeper/data
+  volumeClaimTemplates:
+    - metadata:
+        name: datadir
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+----
+
+=== [.half-code] on top of source block
+
+[.half-code]
+[source,yaml]
+----
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  serviceName: zookeeper
+  selector:
+    matchLabels:
+      app: zookeeper
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: confluentinc/cp-zookeeper:5.0.1
+        ports:
+        - containerPort: 2181
+          name: client
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/lib/zookeeper/data
+  volumeClaimTemplates:
+    - metadata:
+        name: datadir
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+----
+
+with _[.half-code]_ :
+
+* you force
+* plenty
+* of room
+* for explanation
+* and...
+* ...more !
+
+=== Step-by-step with [.half-code]
+
+Enter step-by-step code revealed ! Here are the tags in the source before shown code :
+
+[source,asciidoc]
+----
+[.half-code]
+[source,yaml,highlight='2-8|9-12|13-22|23,27,31']
+----
+
+[.half-code]
+[source,yaml,highlight='2-8|9-12|13-22|23,27,28,31']
+----
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  serviceName: zookeeper
+  selector:
+    matchLabels:
+      app: zookeeper
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: confluentinc/cp-zookeeper:5.0.1
+        ports:
+        - containerPort: 2181
+          name: client
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/lib/zookeeper/data
+  volumeClaimTemplates:
+    - metadata:
+        name: datadir
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+----
+
+With _[.half-code]_ (or _[.big-code]_) and step-by-step, you can still show all code and have some explanation before and/or after.
+
+=== Step-by-step full page (default behavior)
+
+[source,yaml,highlight='2-8|9-22|23,27,28,31']
+----
+apiVersion: apps/v1
+kind: StatefulSet
+spec:
+  serviceName: zookeeper
+  selector:
+    matchLabels:
+      app: zookeeper
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: confluentinc/cp-zookeeper:5.0.1
+        ports:
+        - containerPort: 2181
+          name: client
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/lib/zookeeper/data
+  volumeClaimTemplates:
+    - metadata:
+        name: datadir
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
 ----
 
 // real last slide 

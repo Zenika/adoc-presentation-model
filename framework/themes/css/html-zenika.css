@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "MontSerrat Bold";
-  src: url("../fonts/MontSerrat-Bold.ttf") format("truetype");
+  src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "SourceSansPro Regular";
@@ -130,6 +130,11 @@ a:not(.image):hover {
   color: #b11e3e;
   text-shadow: none;
   border: none;
+}
+
+/* allow cleanning images & other thing from being rendered into pdf / html */
+.noprint {
+  display:none;
 }
 
 /* references in code */

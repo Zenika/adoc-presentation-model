@@ -1,183 +1,256 @@
-
-NOTE: Reveal.js presentations hosted on link:https://bcouetil.gitlab.io/asciidoc-stack/[Gitlab Pages]. In presentation, other versions linked in ToC (HTML, PDF, source).
-
-Presentation material based on Asciidoc and/or Markdown (see comparison link:https://asciidoctor.org/docs/user-manual/#compared-to-markdown[here]). It is a mono-repository including both framework and actual presentation subjects.
-
-0% knownledge in HTML/CSS/JS is required to produce/update a presentation, and still being able to include advanced documentation capabilities. Guides are provided, hosted on Gitlab pages.
-
+= README
 :toc:
+:toclevels: 2
+:sectnums:
 
-== Development environment setup
+This is a live documentation generation stack, used for some Zenika training material. It is based on Asciidoc and/or Markdown. It is a mono-repository including both framework and documents.
 
-This section explains how to configure your computer to develop and contribute to training materials.
+link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm#/[Basic Asciidoc syntax] and link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/[Advanced Reveal.js capabilities] generated examples are hosted on GitLab pages.
 
-=== Install an Asciidoctor editor
+0% knownledge in HTML/CSS/JS is required to produce/update a document, and still being able to include advanced capabilities. Guides are provided, see hosted content above.
 
-* Install for instance https://code.visualstudio.com/[MS Visual Studio]
-* Open the menu *View*|*Extensions* and install an ASCII support extension
-* Install a *git* extension as well
+== What
 
-=== Install git 
+=== Documentation features
 
-==== MS Windows
+* Generate link:https://revealjs.com/[reveal.js], HTML and PDF documents from the same source without much care of the output type as a writer
+* All link:https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[features of Asciidoc] implemented by Asciidoctor and transposed to hosted link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm#/[Reveal.js presentations] containing associated HTML and PDF links
+* All link:https://docs.asciidoctor.org/reveal.js-converter/latest/converter/features/[features of Asciidoctor-reveal] which implements most features of link:https://revealjs.com/[reveal.js], especially link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/step-by-step-full-page-default-behavior[step-by-step code highlighting]
+* Basic link:https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/#markdown-compatibility[Markdown features]
+* All link:https://docs.asciidoctor.org/pdf-converter/latest/[features of Asciidoctor-pdf]
+* All useful link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/reveal-js-plugins[reveal.js plugins] known to date (please contribute or advise if a key plugin is missing)
+* Some C3JS (D3JS) link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.html#chart-as-code[chart-as-code] addons (for Reveal.js & HTML only) for dynamic and interactive charts
+* PlantUML diagrams with link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/use-case-diagram[custom colors]
+* Other link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/table-of-contents["as-code" addons] oriented toward Reveal.js presentations
+* Reveal.js themes are designed to be able to display any content (when reasonable sections size)
+* There are link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm[light] and link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm[dark] Reveal.js themes switchable in-presentation with no awareness needed while writing documentation. All colors are designed to fit both, especially link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/use-case-diagram[PlantUML colors]
 
-* Install https://gitforwindows.org/
-* Make sure you have selected the installation option *Checkout as-is, commit Unix-style*
-* Otherwise you can set this configutation by executing the command line in Git bash :
+=== Generation features
 
- git config --global core.autocrlf input
+* Support for Linux, MacOS and Windows
+* There is a single link:./generate.sh[generate.sh script for Linux/MacOS] and link:./generate.bat[generate.bat script for Windows] to generate everything
+* Generation uses Docker and is based on link:https://hub.docker.com/r/asciidoctor/docker-asciidoctor/dockerfile[docker-asciidoctor image]. A link:https://hub.docker.com/r/bcouetil/docker-asciidoctor[slightly modified version], to have an edge version of link:https://github.com/asciidoctor/asciidoctor-reveal.js[asciidoctor-reveal]
+* The script provides a way to live-reload generated content on modifications
+* Using GitLab pipelines, result is generated and hosted on GitLab pages per branch using the Gitlab cache mechanism
 
-==== Mac iOS
+=== Organisation features
 
-* Install first *brew* https://brew.sh
-* To install *brew* open a terminal then run the command
+* Documents and framework are united in a mono-repo
+* Documents are in folders under a category for better segregation of subjects
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+== How
 
-* one installed run the following command to install git
+=== How do I generate documents ?
 
- brew install git
+You can use `generate.sh` on Linux & MacOS (M1 supported) and `generate.bat` on Windows.
 
-=== Install GitHub desktop application (optional)
+[source,shell]
+----
+./generate.sh [all|<category/subject>] [all|html|reveal|pdf|zip] [live]
+----
 
-This application could help to manage interactions between local repository on your computer and the remote repository in GitHub.
+* Optional parameter 1 is the documents scope of the generation
+** `all` to generate all documents
+** `<category/subject>` is a 2 folders deep path to documents (all documents must match this layout)
+* Optional parameter 2 is the type of document
+** `reveal`, `html`, `pdf`, `zip` or `all`
+* Optional parameter 3 is `live` for link:[live-reload] in your favorite web browser
 
-* Go to https://desktop.github.com/ and install desktop github on your computer
+.Examples
+[source,shell]
+----
+# generate html version of devops/kubernetes-user documents
+./generate.sh devops/kubernetes-user html
 
-=== Clone the git repo
+# generate everything for every documents
+./generate.sh
+# equivalent to
+./generate.sh all all
+----
 
-You should be able to clone this repo in a specific folder of your computer. You can do that different way :
+Slides, HTML and PDF are generated in `build-docs` folder. Target folder is cleaned each time to ensure update of generated content.
 
-* Using GitHub for Windows application (recommended for dummies)
- Using the `git clone` command line
+NOTE: This script is also used by CI
 
-=== Install Docker
+==== Live reload
 
-==== MS Windows
-
-===== Option #1 : Use Docker Desktop for Windows
-
-* Install https://hub.docker.com/editions/community/docker-ce-desktop-windows/[Docker Desktop]
-* Reboot one time
-* Under the menu Resources > File Sharing of the dashboard, add the folder of your local git repository
-* Apply your modifications
-
-===== Option #2 : Use VirtualBox
-
-* Install https://www.virtualbox.org/[VirtualBox]
-* Make sure you have installed the guest additions by openning the menu *Devices*|*Guest Additions*
-* Download an https://www.linuxlookup.com/linux_iso[linux image]
-* Create a new virtual machine based on this linux image
-* Configure a shared folder on this VM
-
-WARNING: make sure this folder contains your Asciidoc git repo
-
-* Start this VM
-* Install both packages *virtualbox-guest-additions-iso* and *virtualbox-guest-utils* by running these commands
- 
-  sudo apt get update
-  sudo apt get install virtualbox-guest-additions-iso
-  sudo apt get install virtualbox-guest-utils
-
-* Add your username in the *vboxsf* group running this command
-
- sudo adduser <username> vboxsf 
-
-* Restart the VM and you should be able to have a new shared folder available in */media/sf_xxxxx* where xxxxx corresponds to the folder name defined in configuration
-
-==== Mac iOS
-
-* Run the command line
-
- brew cask install docker
-
-==== Validate training material generation
-
-* Start the VM
-* Go to the *Asciidoc git repo* in the shared folder
-* Run the command `./generate.sh kubernetes-user reveal`
-* You should see new files generated into `build-docs` folder
-* Open `kubernetes-user.htm`in your brower, you should see the training slides
-
-== Generation
-
-Generation is based on link:https://hub.docker.com/r/asciidoctor/docker-asciidoctor/dockerfile[Asciidoctor Docker Image].
-
-NOTE: You don't have to pull the asciidoctor docker image because the generation script takes care of this.
-
-Slides, HTML and PDF are generated in `build-docs`.
-
-WARNING: Target folder is cleaned each time to ensure update of generated content
-
-First parameter is `<category/subject>` or `all`, second parameter can be `reveal`, `html`, `pdf`, `zip` or `all`
-
-Run this command on a given training :
-
-  ./generate.sh devops/kubernetes-user reveal
-
-or for windows
-
-  ./generate.bat devops/kubernetes-user reveal
-
-By default it generates everything for all trainings (except zips) :
-
-  ./generate.sh
-
-or for windows
-
-  ./generate.bat
-
-NOTE: This script is also used by CICD
-
-=== Live reload
-
-==== MS Windows
-
-You can simulate a basic continuous regeneration every 5 seconds with this code running under any windows console (Windows or Windows+R and then type “cmd” and validate)
-
-  for /l %g in () do @(<ANY COMMAND> & timeout /t 5)
-
-In our example it could be : 
-
-  for /l %g in () do @(generate agile\kanban-1j reveal & timeout /t 5)
-
-==== Mac OS & Unix
+===== Debian/Ubuntu
 
 `generate.sh` provides a live reload solution based on `inotifywait` on Unix environment:
 
-* install `inotify-tools`
+* Install `inotify-tools`
 
-  sudo apt-get install inotify-tools
+[source,shell]
+sudo apt-get install inotify-tools
 
-* generate at least once
+* Generate at least once for the server to have files to serve
 
-  ./generate.sh devops/kubernetes-user reveal
+[source,shell]
+----
+./generate.sh devops/kubernetes-user reveal
+----
 
-* start a http server
+* Start a http server
 
-  cd build-docs
-  python3 -m http.server
+[source,shell]
+cd build-docs
+python3 -m http.server
 
-* in another terminal, launch live reload mode
+* In another terminal, launch live reload mode
 
-  ./generate.sh devops/kubernetes-user reveal live
+[source,shell]
+----
+./generate.sh devops/kubernetes-user reveal live
+----
 
 You can now browse files from local server, for example http://localhost:8000/kubernetes-user.htm. Files are automatically refreshed in your browser, thanks to a JS script included in generated HTML.
 
 NOTE: No Asciidoc built-in live reload for now, link:https://asciidoctor.org/docs/editing-asciidoc-with-live-preview/[documentation present some alternatives] but not for Reveal.js.  Some other solutions involve VS Code extensions or Ruby in an link:https://github.com/asciidoctor/asciidoctor-reveal.js/issues/248[open issue].
 
-== I don't like the result, I would prefer something more like...
+===== MS Windows
+
+You can simulate a basic continuous regeneration every 5 seconds with this code running under any windows console (Windows or Windows+R and then type “cmd” and validate)
+
+[source,shell]
+----
+for /l %g in () do @(<ANY COMMAND> & timeout /t 5)
+
+# In our case : 
+for /l %g in () do @(generate agile\kanban-1j reveal & timeout /t 5)
+----
+
+===== MacOS
+
+Not yet supported, MR are welcome 🤓
+
+=== How do I migrate from existing Markdown documents ?
+
+This stack is more for new documents for people preferring Asciidoc. But an actual Markdown document can be migrated pretty fast.
+
+TIP: For small text blocks there are online translation tools such as https://markdown2asciidoc.com/
+
+==== Pre-requisite
+
+Careful with `|` often not handled correctly if not in tables. Modify them first.
+
+Ex: `Pull|Merge` changed to `Pull/Merge`
+
+==== .md to .adoc automatically
+
+Use preferably Kramdoc.
+
+Although `pandoc` can link:https://matthewsetter.com/convert-markdown-to-asciidoc-withpandoc/[also be used], `kramdoc` gives link:https://matthewsetter.com/convert-markdown-to-asciidoc-with-kramdown-asciidoc/[better results].
+
+.Install Ruby and Kramdoc
+[source, shell]
+sudo apt-get install ruby-full rename
+sudo gem install kramdown-asciidoc
+
+.Launch on a file
+[source, shell]
+kramdoc --output=getting-started.adoc --imagesdir=ressources --lazy-ids --heading-offset=1 --wrap=ventilate getting-started.md
+
+.Launch on a folder
+[source, shell]
+find ./ -name "*.md" -type f -exec sh -c 'kramdoc --imagesdir=ressources --lazy-ids --heading-offset=1 --wrap=ventilate --output=_includes/{}.adoc {}' \;
+
+.Rename files
+[source, shell]
+find _includes -type f -name "*.adoc" -exec rename s/".md"/""/g {} \;
+
+==== Post-processing for Zenika trainings migration
+
+* Delete agenda if any (use Table of Content, see examples)
+
+* Replace in every .adoc files (VS Code regex style)
+
+[cols="^,<3,<3",options="header"]
+|===
+
+| regex | from | to
+
+| yes | `// .slide: class=".*"\n` | <delete>
+
+| no | `{plus}{plus}{plus}</figure>{plus}{plus}{plus}` | <delete>
+
+| no | `{plus}{plus}{plus}<div class="pb">{plus}{plus}{plus}{plus}{plus}{plus}</div>{plus}{plus}{plus}` | <delete>
+
+| yes | `+\{blank\}( \+ )*( \+)( )*+` | <delete>
+
+| yes | `^( )*\.\.\.$` | <delete>
+
+| yes | `,[0-9]+%` | <delete>
+
+| yes | `+Notes :\r?\n((\r?\n(?!=).*)*)+` | `+ifdef::backend-revealjs[]\n[.notes]\n****$1\n****\nendif::backend-revealjs[]\n+`
+
+| yes | `+^(=== .*)\n\n// .slide: id="(.*)"+` | `[#$2]\n$1`
+
+| yes | `+\+\+\+<figure>\+\+\++` | `+\n\n+`
+
+| yes | `<</([a-z])` | `<<$1`
+
+| no | `{nbsp}{nbsp}{plus}{nbsp}{nbsp}{plus}` | `.`
+
+| no | `__` | `➡`
+
+| no | `➡➡` | `+____+`
+
+| no | `[.fa.fa-info-circle]##` | `NOTE:`
+
+// TODO : say only in _slides/*
+| no | `=== TP` | `[.lab]\n=== TP`
+
+|===
+
+* Update links to chapters from numbers to cross references
+
+== Why
+
+=== Why Asciidoc over Markdown ?
+
+TLDR; standard Markdown is too poor as a lightweight markup language, and needs too many addons and custom development to fit HTML, Reveal.js and PDF.
+
+Some elaborated articles :
+
+* link:https://docs.asciidoctor.org/asciidoc/latest/asciidoc-vs-markdown/[Compare AsciiDoc to Markdown]
+* link:https://docs-as-co.de/news/why-asciidoc/[Why you should use AsciiDoc to document your Software Solution]
+* link:https://opensource.com/article/22/8/drop-markdown-asciidoc[Try AsciiDoc instead of Markdown]
+* link:https://blog.miguelcoba.com/asciidoc-is-the-better-markdown[AsciiDoc is the better Markdown]
+* link:https://www.makeuseof.com/tag/compare-markup-language-asciidoc-markdown/[Lightweight Markup Languages: This Is Why You Should Use AsciiDoc Over Regular Markdown]
+
+The current stack has been gathered and maintained by a single person in his spare time. Almost no development needed. this is hardly possible on markdown stacks with the same features coverage.
+
+=== Why a Mono-repo ?
+
+* Simplicity : To ease core modifications and generation in a single MR
+* Modularity : To allow include in documents from one to another
+
+=== Why do Reveal.js themes all look pretty much the same ?
+
+There is no particular reason.
 
 You don't like the result ? It's perfectly fine. You can change basic things like slide transition and background in-presentation. But, most important, you can contribute with any Reveal.js CSS you find/produce that fits your presentation style, just add it in the appropriate folder and import it at the beginning of your presentation.
 
-Here is a list of nice Asciidoc-based RevealJS slide decks, for inspiration :
+Here is a list of nice Asciidoc-based Reveal.js slide decks, for inspiration :
 
 * https://slides.codefx.org (monorepo : https://github.com/CodeFX-org/slides)
 
-== Contribution
+////
 
-We try to keep themes count low by using these guidelines :
+Pour remplacer partout des blocs shells par des blocs monospace sous vscode
 
-* 2 themes max by brightness (light/dark) by category
-* Categories are  : code, containers, security, zenika, Groupe Rocher, falling snow, undersea bubbles. Categories may be extended but it is subject to discussion
-* Any new background can replace one in the same category (if better)
+ifdef::solutions\[\]\n*
+\[(source)?,shell\]
+----
+(((\n?)(?!^----).*)*)
+----
+
+par
+
+ifdef::solutions[]
+.solutions
+....
+$2
+....
+
+////

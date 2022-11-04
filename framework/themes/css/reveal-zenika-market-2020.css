@@ -1,0 +1,390 @@
+@import "reveal-zenika-light.css";
+
+/**
+ * Source : https://docs.google.com/presentation/d/19sHV8h_25CI7ScuhTYOmH01heuXMUxqCcjmauGJMBWw/edit?ts=5f3d2878#slide=id.g6dfc3702e3_0_116
+ * 
+ * Quick Ref : 
+ * 
+ *   == COLOR
+ *      red : #b11e3e
+ * 
+ *   == FONT SIZE
+ *      28 => 1.8em;
+ * 
+ **/
+
+
+body {
+  background: #FFF;
+  background-size: cover, cover !important;
+  background: center url('../backgrounds/market-background.png');
+}
+
+.reveal footer > p > a {
+  color:rgb(81, 155, 200);
+  text-shadow: none;
+}
+
+.reveal .slides section h1 {
+  color: #000;
+  justify-content: revert;
+  text-transform: uppercase;
+  font-size: 1.7em;
+}
+.reveal .slides section.title, .reveal .slides section.impact {
+  background: no-repeat top right url('../market-logoZ.png') !important; 
+  background-size: 25% !important;
+  top:0 !important;
+  padding-top:20%;
+}
+
+.reveal .slides section p.author{
+  font-family: "Montserrat";
+  font-weight: normal;
+  text-transform: uppercase;
+  color: unset;
+  font-style: unset;
+  text-align: left;
+  display: block;
+  margin-top: -24px;
+}
+
+.reveal .slides section:not(.stack):not(.questions):not(.title):not(.screenshot){
+  background: white no-repeat 1.5% 2% url('../favicon.png') !important; 
+  background-size: 5% !important;
+}
+
+.reveal .slides section.questions{
+  background: no-repeat center center url('../question-mark.png') !important;
+  background-size: 40% !important;
+}
+
+.reveal .slides section .red-vertical-label{
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 1.45em;
+  color: #FFF;
+  background: #b11e3e;
+  width: 46%;
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 44%;
+  left: -233px;
+  padding: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.reveal .slides section  > h2 {
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 1.8em;
+  color: revert;
+  text-transform: uppercase;
+}
+.reveal .slides section > h1:after,
+.reveal .slides section > h2:after {
+  content:".";
+  color:#b11e3e
+}
+
+/******************** CHAPITRES *****************/
+.reveal .slides section.chapitre  > h2 {
+  width: 60%;
+  position: absolute;
+  bottom: 52%;
+  margin: 0;
+}
+.reveal .slides section.chapitre  > .paragraph {
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 1.3em;
+  color: revert;
+  width: 60%;
+  position: absolute;
+  top: 52%;
+  margin: 0;
+  padding: 0 0 0px 20px;
+}
+.reveal .slides section.chapitre > .imageblock {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  background: #b11e3e;
+  right: 5%;
+  top: 0;
+  align-content: center;
+  display: flex;
+}
+.reveal .slides section.chapitre > .imageblock img{
+  padding: 0;
+  position: relative;
+  vertical-align: bottom;
+  max-width: 80%;
+  margin: auto;
+}
+
+/******************** FIN CHAPITRES *****************/
+/******************** FORMATEUR *****************/
+.reveal .slides section.formateur .imageblock img{
+  border-radius: 50%;
+  width: 34%;
+  position: absolute;
+  right: 5%;
+  top: 20%;
+}
+.reveal .slides section.formateur  > h2
+, .reveal .slides section.formateur  > h3
+, .reveal .slides section.formateur  > h4{
+  max-width: 55%;
+  display:flex;
+  margin: 0 0 0 7%;
+
+}
+.reveal .slides section.formateur  > h2{
+  margin-top: 25%;
+  text-transform: capitalize;
+}
+.reveal .slides section.formateur  > h3{
+  text-transform: uppercase;
+  color: revert;
+  font-size: 1em;
+}
+.reveal .slides section.formateur  > h4{
+  font-family: "SourceSansPro";
+  color: revert;
+  font-size: 1em;
+  padding-left: 4%;
+  margin-left: 9%;
+  line-height: 4em;
+  background: no-repeat left center url('../th-market/market-email.png');
+  background-size: 6%;
+}
+.reveal .slides section.formateur  > h4 a{
+  color: #434343;
+}
+/******************** FIN FORMATEUR *****************/
+
+
+/******************** QUI SOMMES NOUS *****************/
+
+.reveal .slides section.qui_sommes_nous > h2{
+  margin-left: 2%;
+  margin-top: 5%;
+  width: 30%;
+}
+.reveal .slides section.qui_sommes_nous > h2:after{
+  content:" ?";
+}
+.reveal .slides section.qui_sommes_nous .paragraph{
+  width: 30%;
+  margin-left: 2%;
+  padding-left: 20px;
+  font-size: 0.9em;
+}
+
+.reveal .slides section.qui_sommes_nous > .imageblock{
+  width: 700px;
+  position: absolute;
+  right: 2%;
+  top: 9%;
+}
+
+/******************** FIN QUI SOMMES NOUS *****************/
+
+/******************** CULTURE INTERNE *****************/
+
+.reveal .slides section.culture_interne h2{
+  margin-left: 10%;
+  margin-top:5%;
+}
+
+.reveal .slides section.culture_interne .col1
+, .reveal .slides section.culture_interne .col2
+, .reveal .slides section.culture_interne .col3{
+  width: 24%;
+  display: inline-flex;
+  background: no-repeat top center url('../th-market/market-coding1.jpg');
+  min-height: 37%;
+  border-top: 0.3em solid #b11e3e;
+  box-shadow: 0px 10px 15px 1px rgba(0,0,0,0.3);
+  margin-left: 3%;
+  padding: 23% 2% 2%;
+}
+
+.reveal .slides section.culture_interne .col1{
+  margin-left: 8%;
+}
+
+.reveal .slides section.culture_interne .col2{
+  background: no-repeat top center url('../th-market/market-coding2.jpg');
+}
+
+.reveal .slides section.culture_interne .col3{
+  background: no-repeat top center url('../th-market/market-coding3.jpg');
+}
+
+.reveal .slides section.culture_interne .sidebarblock .paragraph p{
+  font-family: montserrat;
+  font-size: 0.7em;
+}
+
+.reveal .slides section.culture_interne .ulist{
+  font-size: 0.6em;
+}
+
+/******************** FIN CULTURE INTERNE *****************/
+
+
+
+/******************** AGENDA *****************/
+
+.reveal .slides section.agenda h2{
+  margin-left: 10%;
+  margin-top:5%;
+}
+
+.reveal .slides section.agenda > table.grid-all{
+  width: 50% !important;
+  border-bottom:thin solid #d9d9d9;
+  margin-bottom: 0;
+}
+
+.reveal .slides section.agenda > table.grid-all > tbody > tr > .tableblock{
+  border:0 none;
+  font-size: 0.8em;
+  line-height: 2em;
+}
+
+.reveal .slides section.agenda > table.grid-all > tbody > tr > .tableblock:nth-child(1) {
+  font-weight: bold;
+}
+.reveal .slides section.agenda > .imageblock{
+  position: absolute;
+  right: 2%;
+  top: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  width: 45%;
+}
+
+.reveal .slides section.agenda > .imageblock > img{
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/******************** FIN AGENDA *****************/
+/******************** SOMMAIRE *****************/
+
+.reveal .slides section.sommaire > h2{
+  position: absolute;
+  width: 50%;
+  line-height: 1.5em;
+  top: 33%;
+  margin-left: 5%;
+}
+.reveal .slides section.sommaire ol{
+  margin-left: 45%;
+  list-style: decimal-leading-zero;
+  padding: 0;
+  
+}
+.reveal .slides section.sommaire li{
+  margin-top: 0.6em;
+  color: #b11e3e;
+  padding: 0.5em 0 0.5em 0.5em;
+  list-style-position: inside;
+}
+
+.reveal .slides section.sommaire p{
+  font-family: "Montserrat";
+  font-weight: normal;
+  display: inline-block;
+  color:#000;
+  margin-left: 5%;
+}
+
+.reveal .slides section.sommaire a{
+  color:#000;
+  text-decoration: none;  
+}
+
+.reveal .slides section.sommaire .item1 li:nth-child(1)
+,.reveal .slides section.sommaire .item2 li:nth-child(2)
+,.reveal .slides section.sommaire .item3 li:nth-child(3)
+,.reveal .slides section.sommaire .item4 li:nth-child(4)
+,.reveal .slides section.sommaire .item5 li:nth-child(5)
+,.reveal .slides section.sommaire .item6 li:nth-child(6)
+,.reveal .slides section.sommaire .item7 li:nth-child(7)
+,.reveal .slides section.sommaire .item8 li:nth-child(8)
+,.reveal .slides section.sommaire .item1 li:nth-child(1) p
+,.reveal .slides section.sommaire .item2 li:nth-child(2) p
+,.reveal .slides section.sommaire .item3 li:nth-child(3) p
+,.reveal .slides section.sommaire .item4 li:nth-child(4) p
+,.reveal .slides section.sommaire .item5 li:nth-child(5) p
+,.reveal .slides section.sommaire .item6 li:nth-child(6) p
+,.reveal .slides section.sommaire .item7 li:nth-child(7) p
+,.reveal .slides section.sommaire .item8 li:nth-child(8) p
+,.reveal .slides section.sommaire .item1 li:nth-child(1) a
+,.reveal .slides section.sommaire .item2 li:nth-child(2) a
+,.reveal .slides section.sommaire .item3 li:nth-child(3) a
+,.reveal .slides section.sommaire .item4 li:nth-child(4) a
+,.reveal .slides section.sommaire .item5 li:nth-child(5) a
+,.reveal .slides section.sommaire .item6 li:nth-child(6) a
+,.reveal .slides section.sommaire .item7 li:nth-child(7) a
+,.reveal .slides section.sommaire .item8 li:nth-child(8) a{
+  background-color: #b11e3e;
+  color: #FFF;
+}
+
+
+/******************** FIN SOMMAIRE *****************/
+
+/******************** ************** *****************/
+/******************** SLIDES CONTENU *****************/
+/******************** ************** *****************/
+
+/******************** SLIDES CONTENU TYPE mk_tpl_base *****************/
+/* Titre haut/gauche + du texte ou une simple image           */
+
+.reveal .slides section.mk_tpl_base > h2{
+  margin-top: 4%;
+  margin-left: 4%;
+}
+
+.reveal .slides section.mk_tpl_base li
+,.reveal .slides section.mk_tpl_base p{
+  color: #666666;
+}
+
+.reveal .slides section.mk_tpl_base > div > ul > li > p{
+  margin: 1em auto;
+}
+/******************** SOMMAIRE *****************/
+
+
+/************* SLIDES SCREENSHOT **************/
+.reveal .slides section.screenshot {
+  padding: 0 !important;
+}
+.reveal .slides section.screenshot > h2 {
+  display:none;
+}
+.reveal .slides section.screenshot > h2:after {
+  content: "";
+}
+
+.reveal .slides section.screenshot > .imageblock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.reveal .slides section.screenshot > .imageblock img {
+  width: 100%;
+  margin: auto;
+  max-height: 100%;
+  padding: 0;
+}
+/*********** FIN SLIDES SCREENSHOT ************/

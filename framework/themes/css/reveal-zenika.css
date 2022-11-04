@@ -1,3 +1,5 @@
+/* on top of : https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.9.2/css/reveal.css */
+
 /* titles */
 @font-face {
   font-family: "Montserrat";
@@ -57,6 +59,112 @@ https://coolors.co/9D145F-FFE119-000075-E8575C-56A29A
 
 **/
 
+/* overrides reset.css */
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  /* margin: revert; messes up styles */
+  /* padding: revert; */
+  border: revert;
+  font-size: revert;
+  /* font: revert; messes up styles */
+  vertical-align: revert;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: revert;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -72,8 +180,12 @@ body {
 /* When using the shorthand property the order of the property values is: background-color, background-image, background-repeat, background-attachment, background-position */
 body {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    black url("../logo-zenika.png") no-repeat center;
-  background-size: cover, 30%;
+    black url("../logo-zenika-white.png") no-repeat center;
+  background-size: cover, 40%;
+}
+
+body.reveal-viewport {
+  background-color: #000;
 }
 
 .reveal {
@@ -218,14 +330,16 @@ body {
   justify-content: center;
   float: none;
   font-size: 60px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 /* slide title */
 .reveal h2,
 .reveal h3,
 #toctitle {
-  margin: 0px 0px 40px -20px;
-  padding: 0 0 0px 20px;
+  margin: 0px 0px 40px 0px;
+  padding: 0 0 0px 0px;
   text-align: left;
   font-size: 40px;
 }
@@ -242,7 +356,7 @@ body {
   font-style: italic;
 }
 
-.reveal p.author {
+.reveal span.author {
   height: 20%;
   display: flex;
   align-items: center;
@@ -312,6 +426,7 @@ span.hljs-emphasis {
 .reveal dl {
   margin-block-start: auto;
   margin-block-end: auto;
+  padding-left: 40px;
 }
 
 /** QUOTE **/
@@ -420,8 +535,8 @@ span.hljs-emphasis {
 .reveal table,
 .reveal .listingblock,
 .reveal .paragraph,
-.reveal .exampleblock > div.content,
-.reveal section > .ulist,
+.reveal .exampleblock > div > .content,
+.reveal section > div > .ulist,
 .reveal .olist,
 .reveal .dlist,
 .reveal .literalblock {
@@ -435,13 +550,55 @@ span.hljs-emphasis {
   margin-left: 20px;
 }
 
+
+/** BUTTONS **/
+
+b.button {
+  font-size: 0.9em;
+  color: black;
+  font-weight: normal;
+  font-family: monospace, serif;
+  white-space: nowrap;
+  background-color: rgb(245, 245, 245);
+  text-shadow: none;
+  padding: 2px 3px 3px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #888;
+  border-image: initial;
+  border-radius: 4px;
+}
+
+b.button::before,
+b.button::after {
+  content: initial;
+  padding: unset;
+  position: unset;
+  top: unset;
+  font-weight: unset;
+}
+
 /** CODE **/
 
 .reveal code {
   font-family: "M+ 1m";
-  font-size: 80%;
+  font-size: 100%; /* todo : 100% when auto-scroll fragment highlight will work */
   padding: 10px;
   font-weight: bold;
+  /* max-height: 540px; now we can scroll with fragmented highlight */
+}
+
+/* different height, else childs do not overlap exactly, 20px bottom different */
+.reveal .hljs {
+  max-height: 560px;
+}
+/* big code */
+.reveal .listingblock.big-code .hljs {
+  max-height: 420px;
+}
+/* half code */
+.reveal .listingblock.half-code .hljs {
+  max-height: 300px;
 }
 
 .reveal pre:not(.ght) {
@@ -449,9 +606,14 @@ span.hljs-emphasis {
   font-weight: normal;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.2em;
+  position: relative; /* for fragmented code highlight */
   font-size: 80%;
   margin-bottom: 0.75rem;
+}
+
+/* should always be (in ☝️), but step-by-step highlight does not look this way */
+.reveal pre:not(.ght):not(.code-wrapper) {
+  padding: 0.2em;
 }
 
 /* code should bot have the large border of other listing blocks */
@@ -636,6 +798,10 @@ span.hljs-emphasis {
   bottom: 100px !important;
 }
 
+.reveal .chalkboard-button[id="toggle-notes"] a i {
+  font-size: 24px; /* else it's bigger than menu and chalkboard icons */
+}
+
 .reveal .slide-menu-button {
   left: 15px !important;
   bottom: 60px !important;
@@ -697,7 +863,8 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
 }
 
 /* [.maxed-image] on section or image block */
-.reveal section.maxed-image > div > img,
+.reveal section.maxed-image img,
+.reveal div.maxed-image img,
 .imageblock.maxed-image img {
   object-fit: contain;
   height: 540px;
@@ -706,7 +873,8 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
 }
 
 /* [.half-image] on section or image block */
-.reveal section.half-image > div > img,
+.reveal section.half-image img,
+.reveal div.half-image img,
 .imageblock.half-image img {
   object-fit: contain;
   height: 300px;
@@ -715,7 +883,8 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
 }
 
 /* [.big-image] on section or image block */
-.reveal section.big-image > div > img,
+.reveal section.big-image img,
+.reveal div.big-image img,
 .imageblock.big-image img {
   object-fit: contain;
   height: 420px;
@@ -725,13 +894,24 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
   padding: 0px;
 }
 
-/* [.big-image] on section or image block */
-.reveal section.contain-image > div > img,
+/* [.contain-image] on section or image block */
+.reveal section.contain-image img,
+.reveal div.contain-image img,
 .imageblock.contain-image img {
   object-fit: contain;
   max-height: 540px;
   max-width: 1040px;
   padding: 0px;
+}
+
+/* to handle side by side with [.column] https://docs.asciidoctor.org/reveal.js-converter/latest/converter/syntax/layout/#columns-layout */
+.reveal div.contain-image:not(.column) {
+  text-align: center;
+}
+
+/* leave some (narrow) space to other column */
+.reveal div.column.contain-image img {
+  max-width: 740px;
 }
 
 .reveal section img.with-border {

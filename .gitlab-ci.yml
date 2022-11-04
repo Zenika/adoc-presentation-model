@@ -1,17 +1,66 @@
-
+stages:
+  - 📄 pages
+  - 🗑 cleanup
 
 pages:
-  image: docker:18.09.7
+  image: docker:20.10.12
+  stage: 📄 pages
+  cache:
+    key: gitlab-pages
+    paths: [public]
   services:
-    - docker:18.09.7-dind
+    - docker:20.10.12-dind
   variables:
     DOCKER_HOST: tcp://docker:2375 # on gitlab.com shared runners
+    DOCKER_TLS_CERTDIR: ""
+    GIT_DEPTH: 0 # all branches are fetched (and known)
+  before_script:
+    - mkdir -p public
+    - ls public
+    - |
+      if [ "$CI_COMMIT_REF_SLUG" != "$CI_DEFAULT_BRANCH" ] && [ ! -d public/$CI_DEFAULT_BRANCH ]; then
+        echo -e "💥\e[91;1m Unable to retrieve $CI_DEFAULT_BRANCH generated files from cache ; please retry or regenerate $CI_DEFAULT_BRANCH files first\e[0m"
+        exit 1
+      fi
+    - rm -rf public/$CI_COMMIT_REF_SLUG || true
   script:
+    - apk add rsync zip tree git
     - ./generate.sh
     - ls build-docs/*/*
-    - mv --verbose build-docs public
+    - mv --verbose build-docs public/$CI_COMMIT_REF_SLUG
+    - cd public
+    # clean pages for old branches
+    - git branch -r
+    - |
+      for folder in *; do
+        exists=$(git rev-parse -q --verify "origin/$folder") || true
+        if [ -z "$exists" ]; then
+          rm -rf $folder
+          echo "removed folder $folder, the branch does not exist anymore"
+        fi
+      done
+    - ls -lart
+    # generate a root HTML listing all folder branches
+    - tree -d -H '.' -L 1 --noreport --charset utf-8 -T "Versions" -o index.html
   interruptible: true # this way jobs are interrupted when a newer pipeline is triggered
+  environment:
+    name: $CI_COMMIT_REF_SLUG
+    action: start
+    url: $CI_PAGES_URL/$CI_COMMIT_REF_SLUG
   artifacts:
     paths:
-      # nothing else than public folder will work :( 
+      # nothing else than public folder will work :(
       - public
+    expire_in: 1h
+
+🗑🦊-pipelines-delete:
+  stage: 🗑 cleanup
+  image: python:3.8-alpine
+  before_script:
+    - pip install --upgrade python-gitlab
+    - pip install --upgrade click
+  script:
+    # deleting older pipelines (by default after 2 pages = 40 pipelines are kept)
+    - python gitlab-purge-pipelines.py $CI_SERVER_URL $API_TOKEN $CI_PROJECT_ID
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "develop-test"

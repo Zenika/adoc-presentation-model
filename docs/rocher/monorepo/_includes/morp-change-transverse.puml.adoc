@@ -1,6 +1,0 @@
-[plantuml, morp-change-transverse, svg]
-....
-(*) -down-> "création de MR\nsur mono-repo" as mrcom
--down-> "- modification de code\n- test unitaire\n- test d'intégration\n- push & review\n- merge sur develop"
---> (*)
-....

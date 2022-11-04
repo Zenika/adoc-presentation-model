@@ -10,13 +10,16 @@ ifdef::backend-html5[]
 :toc: left
 :description: This guide is a quick reference for the common AsciiDoc document and text formatting markup.
 endif::backend-html5[]
-:revealjs_customtheme: ../../framework/themes/css/reveal-zenika-light.css
+:revealjs_customtheme: ../../framework/themes/css/reveal-zenika-vietnam-shirt.css
+// variables must be before empty lines or after .notes in current (5.0.0-RC1) Asciidoctor-reveal version
+:imagesdir: images
 
 :imagesdir: images
 :includedir: _includes
 :experimental:
 :sectnums:
 :table-caption!:
+:example-caption!:
 :figure-caption!:
 // URLs
 :docs: https://asciidoctor.org/docs/
@@ -72,7 +75,7 @@ ifdef::backend-revealjs[]
 endif::backend-revealjs[]
 
 
-//This document has one link:{docname}.adoc[source], and is generated in multiple output formats : link:{docname}.html[html], link:PRES-{docname}.html[slides] and link:{docname}.pdf[PDF].
+//This document has one link:{docname}.adoc[source,ini], and is generated in multiple output formats : link:{docname}.html[html], link:PRES-{docname}.html[slides] and link:{docname}.pdf[PDF].
 
 <<<
 == Paragraphs

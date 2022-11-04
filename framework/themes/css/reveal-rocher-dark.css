@@ -64,6 +64,12 @@ rose : 239/82/91
   box-shadow: none !important;
 }
 
+.reveal section.demo {
+  background: #222 no-repeat center url("../smart-duck.jpg") !important;
+  background-size: 60% !important;
+  box-shadow: none !important;
+}
+
 /****************
 * C3JS
 *****************/

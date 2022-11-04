@@ -1,7 +1,19 @@
 .vscode/
+.idea/
 .settings/
-tmp/
+*.txt
+**/backgrounds/not-yet/
 
 # asciidoc
 build-docs/
 *.double
+
+# terraform
+.terraform
+*.tfstate*
+kubeconfig*
+terraform.tfvars
+
+.history
+tmp/
+*.old

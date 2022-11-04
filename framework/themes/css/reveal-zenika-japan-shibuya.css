@@ -1,0 +1,29 @@
+@import "reveal-zenika-dark.css";
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              center url('../backgrounds/japan-shibuya.jpg');
+  background-size: cover, cover;
+}
+
+
+/***********************
+* last slide 
+************************/ 
+
+/* fireflies */ 
+
+/* added ".fireflies" condition, because it's GPU heavy */
+.reveal section.questions.fireflies {
+  background: no-repeat center url('../question-mark.svg'),
+  /* https://loading.io/pattern/firefly#
+  seed=39ef6cf1642b7a, color=#ffffff, firefly=10, diversity=0, maxDistance=6, maxRadius=2, minDistance=4, minRadius=2, background=transparent, speed=10, width=354, height=200 */
+  no-repeat center url('../fireflies-10-white.svg') !important;
+  background-size: 35%, cover !important;
+}
+
+/* .bubbles */
+
+.reveal section.bubbles {
+  background-position: 20% -60% !important;
+}
