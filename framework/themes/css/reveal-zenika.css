@@ -33,7 +33,7 @@
 
 /**
 ZENIKA COLORS :
-rouge / deep carmine : 177/30/62 #B11E3E
+rouge / deep carmine : 177/30/62 #D61F50
 vert / android green : 141/191/68 #8DBF44
 bleu / carolina blue : #53A3DA
 gris clair / davy's grey : #888888
@@ -52,7 +52,7 @@ menthe / polished pine : #56A29A
 bleu nuit / navy : #000075
 
 rouge - gris foncé - beige - bleu - vert
-https://coolors.co/B11E3E-444444-D6D6B1-53A3DA-8DBF44
+https://coolors.co/D61F50-444444-D6D6B1-53A3DA-8DBF44
 
 violet - jaune - bleu nuit - rose - menthe
 https://coolors.co/9D145F-FFE119-000075-E8575C-56A29A
@@ -318,7 +318,7 @@ body.reveal-viewport {
 .reveal h6,
 .reveal h[level="3"],
 #toctitle {
-  color: #b11e3e;
+  color: #d61f50; /* red */
   font-family: "Montserrat"; /* https://github.com/JulietaUla/Montserrat/tree/master/fonts/ttf */
   font-weight: normal;
 }
@@ -405,7 +405,7 @@ span.hljs-emphasis {
 }
 
 .reveal .red {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 .reveal .pink {
@@ -485,6 +485,15 @@ span.hljs-emphasis {
   letter-spacing: -0.025em;
 }
 
+/** last element of fragmented list **/
+
+.reveal .slide-content > .ulist:last-child > ul > li.fragment:last-child::after {
+    content: "▾";
+    color: #888888;
+    text-align: right;
+    float:right;
+}
+
 /** SPECIAL TEXT **/
 
 .reveal .small {
@@ -522,7 +531,7 @@ span.hljs-emphasis {
 
 /* KO symbol is red */
 .reveal i.fa-times-circle {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 /**** MARGINS ****/
@@ -621,6 +630,27 @@ b.button::after {
   padding: 0.1em;
 }
 
+/* DESCRIPTION NUMBERS */
+.reveal .conum[data-value] {
+    width: 1.3em;
+    height: 1.3em;
+    line-height: 1.3em;
+    font-family: "Montserrat";
+    background-color: #d61f50 !important; /* red */
+    /* -webkit-text-stroke: 1px black; */
+  }
+
+/* callout number */
+.reveal .colist td:not([class]):first-child {
+    padding: .25em .75em 0;
+}
+
+/* callout text */
+.reveal .colist td:not([class]):last-child {
+    padding: 0 0;
+    line-height: 1.4;
+}
+
 /* title of code/image block */
 .reveal div.title,
 .reveal table > caption.title {
@@ -628,7 +658,7 @@ b.button::after {
   font-style: italic;
   font-weight: bold;
   margin-bottom: 0.25rem;
-  color: #b11e3e;
+  color: #d61f50; /* red */
   text-align: left;
 }
 
@@ -753,7 +783,7 @@ b.button::after {
 
 /* IMPORTANT icon */
 .reveal .admonitionblock.important td.icon {
-  color: #b11e3e;
+  color: #d61f50; /* red */
 }
 
 /* CAUTION icon */
@@ -772,7 +802,7 @@ b.button::after {
 }
 
 .reveal a:not(.image):hover {
-  color: #b11e3e;
+  color: #d61f50; /* red */
   text-shadow: none;
   border: none;
 }
@@ -820,7 +850,7 @@ b.button::after {
 
 /* Slide number color */
 .reveal .slide-number a {
-  color: #b11e3e;
+  color: #d61f50; /* red */
 }
 
 /*********************************************
@@ -839,7 +869,7 @@ body .slide-menu-wrapper .slide-menu-panel h6 {
 body .slide-menu-wrapper .slide-menu-item,
 body .slide-menu-wrapper .slide-menu-item-vertical {
   padding: 3px; /* no need for more, lets minimize scrolling */
-  /* color: #b11e3e; gives too much focus to menu ? */
+  /* color: #d61f50; /* red */ gives too much focus to menu ? */
 }
 
 body .slide-menu-wrapper .slide-menu-item-vertical {
@@ -867,7 +897,7 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
 .reveal div.maxed-image img,
 .imageblock.maxed-image img {
   object-fit: contain;
-  height: 540px;
+  height: 570px;
   width: 1040px;
   padding: 0px; /* to disable padding that else gives space around images */
 }
@@ -894,23 +924,45 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
   padding: 0px;
 }
 
+/* [.image-in-list] on section or image block */
+.reveal section.image-in-list img,
+.reveal div.image-in-list img,
+.imageblock.image-in-list img {
+  object-fit: contain;
+  max-height: 420px;
+  max-width: 960px;
+  padding: 0px;
+}
+
 /* [.contain-image] on section or image block */
 .reveal section.contain-image img,
 .reveal div.contain-image img,
 .imageblock.contain-image img {
   object-fit: contain;
-  max-height: 540px;
+  max-height: 570px;
+  max-width: 1040px;
+  padding: 0px;
+}
+
+/* [.contain-image] on section or image block without title */
+.reveal section.contain-image-no-title img,
+.reveal div.contain-image-no-title img,
+.imageblock.contain-image-no-title img {
+  object-fit: contain;
+  max-height: 640px;
   max-width: 1040px;
   padding: 0px;
 }
 
 /* to handle side by side with [.column] https://docs.asciidoctor.org/reveal.js-converter/latest/converter/syntax/layout/#columns-layout */
-.reveal div.contain-image:not(.column) {
+.reveal div.contain-image:not(.column),
+.reveal div.contain-image-no-title:not(.column) {
   text-align: center;
 }
 
 /* leave some (narrow) space to other column */
-.reveal div.column.contain-image img {
+.reveal div.column.contain-image img,
+.reveal div.column.contain-image-no-title img {
   max-width: 740px;
 }
 
@@ -931,7 +983,7 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
  *********************************************/
 
 .reveal .controls .enabled {
-  color: #b11e3e;
+  color: #d61f50; /* red */
 }
 
 /*********************************************
@@ -944,12 +996,7 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
 }
 
 .reveal .progress span {
-  background: #b11e3e;
-}
-
-/* DESCRIPTION NUMBERS */
-.conum[data-value] {
-  background-color: rgb(141, 191, 68) !important;
+  background: #d61f50; /* red */
 }
 
 /*********************************************
@@ -991,41 +1038,6 @@ body .slide-menu-wrapper .slide-menu-item-vertical {
   left: -45%;
   bottom: -30%;
   opacity: 1;
-}
-
-/* .red-hands (.layers) */
-
-.reveal section.red-hands {
-  background: none;
-  box-shadow: none;
-}
-
-/* foreground in ::before (needs to go outside the div) */
-.reveal section.red-hands:before {
-  content: "";
-  display: inline-block;
-  width: 180%;
-  height: 180%;
-  background: no-repeat center url(../red-hands.png);
-  background-size: 50%;
-  position: inherit;
-  left: -40%;
-  bottom: -75%;
-  opacity: 1;
-}
-
-/* background in ::after (needs to go outside the div) */
-.reveal section.red-hands.layers:after {
-  content: "";
-  display: inline-block;
-  width: 180%;
-  height: 200%;
-  background: no-repeat center url(../red-hands.png);
-  background-size: 55%;
-  position: relative;
-  left: -45%;
-  bottom: 25%;
-  opacity: 0.4;
 }
 
 /*********************************************
@@ -1081,7 +1093,7 @@ text.c3-axis-y2-label {
 /* vertical bar */
 .timeline ul:before {
   content: "";
-  background: #b11e3e;
+  background: #d61f50; /* red */
   width: 5px;
   position: absolute;
   height: 98%;
@@ -1091,7 +1103,7 @@ text.c3-axis-y2-label {
 /* arrow */
 .timeline ul:after {
   content: "";
-  border: solid #b11e3e;
+  border: solid #d61f50; /* red */
   border-width: 0 5px 5px 0;
   padding: 10px;
   transform: rotate(45deg);

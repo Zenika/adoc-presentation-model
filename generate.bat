@@ -120,14 +120,14 @@ goto notHtmlParameter
 @echo   Generating HTML...
 : /!\ docinfo=shared is not useful for HTML, it was only added for live reloading. But it does not alter the experience. We could just have a docinfo-header.html with the live line.
 call docker run --rm -v %CURRENT_PATH%build-docs:/documents asciidoctor/docker-asciidoctor:%ADOC_IMG_TAG% asciidoctor ^
-  -r asciidoctor-diagram ^
+  -r asciidoctor-kroki ^
   -r /documents/framework/lib/c3js-block-macro.rb ^
   -r /documents/framework/lib/cloud-block-macro.rb ^
   -a icons=font ^
   -a experimental=true ^
   -a idprefix="" ^
   -a idseparator="-" ^
-  -a plantuml-config=../../framework/themes/plantuml.cfg ^
+  -a kroki-plantuml-include=../../framework/themes/plantuml.cfg ^
   -a screenshot-dir-name=screenshots ^
   -a source-highlighter=highlight.js ^
   -a highlightjsdir=../../framework/lib/highlight ^
@@ -155,14 +155,14 @@ goto notRevealParameter
 
 @echo   Generating Reveal.js...
 docker run --rm -v %CURRENT_PATH%build-docs:/documents asciidoctor/docker-asciidoctor:%ADOC_IMG_TAG% asciidoctor-revealjs  ^
-  -r asciidoctor-diagram  ^
+  -r asciidoctor-kroki  ^
   -r /documents/framework/lib/c3js-block-macro.rb  ^
   -r /documents/framework/lib/cloud-block-macro.rb  ^
   -a icons=font  ^
   -a experimental=true  ^
   -a idprefix=""  ^
   -a idseparator="-"  ^
-  -a plantuml-config=../../framework/themes/plantuml.cfg  ^
+  -a kroki-plantuml-include=../../framework/themes/plantuml.cfg  ^
   -a screenshot-dir-name=screenshots  ^
   -a source-highlighter=highlightjs  ^
   -a highlightjs-theme=../../framework/lib/highlight/styles/gruvbox-dark.min.css  ^
@@ -191,10 +191,10 @@ goto notPdfParameter
 :PdfParameter
 @echo   Generating PDF...
 docker run --rm -v %CURRENT_PATH%build-docs:/documents asciidoctor/docker-asciidoctor:%ADOC_IMG_TAG% asciidoctor-pdf  ^
-  -r asciidoctor-diagram  ^
+  -r asciidoctor-kroki  ^
   -a icons=font  ^
   -a experimental=true  ^
-  -a plantuml-config=../../framework/themes/plantuml.cfg  ^
+  -a kroki-plantuml-include=../../framework/themes/plantuml.cfg  ^
   -a screenshot-dir-name=screenshots  ^
   -a source-highlighter=coderay  ^
   -a toclevels=2  ^

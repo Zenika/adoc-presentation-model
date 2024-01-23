@@ -2,9 +2,12 @@ stages:
   - 📄 pages
   - 🗑 cleanup
 
+default:
+  interruptible: true
+
 pages:
-  image: docker:20.10.12
   stage: 📄 pages
+  image: docker:20.10.12
   cache:
     key: gitlab-pages
     paths: [public]
@@ -26,10 +29,13 @@ pages:
   script:
     - apk add rsync zip tree git
     - ./generate.sh
+    # generate zips only for training needing it
+    - ./generate.sh devops/kubernetes-user zip || true
+    - ./generate.sh devops/kubernetes-user-2j zip || true
+    # clean pages for old branches
     - ls build-docs/*/*
     - mv --verbose build-docs public/$CI_COMMIT_REF_SLUG
     - cd public
-    # clean pages for old branches
     - git branch -r
     - |
       for folder in *; do
@@ -42,25 +48,23 @@ pages:
     - ls -lart
     # generate a root HTML listing all folder branches
     - tree -d -H '.' -L 1 --noreport --charset utf-8 -T "Versions" -o index.html
-  interruptible: true # this way jobs are interrupted when a newer pipeline is triggered
   environment:
     name: $CI_COMMIT_REF_SLUG
     action: start
     url: $CI_PAGES_URL/$CI_COMMIT_REF_SLUG
+  publish: public # (default)
   artifacts:
-    paths:
-      # nothing else than public folder will work :(
-      - public
+    paths: [public]
     expire_in: 1h
 
 🗑🦊-pipelines-delete:
   stage: 🗑 cleanup
   image: python:3.8-alpine
   before_script:
-    - pip install --upgrade python-gitlab
-    - pip install --upgrade click
+    - pip install --upgrade python-gitlab click
   script:
     # deleting older pipelines (by default after 2 pages = 40 pipelines are kept)
-    - python gitlab-purge-pipelines.py $CI_SERVER_URL $API_TOKEN $CI_PROJECT_ID
+    - python gitlab-purge-pipelines.py $CI_SERVER_URL $CI_PROJECT_ID $API_TOKEN
+  allow_failure: true
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "develop-test"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "$CI_DEFAULT_BRANCH-test"

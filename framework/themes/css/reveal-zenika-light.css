@@ -65,8 +65,8 @@ rose : 239/82/91
 }
 
 .reveal section.demo {
-  background: white no-repeat center url("../smart-duck.jpg") !important;
-  background-size: 60% !important;
+  background: white no-repeat center url("../demo-duck.jpg") !important;
+  background-size: 90% !important;
   box-shadow: none !important;
 }
 

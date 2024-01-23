@@ -127,7 +127,7 @@ class C3jsChartBuilder
         },
         legend: { position: '#{legend}' },
         color: {
-              pattern: ['#8DBF44','#555555','#53A3DA','#D6D6B1','#B11E3E','#888888','#FFE119','#000075','#E8575C','#56A29A']
+              pattern: ['#8DBF44','#555555','#53A3DA','#D6D6B1','#D61F50','#888888','#FFE119','#000075','#E8575C','#56A29A']
           }
         });
         </script>

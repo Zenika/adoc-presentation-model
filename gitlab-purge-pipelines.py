@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 #
 # Script deleting old pipelines
 #
@@ -15,17 +16,18 @@ from gitlab import Gitlab
 @click.command()
 # GitLab server URL ($CI_SERVER_URL in pipelines)
 @click.argument('server_url')
-# Authentication token with delete right on pipelines GR_CI_API_TOKEN
-@click.argument('token')
 # Project unique ID ($CI_PROJECT_ID in pipelines)
 @click.argument('project_id')
-@click.option('--keep', '-k', default=40, help='Number of pipelines to keep (default 40)')
+# Authentication token with delete right on pipelines
+# At the end of parameters, to be explicit when it is missing, since the other ones are always there
+@click.argument('token')
+@click.option('--keep', '-k', default=30, help='Number of latest pipelines to keep (default 30)')
 @click.option('--delete/--dry-run', default=True)
-def purge_old_pipelines(server_url, token, project_id, keep, delete):
+def purge_old_pipelines(server_url, project_id, token, keep, delete):
 
     project = Gitlab(server_url, private_token=token,
                      per_page=100).projects.get(project_id)
-    pipelines = project.pipelines.list(as_list=False)
+    pipelines = project.pipelines.list(iterator=True)
     print('\nKeeping only {} recent pipelines in project {}\n'.format(
         keep, project.name), flush=True)
 

@@ -35,7 +35,7 @@ h4,
 h5,
 h6 {
   font-family: "Montserrat Bold";
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 .subheader,
@@ -57,7 +57,7 @@ table.tableblock > .title,
 .ulist > .title,
 .qlist > .title,
 .hdlist > .title {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 /* color of TOC */
@@ -85,7 +85,7 @@ i.fa-check-circle {
 
 /* KO symbol is red */
 i.fa-times-circle {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
   font-size: 28px;
 }
 
@@ -103,11 +103,11 @@ h3 > a.link:hover,
 h4 > a.link:hover,
 h5 > a.link:hover,
 h6 > a.link:hover {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 .sidebarblock > .content > .title {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 .quoteblock blockquote::before {
@@ -119,7 +119,7 @@ h6 > a.link:hover {
 }
 
 .admonitionblock td.icon .icon-important::before {
-  color: #b11e3e; /* red */
+  color: #d61f50; /* red */
 }
 
 .admonitionblock td.icon .icon-caution::before {
@@ -127,7 +127,7 @@ h6 > a.link:hover {
 }
 
 a:not(.image):hover {
-  color: #b11e3e;
+  color: #d61f50; /* red */
   text-shadow: none;
   border: none;
 }
@@ -139,7 +139,7 @@ a:not(.image):hover {
 
 /* references in code */
 .conum[data-value] {
-  background-color: #b11e3e; /* red */
+  background-color: #d61f50; /* red */
 }
 
 /** buttons **/
@@ -173,6 +173,13 @@ b.button::after {
 .listingblock pre,
 .listingblock pre[class] {
   font-size: small;
+}
+
+/* code should not be small */
+.listingblock pre.highlightjs code {
+  font-size: medium;
+  /* font-weight: bold; */
+  line-height: initial;
 }
 
 /* don't display speaker notes in HTML backend */
@@ -228,7 +235,7 @@ text.c3-axis-y2-label {
 /* vertical bar */
 .timeline ul:before {
   content: "";
-  background: #b11e3e;
+  background: #d61f50; /* red */
   width: 5px;
   position: absolute;
   height: 98%;
@@ -238,7 +245,7 @@ text.c3-axis-y2-label {
 /* arrow */
 .timeline ul:after {
   content: "";
-  border: solid #b11e3e;
+  border: solid #d61f50; /* red */
   border-width: 0 5px 5px 0;
   padding: 10px;
   transform: rotate(45deg);

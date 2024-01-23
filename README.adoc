@@ -5,13 +5,31 @@
 
 This is a live documentation generation stack, used for some Zenika training material. It is based on Asciidoc and/or Markdown. It is a mono-repository including both framework and documents.
 
-link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm#/[Basic Asciidoc syntax] and link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/[Advanced Reveal.js capabilities] generated examples are hosted on GitLab pages.
-
 0% knownledge in HTML/CSS/JS is required to produce/update a document, and still being able to include advanced capabilities. Guides are provided, see hosted content above.
+
+WARNING: MS Windows generation files are not actively maintained and tested
 
 == What
 
-=== Documentation features
+=== Preview
+
+link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm#/[Basic Asciidoc syntax] and link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/[Advanced Reveal.js capabilities] generated examples are hosted on GitLab pages.
+
+[cols="a,a", frame=none, grid=none]
+|===
+| Light theme slides
+| Dark theme slides
+| image::preview-light.jpg[link="https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm#/"]
+| image::preview-dark.jpg[link="https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/"]
+| Plain HTML
+| PDF
+| image::preview-html.jpg[link="https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.html"]
+| image::preview-pdf.jpg[link="https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.pdf"]
+|===
+
+=== Features
+
+==== Documentation features
 
 * Generate link:https://revealjs.com/[reveal.js], HTML and PDF documents from the same source without much care of the output type as a writer
 * All link:https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[features of Asciidoc] implemented by Asciidoctor and transposed to hosted link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm#/[Reveal.js presentations] containing associated HTML and PDF links
@@ -25,15 +43,15 @@ link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-r
 * Reveal.js themes are designed to be able to display any content (when reasonable sections size)
 * There are link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-reference.htm[light] and link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm[dark] Reveal.js themes switchable in-presentation with no awareness needed while writing documentation. All colors are designed to fit both, especially link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/reveal-my-asciidoc.htm#/use-case-diagram[PlantUML colors]
 
-=== Generation features
+==== Generation features
 
 * Support for Linux, MacOS and Windows
 * There is a single link:./generate.sh[generate.sh script for Linux/MacOS] and link:./generate.bat[generate.bat script for Windows] to generate everything
 * Generation uses Docker and is based on link:https://hub.docker.com/r/asciidoctor/docker-asciidoctor/dockerfile[docker-asciidoctor image]. A link:https://hub.docker.com/r/bcouetil/docker-asciidoctor[slightly modified version], to have an edge version of link:https://github.com/asciidoctor/asciidoctor-reveal.js[asciidoctor-reveal]
 * The script provides a way to live-reload generated content on modifications
-* Using GitLab pipelines, result is generated and hosted on GitLab pages per branch using the Gitlab cache mechanism
+* Using GitLab pipelines, result is generated and hosted on GitLab pages per branch using the GitLab cache mechanism
 
-=== Organisation features
+==== Organisation features
 
 * Documents and framework are united in a mono-repo
 * Documents are in folders under a category for better segregation of subjects

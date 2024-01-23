@@ -185,7 +185,7 @@ c3.generate({
       ]
   },
   color: {
-    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
+    pattern: ['#D61F50','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
   }
 });
 </script>
@@ -221,7 +221,7 @@ c3.generate({
       ]
   },
   color: {
-    pattern: ['#B11E3E','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
+    pattern: ['#D61F50','#444444','#D6D6B1','#53A3DA','#8DBF44','#888888','#FFE119','#000075','#E8575C']
   }
 });
 </script>
@@ -676,6 +676,51 @@ WU -> WB : URL
 // [Setup assembly line] starts at [Test prototype]'s end
 // @endgantt
 // ....
+
+<<<
+== Git-graph-as-code
+
+[.big-image]
+[mermaid]
+....
+%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': { 'git0': '#519BC8', 'git1': '#EF525B', 'git2': '#8DBF44', 'git3': '#888888', 'git4': '#D61F50' } } }%%
+gitGraph
+   commit id: "pipeline OK ✅"
+   commit id: "pipeline OK ✅ "
+   branch feature
+   checkout feature
+   commit id: "change module A ✅ "
+   commit id: "change module B ✅"
+   commit id: "change KO module B ❌" type: REVERSE
+   commit id: "change module A ✅  "
+   commit id: "change module A ✅   " type: HIGHLIGHT
+   checkout main
+   merge feature id: "pipeline KO ❌" type: REVERSE
+   commit id: "pipeline KO ❌ " type: REVERSE
+....
+
+=== Source
+
+[source,asciidoc]
+----
+[mermaid]
+....
+%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': { 'git0': '#519BC8', 'git1': '#EF525B', 'git2': '#8DBF44', 'git3': '#888888', 'git4': '#D61F50' } } }%%
+gitGraph
+   commit id: "pipeline OK ✅"
+   commit id: "pipeline OK ✅ "
+   branch feature
+   checkout feature
+   commit id: "change module A ✅ "
+   commit id: "change module B ✅"
+   commit id: "change KO module B ❌" type: REVERSE
+   commit id: "change module A ✅  "
+   commit id: "change module A ✅   " type: HIGHLIGHT
+   checkout main
+   merge feature id: "pipeline KO ❌" type: REVERSE
+   commit id: "pipeline KO ❌ " type: REVERSE
+....
+----
 
 <<<
 == Timeline-as-code

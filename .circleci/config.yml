@@ -1,0 +1,45 @@
+version: 2
+
+jobs:
+  build:
+    machine: true # to use docker commands
+    steps:
+      - checkout
+      - run:
+          name: Build docs
+          command: ./generate.sh
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - build-docs
+  deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@zenika.com"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "de:0e:67:23:c4:a7:26:3e:92:04:20:15:9e:a2:bb:50"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dotfiles --message "[skip ci] Updates" --dist build-docs
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

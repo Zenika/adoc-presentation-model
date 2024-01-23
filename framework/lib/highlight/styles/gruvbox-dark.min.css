@@ -39,7 +39,7 @@ Gruvbox style (dark) (c) Pavel Pertsev (original style at https://github.com/mor
 
 /* Gruvbox Yellow */
 /* step by step highlight adds linum numbers, and line numbers mess with spans... */
-span:not(.hljs-string):not(.hljs-number) .hljs-attr,
+span:not(.hljs-string):not(.hljs-number).hljs-attr,
 .hljs-params,
 .hljs-template-tag,
 .hljs-type {

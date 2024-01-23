@@ -10,7 +10,7 @@ ifdef::backend-html5[]
 :toc: left
 :description: This guide is a quick reference for the common AsciiDoc document and text formatting markup.
 endif::backend-html5[]
-:revealjs_customtheme: ../../framework/themes/css/reveal-zenika-vietnam-shirt.css
+:revealjs_customtheme: ../../framework/themes/css/reveal-containers-miniature.css
 // variables must be before empty lines or after .notes in current (5.0.0-RC1) Asciidoctor-reveal version
 :imagesdir: images
 

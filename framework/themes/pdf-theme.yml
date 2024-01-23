@@ -1,6 +1,7 @@
+extends: default
 color:
   zenika:
-    red: B11E3E # red
+    red: D61F50 # red
     grey: 444 # grey
     light_grey: 999 # light grey
     green: 8DBF44 # green
@@ -82,8 +83,8 @@ horizontal_rhythm: $base_line_height_length
 vertical_spacing: $vertical_rhythm
 link:
   font_color: 428bca
-# literal is currently used for inline monospaced in prose and table cells
-literal:
+# codespan is currently used for inline monospaced in prose and table cells
+codespan:
   font_color: $color_zenika_light_grey
   font_family: M+ 1mn
 menu_caret_content: " <font size=\"1.15em\"><color rgb=\"b12146\">\u203a</color></font> "
@@ -163,20 +164,6 @@ admonition:
   label:
     text_transform: uppercase
     font_style: bold
-blockquote:
-  font_color: $base_font_color
-  font_size: $base_font_size_large
-  border_color: $base_border_color
-  border_width: 5
-  padding:
-    [
-      0,
-      $horizontal_rhythm,
-      $block_margin_bottom * -0.75,
-      $horizontal_rhythm + $blockquote_border_width / 2,
-    ]
-  cite_font_size: $base_font_size_small
-  cite_font_color: 999999
 # code is used for source blocks (perhaps change to source or listing?)
 code:
   font_color: $base_font_color
@@ -229,7 +216,7 @@ description_list:
   term_font_style: bold
   term_spacing: $vertical_rhythm / 4
   description_indent: $horizontal_rhythm * 1.25
-outline_list:
+list:
   indent: $horizontal_rhythm * 1.5
   #marker_font_color: 404040
   # NOTE outline_list_item_spacing applies to list items that do not have complex content
