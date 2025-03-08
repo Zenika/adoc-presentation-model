@@ -1,0 +1,31 @@
+//for preview in IDE
+ifndef::maindir[:maindir: ..]
+ifndef::imagesdir[:imagesdir: {maindir}/images]
+
+== Architecture
+
+[.maxed-image]
+image:chapters.png[]
+
+=== Pipeline : in real-world
+
+[.contain-image]
+image:pipeline-real-life.jpg[]
+
+<<<
+=== Pipeline : as a DevOps concept
+
+[.maxed-image]
+image:pipeline-devops.png[]
+
+ifdef::backend-revealjs[]
+[.questions]
+=== !
+endif::backend-revealjs[]
+
+ifeval::[{include-schema} == true]
+=== Architecture
+
+[.maxed-image]
+include::sub-content/runner-architecture.adoc[]
+endif::[]

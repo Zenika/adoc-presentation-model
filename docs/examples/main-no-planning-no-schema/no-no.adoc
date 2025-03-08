@@ -1,0 +1,9 @@
+// >>> when depending on another presentation, we must be alphabetically after (to be processed after) <<< //
+ifndef::maindir[:maindir: ../main]
+ifndef::imagesdir[:imagesdir: {maindir}/images]
+:include-planning: false
+:include-schema: false
+
+image:alternative.jpg[]
+
+include::{maindir}/my-main.adoc[]

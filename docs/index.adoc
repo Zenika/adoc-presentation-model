@@ -10,4 +10,9 @@ ifndef::backend-pdf[]
 * link:guides/guides/syntax-quick-reference.htm[icon:video-camera[] Syntax Quick Reference]
 * link:guides/guides/reveal-my-asciidoc.htm[icon:video-camera[] Additional capabilities]
 
+== Examples
+
+* link:examples/main/my-main.htm[icon:video-camera[] main] (link:examples/main/my-main.html[icon:globe[] HTML] / link:examples/main/my-main.pdf[icon:file-pdf-o[] PDF])
+* link:examples/main-no-planning-no-schema/no-no.htm[icon:video-camera[] main-no-planning-no-schema] (link:examples/main-no-planning-no-schema/no-no.html[icon:globe[] HTML] / link:examples/main-no-planning-no-schema/no-no.pdf[icon:file-pdf-o[] PDF])
+
 endif::backend-pdf[]

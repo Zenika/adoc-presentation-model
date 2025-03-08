@@ -1,0 +1,44 @@
+= Pipelines
+Lectures
+// variables must be before empty lines or after .notes in current (5.0.0-RC1) Asciidoctor-reveal version
+ifndef::revealjs_customtheme[:revealjs_customtheme: ../../framework/themes/css/reveal-gitlab-light.css]
+:toc-title: Sommaire
+ifndef::maindir[:maindir: .]
+ifndef::imagesdir[:imagesdir: {maindir}/images]
+ifndef::include-planning[:include-planning: true]
+ifndef::include-schema[:include-schema: true]
+
+//This can't land on reveaj-js first slide...
+ifdef::backend-html5[]
+link:{docname}.htm[icon:video-camera[] Slides]  link:{docname}.pdf[icon:file-pdf-o[] PDF] link:{docname}.adoc[icon:file-text-o[] Source]
+endif::backend-html5[]
+
+ifdef::backend-revealjs[]
+//We need to start a new chapter but 'toc' already provides a title
+[%notitle]
+== Sommaire
+toc::[]
+
+//...So we put this at the end of second slide
+[.bottom]
+link:{docname}.pdf[icon:file-pdf-o[] PDF]  link:{docname}.html[icon:globe[] HTML]  link:../{docname}.adoc[icon:file-alt[] Source]
+endif::backend-revealjs[]
+
+ifeval::[{include-planning} == true]
+
+== Planning
+
+* 09h30 - breakfast
+* 10h00 - ???
+* 17h00 - profit
+
+endif::[]
+
+<<<
+include::_content/01_runners.adoc[]
+
+ifdef::backend-revealjs[]
+[.bubbles]
+// because last section in the ToC is hidden
+== !
+endif::backend-revealjs[]
