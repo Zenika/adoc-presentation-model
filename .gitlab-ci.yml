@@ -7,14 +7,14 @@ default:
 
 pages:
   stage: 📄 pages
-  image: docker:20.10.12
+  image: docker:27.0
   cache:
     key: gitlab-pages
     paths: [public]
-  services:
-    - docker:20.10.12-dind
+  services: [docker:27.0-dind]
+  resource_group: avoid-cache-racing-conditions
   variables:
-    DOCKER_HOST: tcp://docker:2375 # on gitlab.com shared runners
+    DOCKER_HOST: tcp://docker:2375 # on gitlab.com instance runners
     DOCKER_TLS_CERTDIR: ""
     GIT_DEPTH: 0 # all branches are fetched (and known)
   before_script:
@@ -22,16 +22,16 @@ pages:
     - ls public
     - |
       if [ "$CI_COMMIT_REF_SLUG" != "$CI_DEFAULT_BRANCH" ] && [ ! -d public/$CI_DEFAULT_BRANCH ]; then
-        echo -e "💥\e[91;1m Unable to retrieve $CI_DEFAULT_BRANCH generated files from cache ; please retry or regenerate $CI_DEFAULT_BRANCH files first\e[0m"
+        echo -e "💥\e[91;1m Unable to retrieve $CI_DEFAULT_BRANCH generated files from cache; triggering a $CI_DEFAULT_BRANCH pipeline first and retrying...\e[0m"
+        apk add curl
+        curl -fsSL --request POST --header "PRIVATE-TOKEN: $API_TOKEN" "https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/pipeline?ref=$CI_DEFAULT_BRANCH"
+        sleep 30 # avoid getting resource lock before triggered $CI_DEFAULT_BRANCH pipeline
         exit 1
       fi
     - rm -rf public/$CI_COMMIT_REF_SLUG || true
   script:
     - apk add rsync zip tree git
     - ./generate.sh
-    # generate zips only for training needing it
-    - ./generate.sh devops/kubernetes-user zip || true
-    - ./generate.sh devops/kubernetes-user-2j zip || true
     # clean pages for old branches
     - ls build-docs/*/*
     - mv --verbose build-docs public/$CI_COMMIT_REF_SLUG
@@ -46,13 +46,17 @@ pages:
         fi
       done
     - ls -lart
-    # generate a root HTML listing all folder branches
+    # generate a multi-branches index.html
     - tree -d -H '.' -L 1 --noreport --charset utf-8 -T "Versions" -o index.html
+    # add a favicon and css to the multi-branches index.html
+    - sed -i -e 's|<head>|<head><link rel="icon" type="image/png" href="main/framework/themes/favicon.png"><link rel="stylesheet" href="main/framework/themes/css/html-zenika.css">|g' index.html
+    - echo -e "\e[93;1mPages will be available at $CI_PAGES_URL\e[0m"
   environment:
     name: $CI_COMMIT_REF_SLUG
     action: start
     url: $CI_PAGES_URL/$CI_COMMIT_REF_SLUG
   publish: public # (default)
+  retry: 1
   artifacts:
     paths: [public]
     expire_in: 1h
@@ -67,4 +71,4 @@ pages:
     - python gitlab-purge-pipelines.py $CI_SERVER_URL $CI_PROJECT_ID $API_TOKEN
   allow_failure: true
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "$CI_DEFAULT_BRANCH-test"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == "main-test"
