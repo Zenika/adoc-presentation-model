@@ -1,0 +1,81 @@
+
+= How to Run generate.sh Under Windows Using Git Bash  
+
+This guide will help you launch a shell script (`generate.sh`) in Windows using Git Bash. Follow the steps carefully, even if you're new to Windows or Git Bash.  
+
+== Step 1: Install Git for Windows  
+
+. Download *Git for Windows* from https://gitforwindows.org[https://gitforwindows.org].  
+. Run the installer and follow the instructions.  
+. Make sure Git Bash is installed as part of the setup.  
+
+== Step 2: Verify Docker Works in Git Bash  
+
+. Open *Git Bash*.  
+. Run the following command:  
+
+```
+   docker ps -a
+```  
+
+*** If you see a list of containers, *Docker is working*.  
+   - If you see an error, make sure Docker Desktop is running and configured correctly.  
+
+== Step 3: Install `cwRsync`  
+
+. Download *cwRsync* from https://www.itefix.net/cwrsync/client[this link].  
+. Unzip it into a folder (e.g., `C:\Program Files\cwrsync`).  
+. Add the `bin` folder to your Windows system-wide *Path* environment variable:  
+*** Press *Win + R*, type `sysdm.cpl`, and press *Enter*.  
+   - Go to the *Advanced* tab and click *Environment Variables*.  
+   - Under *System variables*, find and select `Path`, then click *Edit*.  
+   - Click *New* and add:  
+
+```
+     C:\Program Files\cwrsync\bin
+```
+*** Click *OK* on all windows to save the changes.  
+
+. *Verify that `rsync.exe` works in PowerShell:*  
+*** Open *PowerShell* (press *Win + R*, type `powershell`, and hit *Enter*).  
+   - Run the following command:  
+
+```
+     rsync --version
+```
+*** If you see output displaying the rsync version, *it is correctly installed*.  
+   - If you get an error like `Command not found`, restart your computer and try again.  
+   - If it still doesn’t work, double-check that the `cwrsync\bin` folder is correctly added to the system *Path*.  
+
+== Step 4: Modify `generate.sh`  
+
+Open `generate.sh` in a text editor (e.g., Notepad++ or VS Code) and replace *every occurrence* of `$PWD` with:  
+
+```
+$(pwd -W)
+```
+
+This fixes path issues in Git Bash on Windows.  
+
+== Step 5: Run the Script in Git Bash  
+
+. Open *Git Bash*.  
+. Navigate to the script's directory using `cd`. Example:  
+
+```
+   cd /c/path/to/your/project
+```
+
+. Set an environment variable to prevent Git Bash from interfering with file paths:  
+
+```
+   export MSYS_NO_PATHCONV=1
+```
+
+. Run the script:  
+
+```
+   ./generate.sh guides/guides reveal
+```
+
+If everything is set up correctly, the script should now execute without issues! 🎉  

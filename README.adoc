@@ -7,8 +7,6 @@ This is a live documentation generation stack, used for some Zenika training mat
 
 0% knownledge in HTML/CSS/JS is required to produce/update a document, and still being able to include advanced capabilities. Guides are provided, see hosted content above.
 
-WARNING: MS Windows generation files are not actively maintained and tested
-
 == What
 
 === Preview
@@ -46,7 +44,7 @@ link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-r
 ==== Generation features
 
 * Support for Linux, MacOS and Windows
-* There is a single link:./generate.sh[generate.sh script for Linux/MacOS] and link:./generate.bat[generate.bat script for Windows] to generate everything
+* There is a single link:./generate.sh[generate.sh script] to generate everything
 * Generation uses Docker and is based on link:https://hub.docker.com/r/asciidoctor/docker-asciidoctor/dockerfile[docker-asciidoctor image]. A link:https://hub.docker.com/r/bcouetil/docker-asciidoctor[slightly modified version], to have an edge version of link:https://github.com/asciidoctor/asciidoctor-reveal.js[asciidoctor-reveal]
 * The script provides a way to live-reload generated content on modifications
 * Using GitLab pipelines, result is generated and hosted on GitLab pages per branch using the GitLab cache mechanism
@@ -60,7 +58,7 @@ link:https://bcouetil.gitlab.io/asciidoc-stack/main/guides/guides/syntax-quick-r
 
 === How do I generate documents ?
 
-You can use `generate.sh` on Linux & MacOS (M1 supported) and `generate.bat` on Windows.
+You can use `generate.sh` on Linux & MacOS (M1 supported). It also works on Windows link:README.adoc[using specific instructions for Git bash].
 
 [source,shell]
 ----
