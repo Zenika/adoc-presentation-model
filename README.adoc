@@ -251,6 +251,9 @@ Here is a list of nice Asciidoc-based Reveal.js slide decks, for inspiration :
 
 * https://slides.codefx.org (monorepo : https://github.com/CodeFX-org/slides)
 
+== License
+This project is licensed under the MIT License. See the link:LICENSE.adoc[LICENSE.adoc] file for details.
+
 ////
 
 Pour remplacer partout des blocs shells par des blocs monospace sous vscode
